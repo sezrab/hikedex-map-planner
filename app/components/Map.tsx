@@ -58,7 +58,7 @@ type Query = {
     data: OsmElement[];
 };
 
-function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster }: { queries: Query[], disableClusteringAtZoom?: number, forceNoCluster?: boolean }) {
+function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster, markerSelectionMode = false, selectedMarkerIds = new Set(), onMarkerSelect = () => { } }: { queries: Query[], disableClusteringAtZoom?: number, forceNoCluster?: boolean, markerSelectionMode?: boolean, selectedMarkerIds?: Set<number>, onMarkerSelect?: (id: number) => void }) {
     const map = useMapEvents({});
     const markerClusterGroup = useRef<L.MarkerClusterGroup | null>(null);
     const [modalOpen, setModalOpen] = useState(false);
@@ -140,12 +140,12 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster }: 
 
         // Add all markers from all queries to this cluster group
         queries.forEach((query) => {
-            const iconHtml = `<div style="${markerStyle}">${queryIcons[query.label] || '<i class=\"fas fa-map-marker-alt\"></i>'}</div>`;
+            const iconHtml = (el: OsmElement) => `<div style="${markerStyle};${markerSelectionMode && selectedMarkerIds.has(el.id) ? 'box-shadow: 0 0 0 3px #2563eb;' : ''}">${queryIcons[query.label] || '<i class=\"fas fa-map-marker-alt\"></i>'}</div>`;
             query.data.forEach((el) => {
                 try {
                     const marker = L.marker([el.lat, el.lon], {
                         icon: L.divIcon({
-                            html: iconHtml,
+                            html: iconHtml(el),
                             className: '',
                             iconSize: [32, 32],
                             iconAnchor: [16, 32],
@@ -153,11 +153,15 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster }: 
                         title: query.label, // store query label to identify marker type in cluster icon
                     });
                     marker.on('click', () => {
-                        setModalData({
-                            name: el.tags?.name,
-                            tags: el.tags,
-                        });
-                        setModalOpen(true);
+                        if (markerSelectionMode) {
+                            onMarkerSelect(el.id);
+                        } else {
+                            setModalData({
+                                name: el.tags?.name,
+                                tags: el.tags,
+                            });
+                            setModalOpen(true);
+                        }
                     });
                     clusterGroup.addLayer(marker);
                 } catch (error) {
@@ -176,26 +180,40 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster }: 
             clusterGroup.clearLayers();
             markerClusterGroup.current = null;
         };
-    }, [queries, map, disableClusteringAtZoom, forceNoCluster]);
+    }, [queries, map, disableClusteringAtZoom, forceNoCluster, markerSelectionMode, selectedMarkerIds, onMarkerSelect]);
 
     return (
         <>
             <Modal opened={modalOpen} onClose={() => setModalOpen(false)} title={modalData?.name || 'Details'}>
                 {modalData?.tags ? (
-                    <Table striped withColumnBorders>
-                        <tbody>
-                            {Object.entries(modalData.tags).map(([key, value]) => (
-                                <tr key={key}>
-                                    <td style={{ fontWeight: 500 }}>{key}</td>
-                                    <td>{value}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </Table>
+                    <Stack>
+                        {/* If amenity=parking but access tag is missing, display a warning */}
+                        {modalData.tags.amenity === 'parking' && !modalData.tags.access && (
+                            <Text c="dimmed" size="sm">
+                                <b>Note:</b> This parking area does not specify access restrictions and may not be open to the public.
+                            </Text>
+                        )}
+                        <Table striped highlightOnHover withTableBorder withColumnBorders>
+                            <Table.Thead>
+                                <Table.Tr>
+                                    <Table.Th style={{ width: 120 }}>Tag</Table.Th>
+                                    <Table.Th>Value</Table.Th>
+                                </Table.Tr>
+                            </Table.Thead>
+                            <Table.Tbody>
+                                {Object.entries(modalData.tags).map(([key, value]) => (
+                                    <Table.Tr key={key}>
+                                        <Table.Td>{key}</Table.Td>
+                                        <Table.Td>{value}</Table.Td>
+                                    </Table.Tr>
+                                ))}
+                            </Table.Tbody>
+                        </Table>
+                    </Stack>
                 ) : (
                     <div>No tag data available.</div>
                 )}
-            </Modal>
+            </Modal >
         </>
     );
 }
@@ -314,6 +332,10 @@ export default function FullscreenMapWithQueries() {
     const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
     const [hasCenteredUserLocation, setHasCenteredUserLocation] = useState(false);
     const isMobile = useIsMobile();
+    const [markerSelectionMode, setMarkerSelectionMode] = useState(false);
+    const [selectedMarkerIds, setSelectedMarkerIds] = useState<Set<number>>(new Set());
+    const [markerSelectionModalOpen, setMarkerSelectionModalOpen] = useState(false);
+
 
     function MapEventsHandler() {
         useMapEvents({
@@ -413,16 +435,16 @@ export default function FullscreenMapWithQueries() {
                     if (parkingCustomersOnly && el.tags['parking:condition'] === 'customers') return true; // Include customer-only parking
                     return !fee || !fee.match(/yes|ticket|disc/i); // Exclude if fee is yes, ticket, or disc,
                 });
-                // Allow: (access=yes), (no access tag), (access=customers if parkingCustomersOnly is true)
-                elements = elements.filter((el: OsmElement) => {
-                    if (!el.tags) return true; // Keep if no tags
-                    const access = el.tags['access'];
-                    if (access === 'yes' || access === 'permissive' || !access) return true; // Allow if access is yes, permissive, or no access tag
-                    if (parkingCustomersOnly && access === 'customers') return true;
-                    return false;
-                });
-
             }
+            // Allow: (access=yes), (no access tag), (access=customers if parkingCustomersOnly is true)
+            elements = elements.filter((el: OsmElement) => {
+                if (!el.tags) return true; // Keep if no tags
+                const access = el.tags['access'];
+                if (access === 'yes' || access === 'permissive' || !access) return true; // Allow if access is yes, permissive, or no access tag
+                if (parkingCustomersOnly && access === 'customers') return true;
+                return false;
+            });
+
             return elements as OsmElement[];
         } catch {
             return [];
@@ -546,6 +568,114 @@ export default function FullscreenMapWithQueries() {
         );
     }, []);
 
+    // Handler to remove unselected markers
+    const removeUnselectedMarkers = () => {
+        setQueries((prevQueries) =>
+            prevQueries.map((query) => ({
+                ...query,
+                data: query.data.filter((el) => selectedMarkerIds.has(el.id)),
+            }))
+        );
+        setSelectedMarkerIds(new Set());
+    };
+
+    const removeSelectedMarkers = () => {
+        setQueries((prevQueries) =>
+            prevQueries.map((query) => ({
+                ...query,
+                data: query.data.filter((el) => !selectedMarkerIds.has(el.id)),
+            }))
+        );
+        setSelectedMarkerIds(new Set());
+    };
+
+    // Handler to toggle marker selection
+    const handleMarkerSelect = (id: number) => {
+        setSelectedMarkerIds((prev) => {
+            const newSet = new Set(prev);
+            if (newSet.has(id)) {
+                newSet.delete(id);
+            } else {
+                newSet.add(id);
+            }
+            return newSet;
+        });
+    };
+
+    // Box select handler: select all markers within boxzoom bounds
+    function BoxSelectHandler() {
+        const map = useMap();
+        const originalFitBoundsFunction = useRef(map.fitBounds.bind(map));
+        const originalFitBounds = useRef(originalFitBoundsFunction.current);
+        useEffect(() => {
+            if (!markerSelectionMode) return;
+            if (!map) return;
+            // Handler to disable zooming when box selection starts
+            const onBoxZoomStart = () => {
+                // Disable fitbounds method.
+                map.fitBounds = () => {
+                    console.warn('Box selection active, fitBounds disabled');
+                    return map;
+                };
+            };
+            // Handler to re-enable zooming after box selection ends
+            const onBoxZoomEnd = (e: unknown) => {
+                // Re-enable fitbounds method
+                map.fitBounds = originalFitBounds.current;
+                // Type guard for Leaflet boxzoom event
+                const event = e as { boxZoomBounds?: L.LatLngBounds, bounds?: L.LatLngBounds, target?: L.Map };
+                const bounds = event.boxZoomBounds || event.bounds || (event.target && event.target.getBounds && event.target.getBounds());
+                if (!bounds) return;
+                // Collect all marker IDs within bounds
+                const idsInBox = new Set<number>();
+                queries.forEach((query) => {
+                    query.data.forEach((el) => {
+                        if (bounds.contains([el.lat, el.lon])) {
+                            idsInBox.add(el.id);
+                        }
+                    });
+                });
+                // Add selected IDs to the current selection, unless they were already selected, in which case they will be toggled off
+                if (idsInBox.size === 0) return; // No markers in box, do nothing
+                setSelectedMarkerIds((prev) => {
+                    const newSet = new Set(prev);
+                    idsInBox.forEach((id) => {
+                        if (newSet.has(id)) {
+                            // newSet.delete(id); // Toggle off if already selected
+                        } else {
+                            newSet.add(id); // Toggle on if not selected
+                        }
+                    });
+                    return newSet;
+                });
+            };
+            // Set crosshair cursor on Shift down, revert on Shift up
+            const mapContainer = map.getContainer();
+            const handleKeyDown = (e: KeyboardEvent) => {
+                if (e.key === 'Shift') {
+                    mapContainer.style.cursor = 'crosshair';
+                }
+            };
+            const handleKeyUp = (e: KeyboardEvent) => {
+                if (e.key === 'Shift') {
+                    mapContainer.style.cursor = '';
+                }
+            };
+            window.addEventListener('keydown', handleKeyDown);
+            window.addEventListener('keyup', handleKeyUp);
+            map.on('boxzoomstart', onBoxZoomStart);
+            map.on('boxzoomend', onBoxZoomEnd);
+            return () => {
+                map.off('boxzoomstart', onBoxZoomStart);
+                map.off('boxzoomend', onBoxZoomEnd);
+                window.removeEventListener('keydown', handleKeyDown);
+                window.removeEventListener('keyup', handleKeyUp);
+                mapContainer.style.cursor = '';
+            };
+        }, [map]);
+        return null;
+    }
+
     return (
         <>
             {/* Parking settings modal */}
@@ -581,8 +711,43 @@ export default function FullscreenMapWithQueries() {
                 </Stack>
             </Modal>
 
+            {/* Marker Selection Tutorial Modal */}
+            <Modal
+                opened={markerSelectionModalOpen}
+                onClose={() => setMarkerSelectionModalOpen(false)}
+                title="Marker Selection"
+                centered
+                size="md"
+                closeOnClickOutside
+                closeOnEscape
+                zIndex={400}
+            >
+                <Stack gap={0}>
+                    <Text>
+                        Select and remove markers from the map by clicking them, or by dragging a box (<em>Shift + drag</em>) to select multiple markers at once.
+                    </Text>
+                    <Text>
+                        <ul>
+                            <li>Click markers to select or deselect them.</li>
+                            <li>Hold <b>shift</b> then drag to select multiple markers.</li>
+                            <li>Use the buttons at the bottom to remove markers or clear your selection.</li>
+                            <li>When finished, click &quot;Exit Marker Selection&quot; in the sidebar.</li>
+                        </ul>
+                    </Text>
+                    <Button mt="md"
+                        color="blue"
+                        variant="filled"
+                        aria-label="Close marker selection tutorial"
+                        onClick={() => setMarkerSelectionModalOpen(false)}
+                    >
+                        Got it
+                    </Button>
+                </Stack>
+            </Modal >
+
+
             {/* Map container - resize and scale if print preview */}
-            <div
+            < div
                 ref={printContainerRef}
                 style={{
                     width: printPreview ? `${containerWidth}px` : '100vw',
@@ -597,7 +762,8 @@ export default function FullscreenMapWithQueries() {
                     transform: printPreview ? `scale(${scale})` : undefined,
                     transformOrigin: printPreview ? 'top center' : undefined,
                     display: printPreview ? 'block' : undefined,
-                }}
+                }
+                }
             >
                 <MapContainer
                     id="map"
@@ -612,14 +778,27 @@ export default function FullscreenMapWithQueries() {
                     />
                     <PrintPreviewEffect printPreview={printPreview} paperSize={paperSize} orientation={orientation} containerHeight={containerHeight} containerWidth={containerWidth} />
                     <MapEventsHandler />
+                    {markerSelectionMode && <BoxSelectHandler />}
                     {clustering ? (
-                        <ClusteredMarkers queries={queries} />
+                        <ClusteredMarkers
+                            queries={queries}
+                            markerSelectionMode={markerSelectionMode}
+                            selectedMarkerIds={selectedMarkerIds}
+                            onMarkerSelect={handleMarkerSelect}
+                        />
                     ) : (
-                        <ClusteredMarkers queries={queries} disableClusteringAtZoom={100} forceNoCluster />
+                        <ClusteredMarkers
+                            queries={queries}
+                            disableClusteringAtZoom={100}
+                            forceNoCluster
+                            markerSelectionMode={markerSelectionMode}
+                            selectedMarkerIds={selectedMarkerIds}
+                            onMarkerSelect={handleMarkerSelect}
+                        />
                     )}
                     <UserLocationSetter />
                 </MapContainer>
-            </div>
+            </div >
 
             <Drawer
                 opened={drawerOpened}
@@ -636,11 +815,12 @@ export default function FullscreenMapWithQueries() {
                                 Printing
                             </Text>
                             <Button
-                                color={printPreview ? 'red' : 'blue'}
+                                color='blue'
+                                variant={printPreview ? 'filled' : 'light'}
                                 onClick={() => {
                                     setPrintPreview((p) => !p);
                                 }}
-                                size="sm"
+                                size="xs"
                                 aria-label="Toggle print preview"
                             >
                                 {printPreview ? 'Exit Print Mode' : 'Enter Print Mode'}
@@ -680,12 +860,12 @@ export default function FullscreenMapWithQueries() {
                             />
                             <Button
                                 onClick={handlePrint}
-                                size="sm"
+                                size="xs"
                                 loading={printLoading}
                                 color="green"
                                 aria-label="Print map"
                             >
-                                Print / Export
+                                Print
                             </Button>
                         </>
                     )}
@@ -764,8 +944,29 @@ export default function FullscreenMapWithQueries() {
                             if (value !== null) setTileType(value);
                         }}
                         data={tileOptions.map((t) => ({ value: t.value, label: t.label }))}
-                        style={{ marginBottom: 12 }}
                     />
+
+                    <Text fw={500} size="md" mt="md">
+                        Markers
+                    </Text>
+                    <Button
+                        size="xs"
+                        variant={markerSelectionMode ? 'filled' : 'outline'}
+                        color={markerSelectionMode ? 'blue' : 'gray'}
+                        onClick={() => {
+                            setMarkerSelectionMode((m) => !m);
+                            if (markerSelectionMode) {
+                                setClustering(true); // Disable clustering when entering marker selection mode
+                            } else {
+                                setClustering(false); // Re-enable clustering when exiting marker selection mode
+                                setMarkerSelectionModalOpen(true); // Open the tutorial modal when entering marker selection mode
+                            }
+                        }}
+                        aria-label="Toggle marker selection mode"
+                    >
+                        {markerSelectionMode ? 'Exit Marker Selection' : 'Marker Selection'}
+                    </Button>
+
                     <Checkbox
                         label="Marker clustering"
                         checked={clustering}
@@ -817,13 +1018,53 @@ export default function FullscreenMapWithQueries() {
                     left: '50%',
                     transform: 'translateX(-50%)',
                     transformOrigin: 'left',
-                    zIndex: 1000,
+                    // zIndex: 500,
                     scale: needsRefresh && queries.length > 0 ? 1 : 0,
                     transition: 'scale 0.1s ease',
                 }}
             >
                 Refresh
             </Button>
+            <Group style={{
+                position: 'fixed',
+                bottom: markerSelectionMode ? 40 : -50,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                transformOrigin: 'left',
+                transition: 'bottom 0.4s ease',
+            }}>
+
+                <Button
+                    size="xs"
+                    color="red.9"
+                    variant="filled"
+                    disabled={!markerSelectionMode || selectedMarkerIds.size === 0}
+                    onClick={removeSelectedMarkers}
+                    aria-label="Remove unselected markers"
+                >
+                    Remove Selected
+                </Button>
+                <Button
+                    size="xs"
+                    variant="white"
+                    color="red.9"
+                    onClick={() => removeUnselectedMarkers()}
+                    aria-label="Remove other markers"
+                    disabled={!markerSelectionMode || selectedMarkerIds.size === 0}
+                >
+                    Remove Others
+                </Button>
+                <Button
+                    size="xs"
+                    variant="filled"
+                    color="gray"
+                    onClick={() => setSelectedMarkerIds(new Set())}
+                    disabled={!markerSelectionMode || selectedMarkerIds.size === 0}
+                    aria-label="Clear marker selection"
+                >
+                    Clear Selection
+                </Button>
+            </Group >
         </>
     );
 }
