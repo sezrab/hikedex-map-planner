@@ -1,12 +1,16 @@
-import { Button, Container, Group, Text, Title, Image } from '@mantine/core';
+import { Button, Container, Group, Text, Title, Image, Flex } from '@mantine/core';
 
 function HeroBullets() {
   return (
     // slightly blue background
     <Container>
-      <Group
+      <Flex
+        justify="space-between"
         align="center"
-        style={{ minHeight: '100vh' }}
+        h={'100vh'}
+        p="xl"
+        gap={{ base: 'xl', sm: 'sm' }}
+        direction={{ base: 'column', sm: 'row' }}
       >
         <div style={{ flex: 1 }}>
           {/* logo here */}
@@ -34,12 +38,11 @@ function HeroBullets() {
             src="https://images.unsplash.com/photo-1512617835784-a92626c0a554?q=80&w=1374&auto=format&fit=crop&fit=crop"
             alt="Mountain"
             radius="md"
-            w={400}
-            h={300}
+            w='100%'
             fit="cover"
           />
         </div>
-      </Group>
+      </Flex>
     </Container>
   );
 }
