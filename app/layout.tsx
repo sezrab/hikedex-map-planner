@@ -2,6 +2,7 @@
 
 import '@mantine/core/styles.css';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import Script from 'next/script';
 
 export const metadata = {
   title: 'Hikedex - adventure travel companion',
@@ -12,8 +13,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* <!-- Simple Analytics - 100% privacy-first analytics --> */}
-        <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
         <ColorSchemeScript />
       </head>
       <body>
@@ -21,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </MantineProvider>
       </body>
+      <Script src="https://scripts.simpleanalyticscdn.com/latest.js" />
     </html>
   );
 }
