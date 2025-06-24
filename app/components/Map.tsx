@@ -509,6 +509,7 @@ export default function FullscreenMapWithQueries() {
     const faBars = <i className="fas fa-bars" />;
     const faPrint = <i className="fas fa-print" />;
     const faClose = <i className="fas fa-times" />;
+    const faMarker = <i className="fas fa-location-dot" />;
 
     // Track which layers are already added
     const addedLabels = queries.map((q) => q.label);
@@ -817,9 +818,9 @@ export default function FullscreenMapWithQueries() {
                                 Printing
                             </Text>
                             <Button
-                                color={printPreview ? 'pink' : 'indigo'}
+                                color='indigo'
                                 leftSection={printPreview ? faClose : faPrint}
-                                variant={printPreview ? 'light' : 'light'}
+                                variant={printPreview ? 'light' : 'outline'}
                                 onClick={() => {
                                     setPrintPreview((p) => !p);
                                 }}
@@ -930,7 +931,7 @@ export default function FullscreenMapWithQueries() {
                         </Stack>
                         <Button
                             size="xs"
-                            variant="outline"
+                            variant="filled"
                             color="indigo"
                             leftSection={faRefresh}
                             onClick={refreshAllQueries}
@@ -956,8 +957,9 @@ export default function FullscreenMapWithQueries() {
                     </Text>
                     <Button
                         size="xs"
-                        variant={markerSelectionMode ? 'filled' : 'outline'}
-                        color={markerSelectionMode ? 'blue' : 'gray'}
+                        variant={markerSelectionMode ? 'light' : 'outline'}
+                        color='indigo'
+                        leftSection={markerSelectionMode ? faClose : faMarker}
                         onClick={() => {
                             setMarkerSelectionMode((m) => !m);
                             if (markerSelectionMode) {
