@@ -256,30 +256,30 @@ const tileOptions = [
         url: 'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png',
         attribution: '© OpenStreetMap contributors, © CyclOSM',
     },
-    {
-        label: 'Stadia Outdoors',
-        value: 'stadia_outdoors',
-        url: 'https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png',
-        attribution: '© OpenStreetMap contributors, © Stadia Maps',
-    },
-    {
-        label: 'Stadia Alidade Satellite',
-        value: 'stadia_satellite',
-        url: 'https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg',
-        attribution: '© OpenStreetMap contributors, © Stadia Maps',
-    },
+    // {
+    //     label: 'Stadia Outdoors',
+    //     value: 'stadia_outdoors',
+    //     url: 'https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png',
+    //     attribution: '© OpenStreetMap contributors, © Stadia Maps',
+    // },
+    // {
+    //     label: 'Stadia Alidade Satellite',
+    //     value: 'stadia_satellite',
+    //     url: 'https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg',
+    //     attribution: '© OpenStreetMap contributors, © Stadia Maps',
+    // },
     {
         label: 'CartoDB Voyager',
         value: 'carto',
         url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
         attribution: '© OpenStreetMap contributors, © CartoDB',
     },
-    {
-        label: 'Stamen Toner',
-        value: 'toner',
-        url: 'https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.jpg',
-        attribution: 'Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap',
-    },
+    // {
+    //     label: 'Stamen Toner',
+    //     value: 'toner',
+    //     url: 'https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.jpg',
+    //     attribution: 'Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap',
+    // },
 ];
 
 // Add a helper to detect mobile
