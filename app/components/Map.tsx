@@ -866,6 +866,7 @@ export default function FullscreenMapWithQueries() {
                                 onClick={handlePrint}
                                 variant="filled"
                                 size="xs"
+                                leftSection={faPrint}
                                 loading={printLoading}
                                 color="lime"
                                 aria-label="Print map"
