@@ -1,7 +1,6 @@
 'use client';
 import { Modal, Button, Text, Group } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconHandStop } from '@tabler/icons-react';
 
 export default function WelcomePopup() {
     const [opened, { close }] = useDisclosure(true);

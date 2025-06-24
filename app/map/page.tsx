@@ -1,13 +1,16 @@
-import Image from "next/image";
-import Map from "../components/Map";
-import { Modal } from "@mantine/core";
+"use client";
+import dynamic from "next/dynamic"
 import WelcomePopup from "../components/WelcomePopup";
+
+const DynamicMap = dynamic(() => import("../components/Map"), {
+    ssr: false
+});
 
 export default function Home() {
     return (
         <main>
             <WelcomePopup />
-            <Map />
+            <DynamicMap />
         </main>
     );
 }

@@ -1,6 +1,6 @@
 import { Button, Container, Group, Text, Title, Image } from '@mantine/core';
 
-export function HeroBullets() {
+function HeroBullets() {
   return (
     // slightly blue background
     <Container>

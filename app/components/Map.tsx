@@ -3,19 +3,18 @@
 import { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, useMapEvents, useMap } from 'react-leaflet';
 
-import L, { LeafletEvent, LeafletMouseEvent, Map as LeafletMap } from 'leaflet';
+import L, { LeafletEvent } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import html2canvas from 'html2canvas';
-import { Modal, Table, Checkbox, MultiSelect, Select, NavLink, Anchor } from '@mantine/core';
+import { Modal, Table, Checkbox, MultiSelect, Select } from '@mantine/core';
 
 import {
     Drawer,
     Button,
-    Textarea,
     Stack,
     Group,
     ActionIcon,
@@ -84,10 +83,10 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster }: 
 
                 // Find unique query labels present in this cluster
                 const presentLabels = new Set<string>();
-                markers.forEach((marker: any) => {
-                    // We stored the query label on marker.options.queryLabel below
-                    if (marker.options.queryLabel) {
-                        presentLabels.add(marker.options.queryLabel);
+                markers.forEach((marker: L.Marker) => {
+                    // We stored the query label on marker.options.title below
+                    if (marker.options.title) {
+                        presentLabels.add(marker.options.title);
                     }
                 });
 
@@ -151,7 +150,7 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster }: 
                             iconSize: [32, 32],
                             iconAnchor: [16, 32],
                         }),
-                        queryLabel: query.label, // store query label to identify marker type in cluster icon
+                        title: query.label, // store query label to identify marker type in cluster icon
                     });
                     marker.on('click', () => {
                         setModalData({
@@ -298,8 +297,6 @@ function useIsMobile() {
 export default function FullscreenMapWithQueries() {
     const [queries, setQueries] = useState<Query[]>([]);
     const [drawerOpened, setDrawerOpened] = useState(false);
-    const [selectedPreset, setSelectedPreset] = useState<string | null>(null);
-    const [customQuery, setCustomQuery] = useState('');
     const [mapBounds, setMapBounds] = useState<L.LatLngBounds | null>(null);
     const [loading, setLoading] = useState(false);
     const [needsRefresh, setNeedsRefresh] = useState(false);
@@ -348,18 +345,12 @@ export default function FullscreenMapWithQueries() {
     const { width: baseWidth, height: baseHeight } = paperSizes[paperSize];
     const containerWidth = orientation === 'portrait' ? baseWidth : baseHeight;
     const containerHeight = orientation === 'portrait' ? baseHeight : baseWidth;
-
-    // Calculate aspect ratio and scaling for print preview
-    let scaledWidth = containerWidth;
-    let scaledHeight = containerHeight;
     let scale = 1;
     if (printPreview) {
         const vh = window.innerHeight;
         if (vh < containerHeight) {
             // If viewport height is less than container height, scale down
             scale = vh / containerHeight;
-            scaledWidth = containerWidth * scale;
-            scaledHeight = vh;
         }
     }
 
@@ -377,7 +368,15 @@ export default function FullscreenMapWithQueries() {
             const res = await fetch(url);
             const json = await res.json();
             let elements = json.elements
-                .map((el: any) => {
+                .map((el: {
+                    type: string;
+                    id: number;
+                    lat?: number;
+                    lon?: number;
+                    tags?: Record<string, string>;
+                    center?: { lat: number; lon: number };
+                    members?: { type: string; lat: number; lon: number }[];
+                }) => {
                     if (el.type === 'node') {
                         return {
                             id: el.id,
@@ -402,7 +401,7 @@ export default function FullscreenMapWithQueries() {
                     }
                     return null;
                 })
-                .filter((el: any) => el && el.id !== undefined && el.lat !== undefined && el.lon !== undefined);
+                .filter((el: OsmElement | null) => el !== null && el.id !== undefined && el.lat !== undefined && el.lon !== undefined);
             // Filter parking for fee-free if needed
             if (label === '🅿️ Parking' && parkingFreeOnly) {
                 // Filter out parking with fee
@@ -442,35 +441,6 @@ export default function FullscreenMapWithQueries() {
         setQueries(results);
         setNeedsRefresh(false);
         setLoading(false);
-    };
-
-    // Update addQuery to handle parking fee-free filter
-    const addQuery = () => {
-        if (!mapBounds) {
-            console.warn('Map bounds not available. Please move the map to set bounds.');
-            return;
-        }
-        let queryStr = '';
-        let label = '';
-        if (customQuery.trim()) {
-            queryStr = customQuery.trim();
-            label = `Custom #${queries.length + 1}`;
-        } else if (selectedPreset) {
-            queryStr = presetQueries[selectedPreset];
-            label = selectedPreset;
-        } else {
-            return;
-        }
-        const newQuery: Query = {
-            id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 10) + Date.now().toString(36),
-            label,
-            queryString: queryStr,
-            data: [],
-        };
-        setQueries((q) => [...q, newQuery]);
-        setSelectedPreset(null);
-        setCustomQuery('');
-        setNeedsRefresh(true);
     };
 
     const removeQuery = (id: string) => {
@@ -513,8 +483,6 @@ export default function FullscreenMapWithQueries() {
         }
         setPrintLoading(false);
     }
-
-    const faPlus = <i className="fas fa-plus" />;
     const faRefresh = <i className="fas fa-sync-alt" />;
     const faBars = <i className="fas fa-bars" />;
 
@@ -553,9 +521,9 @@ export default function FullscreenMapWithQueries() {
 
     // Center map on user location when available
     function UserLocationSetter() {
-        if (hasCenteredUserLocation) return null;
         const map = useMap();
         useEffect(() => {
+            if (hasCenteredUserLocation) return;
             if (userLocation && map) {
                 map.setView(userLocation, 15, { animate: true });
                 setHasCenteredUserLocation(true);
@@ -571,8 +539,8 @@ export default function FullscreenMapWithQueries() {
             (pos) => {
                 setUserLocation([pos.coords.latitude, pos.coords.longitude]);
             },
-            (err) => {
-                // Optionally handle error
+            () => {
+                console.warn('Geolocation permission denied or not supported');
             },
             { enableHighAccuracy: true }
         );
@@ -640,7 +608,6 @@ export default function FullscreenMapWithQueries() {
                 >
                     <TileLayer
                         url={selectedTile.url}
-                        // @ts-ignore
                         attribution={selectedTile.attribution}
                     />
                     <PrintPreviewEffect printPreview={printPreview} paperSize={paperSize} orientation={orientation} containerHeight={containerHeight} containerWidth={containerWidth} />
@@ -746,7 +713,9 @@ export default function FullscreenMapWithQueries() {
                     <Select
                         label="Map style"
                         value={tileType}
-                        onChange={setTileType}
+                        onChange={(value) => {
+                            if (value !== null) setTileType(value);
+                        }}
                         data={tileOptions.map((t) => ({ value: t.value, label: t.label }))}
                         style={{ marginBottom: 12 }}
                     />
