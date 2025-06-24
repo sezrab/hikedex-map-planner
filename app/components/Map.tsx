@@ -25,23 +25,23 @@ import {
 
 const presetQueries: Record<string, string> = {
     '🚏 Bus Stops': `nwr["highway"="bus_stop"]`,
+    '🅿️ Parking': `nwr["amenity"="parking"]`,
     '🛒 Supermarkets': `nwr["shop"~"supermarket|convenience|greengrocer"]`,
     '☕ Cafes': `nwr["amenity"="cafe"]`,
     '🍻 Pubs, Restaurants': `nwr["amenity"~"pub|restaurant"]`,
     '💧 Drinking Water': `nwr["amenity"="drinking_water"]`,
     '🌊 Natural Springs': `nwr["natural"="spring"]`,
     '🚻 Toilets': `nwr["amenity"="toilets"]`,
-    '🅿️ Parking': `nwr["amenity"="parking"]`,
 };
 const queryIcons: Record<string, string> = {
     '🚏 Bus Stops': '<i class="fas fa-bus" style="color:#1e40af; font-size:20px"></i>',
+    '🅿️ Parking': '<i class="fas fa-parking" style="color:#1e40af; font-size:20px"></i>',
     '🛒 Supermarkets': '<i class="fas fa-shopping-cart" style="color:#1e40af; font-size:20px"></i>',
     '☕ Cafes': '<i class="fas fa-coffee" style="color:#1e40af; font-size:20px"></i>',
     '🍻 Pubs, Restaurants': '<i class="fas fa-martini-glass" style="color:#1e40af; font-size:20px"></i>',
     '💧 Drinking Water': '<i class="fas fa-faucet-drip" style="color:#1e40af; font-size:20px"></i>',
     '🚻 Toilets': '<i class="fas fa-restroom" style="color:#1e40af; font-size:20px"></i>',
     '🌊 Natural Springs': '<i class="fas fa-water" style="color:#1e40af; font-size:20px"></i>',
-    '🅿️ Parking': '<i class="fas fa-parking" style="color:#1e40af; font-size:20px"></i>',
 };
 
 type OsmElement = {
