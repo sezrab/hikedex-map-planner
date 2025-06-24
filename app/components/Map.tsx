@@ -955,24 +955,26 @@ export default function FullscreenMapWithQueries() {
                     <Text fw={500} size="md" mt="md">
                         Markers
                     </Text>
-                    <Button
-                        size="xs"
-                        variant={markerSelectionMode ? 'light' : 'outline'}
-                        color='indigo'
-                        leftSection={markerSelectionMode ? faClose : faMarker}
-                        onClick={() => {
-                            setMarkerSelectionMode((m) => !m);
-                            if (markerSelectionMode) {
-                                setClustering(true); // Disable clustering when entering marker selection mode
-                            } else {
-                                setClustering(false); // Re-enable clustering when exiting marker selection mode
-                                setMarkerSelectionModalOpen(true); // Open the tutorial modal when entering marker selection mode
-                            }
-                        }}
-                        aria-label="Toggle marker selection mode"
-                    >
-                        {markerSelectionMode ? 'Exit Marker Selection' : 'Marker Selection'}
-                    </Button>
+                    {!isMobile && (
+                        <Button
+                            size="xs"
+                            variant={markerSelectionMode ? 'light' : 'outline'}
+                            color='indigo'
+                            leftSection={markerSelectionMode ? faClose : faMarker}
+                            onClick={() => {
+                                setMarkerSelectionMode((m) => !m);
+                                if (markerSelectionMode) {
+                                    setClustering(true); // Disable clustering when entering marker selection mode
+                                } else {
+                                    setClustering(false); // Re-enable clustering when exiting marker selection mode
+                                    setMarkerSelectionModalOpen(true); // Open the tutorial modal when entering marker selection mode
+                                }
+                            }}
+                            aria-label="Toggle marker selection mode"
+                        >
+                            {markerSelectionMode ? 'Exit Marker Selection' : 'Marker Selection'}
+                        </Button>
+                    )}
 
                     <Checkbox
                         label="Marker clustering"
@@ -1035,10 +1037,11 @@ export default function FullscreenMapWithQueries() {
             <Group style={{
                 position: 'fixed',
                 bottom: markerSelectionMode ? 40 : -50,
+                opacity: markerSelectionMode ? 1 : 0,
                 left: '50%',
                 transform: 'translateX(-50%)',
                 transformOrigin: 'left',
-                transition: 'bottom 0.4s ease',
+                transition: '0.4s ease',
             }}>
 
                 <Button
