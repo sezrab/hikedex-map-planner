@@ -12,6 +12,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        {/* <!-- Simple Analytics - 100% privacy-first analytics --> */}
+        <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
         <ColorSchemeScript />
       </head>
       <body>
