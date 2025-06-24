@@ -26,7 +26,7 @@ import {
 const presetQueries: Record<string, string> = {
     '🚏 Bus Stops': `nwr["highway"="bus_stop"]`,
     '🅿️ Parking': `nwr["amenity"="parking"]`,
-    '🛒 Supermarkets/convenience': `nwr["shop"~"supermarket|convenience|greengrocer"]`,
+    '🛒 Groceries': `nwr["shop"~"supermarket|convenience|greengrocer"]`,
     '☕ Cafes': `nwr["amenity"="cafe"]`,
     '🍻 Pubs, Restaurants': `nwr["amenity"~"pub|restaurant"]`,
     '💧 Drinking Water': `nwr["amenity"="drinking_water"]`,
@@ -36,7 +36,7 @@ const presetQueries: Record<string, string> = {
 const queryIcons: Record<string, string> = {
     '🚏 Bus Stops': '<i class="fas fa-bus" style="color:#1e40af; font-size:20px"></i>',
     '🅿️ Parking': '<i class="fas fa-parking" style="color:#1e40af; font-size:20px"></i>',
-    '🛒 Supermarkets/convenience': '<i class="fas fa-shopping-cart" style="color:#1e40af; font-size:20px"></i>',
+    '🛒 Groceries': '<i class="fas fa-shopping-cart" style="color:#1e40af; font-size:20px"></i>',
     '☕ Cafes': '<i class="fas fa-coffee" style="color:#1e40af; font-size:20px"></i>',
     '🍻 Pubs, Restaurants': '<i class="fas fa-martini-glass" style="color:#1e40af; font-size:20px"></i>',
     '💧 Drinking Water': '<i class="fas fa-faucet-drip" style="color:#1e40af; font-size:20px"></i>',
@@ -689,29 +689,76 @@ export default function FullscreenMapWithQueries() {
                             </Button>
                         </>
                     )}
-                    <Text fw={500} size="md">
+                    <Text fw={500} size="md" mt="md">
                         Layers
                     </Text>
-                    <MultiSelect
-                        label="Add layers"
-                        placeholder="Pick layers to add"
-                        data={availablePresets.map((label) => ({
-                            value: label,
-                            label,
-                        }))}
-                        // hide the pills
-                        styles={{ pill: { display: 'none' } }}
-                        comboboxProps={{ transitionProps: { transition: 'pop', duration: 100 } }}
-                        value={queries.map((q) => q.label)}
-                        onChange={handleAddLayers}
-                        // Show a check icon for selected items
-                        checkIconPosition='left'
-                        chevronColor='dimmed'
-                        withCheckIcon
-                    />
+                    {/* light gray background for layers section */}
+                    <Stack style={{ borderColor: '#ebedef', padding: '10px 10px', borderRadius: '5px', borderWidth: 2, borderStyle: 'solid' }}>
+                        <MultiSelect
+                            label="Add layers"
+                            labelProps={{ c: 'dimmed' }}
+                            placeholder="Pick layers to add"
+                            data={availablePresets.map((label) => ({
+                                value: label,
+                                label,
+                            }))}
+                            // hide the pills
+                            styles={{ pill: { display: 'none' } }}
+                            comboboxProps={{ transitionProps: { transition: 'pop', duration: 100 } }}
+                            value={queries.map((q) => q.label)}
+                            onChange={handleAddLayers}
+                            // Show a check icon for selected items
+                            checkIconPosition='left'
+                            chevronColor='dimmed'
+                            withCheckIcon
+                        />
+
+                        <Stack gap="xs" style={{ maxHeight: '40vh', overflowY: 'auto' }}>
+                            {queries.length === 0 && <Text c="dimmed">No layers yet. Add some above!</Text>}
+                            {queries.map(({ id, label }) => (
+                                <Group key={id} align='center' justify='space-between'>
+                                    <Text>{label}</Text>
+                                    <Space style={{ flexGrow: 1 }} />
+                                    {label === '🅿️ Parking' && (
+                                        <ActionIcon
+                                            variant="subtle"
+                                            color="gray"
+                                            size="sm"
+                                            onClick={() => setParkingSettingsOpen(true)}
+                                            aria-label="Parking layer settings"
+                                        >
+                                            <i className="fas fa-cog" style={{ fontSize: 14 }} />
+                                        </ActionIcon>
+                                    )}
+                                    <CloseButton
+                                        color="red"
+                                        onClick={() => removeQuery(id)}
+                                        size="sm"
+                                        aria-label={`Remove query ${label}`}
+                                    />
+                                </Group>
+                            ))}
+                            {/* 
+                                <a href="https://forms.gle/BzXeS9KyEAtwWgxRA" target="_blank" rel="noopener noreferrer" style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 1000 }}>
+                                    Feedback
+                                </a> */}
+
+                        </Stack>
+                        <Button
+                            size="xs"
+                            variant="outline"
+                            leftSection={faRefresh}
+                            onClick={refreshAllQueries}
+                            loading={loading}
+                            disabled={queries.length === 0 || !mapBounds || !needsRefresh}
+                        >
+                            Fetch Data
+                        </Button>
+                    </Stack>
 
                     <Select
                         label="Map style"
+                        labelProps={{ c: 'dimmed' }}
                         value={tileType}
                         onChange={(value) => {
                             if (value !== null) setTileType(value);
@@ -719,64 +766,12 @@ export default function FullscreenMapWithQueries() {
                         data={tileOptions.map((t) => ({ value: t.value, label: t.label }))}
                         style={{ marginBottom: 12 }}
                     />
-                    {/* <Button
-                        onClick={addQuery}
-                        leftSection={faPlus}
-                        disabled={(!selectedPreset && !customQuery) || !mapBounds}
-                    >
-                        Add Layer
-                    </Button> */}
                     <Checkbox
                         label="Marker clustering"
                         checked={clustering}
                         onChange={(e) => setClustering(e.currentTarget.checked)}
                     />
 
-                    <Group justify="space-between" mt="md">
-                        <Text fw={500} size="md">Active layers</Text>
-                        <Button
-                            size="xs"
-                            variant="outline"
-                            leftSection={faRefresh}
-                            onClick={refreshAllQueries}
-                            loading={loading}
-                            disabled={queries.length === 0}
-                        >
-                            Refresh
-                        </Button>
-                    </Group>
-
-                    <Stack gap="xs" mt="sm" style={{ maxHeight: '40vh', overflowY: 'auto' }}>
-                        {queries.length === 0 && <Text c="dimmed">No layers yet. Add some above!</Text>}
-                        {queries.map(({ id, label }) => (
-                            <Group key={id} align='center' justify='space-between'>
-                                <Text>{label}</Text>
-                                <Space style={{ flexGrow: 1 }} />
-                                {label === '🅿️ Parking' && (
-                                    <ActionIcon
-                                        variant="subtle"
-                                        color="gray"
-                                        size="sm"
-                                        onClick={() => setParkingSettingsOpen(true)}
-                                        aria-label="Parking layer settings"
-                                    >
-                                        <i className="fas fa-cog" style={{ fontSize: 14 }} />
-                                    </ActionIcon>
-                                )}
-                                <CloseButton
-                                    color="red"
-                                    onClick={() => removeQuery(id)}
-                                    size="sm"
-                                    aria-label={`Remove query ${label}`}
-                                />
-                            </Group>
-                        ))}
-                        {/* 
-                                <a href="https://forms.gle/BzXeS9KyEAtwWgxRA" target="_blank" rel="noopener noreferrer" style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 1000 }}>
-                                    Feedback
-                                </a> */}
-
-                    </Stack>
                     <Button
                         component="a"
                         href="https://forms.gle/BzXeS9KyEAtwWgxRA"
@@ -784,7 +779,7 @@ export default function FullscreenMapWithQueries() {
                         rel="noopener noreferrer"
                         variant="light"
                         size="xs"
-                        mt="md"
+                        mt="lg"
                         fullWidth
                         style={{ marginTop: 8 }}
                         leftSection={<i className="fa-regular fa-comment-dots" />}
@@ -812,7 +807,7 @@ export default function FullscreenMapWithQueries() {
             {/* Refresh button in top middle when needed */}
             <Button
                 size="xs"
-                variant='filled'
+                variant='white'
                 leftSection={faRefresh}
                 onClick={refreshAllQueries}
                 loading={loading}
