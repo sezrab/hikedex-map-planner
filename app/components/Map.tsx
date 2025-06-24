@@ -507,6 +507,8 @@ export default function FullscreenMapWithQueries() {
     }
     const faRefresh = <i className="fas fa-sync-alt" />;
     const faBars = <i className="fas fa-bars" />;
+    const faPrint = <i className="fas fa-print" />;
+    const faClose = <i className="fas fa-times" />;
 
     // Track which layers are already added
     const addedLabels = queries.map((q) => q.label);
@@ -815,15 +817,16 @@ export default function FullscreenMapWithQueries() {
                                 Printing
                             </Text>
                             <Button
-                                color='blue'
-                                variant={printPreview ? 'filled' : 'light'}
+                                color={printPreview ? 'pink' : 'indigo'}
+                                leftSection={printPreview ? faClose : faPrint}
+                                variant={printPreview ? 'light' : 'light'}
                                 onClick={() => {
                                     setPrintPreview((p) => !p);
                                 }}
                                 size="xs"
                                 aria-label="Toggle print preview"
                             >
-                                {printPreview ? 'Exit Print Mode' : 'Enter Print Mode'}
+                                {printPreview ? 'Exit Print Mode' : 'Print Mode'}
                             </Button>
                         </>
                     )}
@@ -860,9 +863,10 @@ export default function FullscreenMapWithQueries() {
                             />
                             <Button
                                 onClick={handlePrint}
+                                variant="filled"
                                 size="xs"
                                 loading={printLoading}
-                                color="green"
+                                color="lime"
                                 aria-label="Print map"
                             >
                                 Print
@@ -927,6 +931,7 @@ export default function FullscreenMapWithQueries() {
                         <Button
                             size="xs"
                             variant="outline"
+                            color="indigo"
                             leftSection={faRefresh}
                             onClick={refreshAllQueries}
                             loading={loading}
@@ -975,6 +980,7 @@ export default function FullscreenMapWithQueries() {
 
                     <Button
                         component="a"
+                        color="teal"
                         href="https://forms.gle/BzXeS9KyEAtwWgxRA"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -991,8 +997,7 @@ export default function FullscreenMapWithQueries() {
                 </Stack>
             </Drawer >
             <ActionIcon
-                variant="filled"
-                color="blue"
+                variant="white"
                 size="lg"
                 id="settings-drawer-button"
                 style={{

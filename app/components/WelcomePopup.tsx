@@ -32,7 +32,7 @@ export default function WelcomePopup() {
                     drawerButton.click();
                 }
             }} fullWidth>
-                Let&apos;s get started
+                Get started
             </Button>
         </Modal>
     );

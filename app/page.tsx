@@ -9,7 +9,7 @@ function HeroBullets() {
         align="center"
         h={'100vh'}
         p="xl"
-        gap={{ base: 'xl', sm: 'sm' }}
+        gap='xl'
         direction={{ base: 'column', sm: 'row' }}
       >
         <div style={{ flex: 1 }}>
@@ -19,7 +19,7 @@ function HeroBullets() {
             A <span style={{ color: '#228be6' }}>no-nonsense</span> travel <br /> companion.
           </Title>
           <Text c="blue.9" mt="md">
-            Find all the amenities you need for any adventure, anywhere in the world. From food and water to parking and toilets, hikedex has your back.
+            Find everything you need for any adventure, anywhere in the world. From food and water to parking and toilets, hikedex has your back.
           </Text>
           <Group mt={30}>
             <Button
