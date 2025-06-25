@@ -689,7 +689,7 @@ export default function FullscreenMapWithQueries() {
             <Modal opened={parkingSettingsOpen} onClose={() => setParkingSettingsOpen(false)} title="Parking Layer Settings" zIndex={300} centered size="md">
                 <Stack>
                     <Text c="gray.7" size="sm">
-                        Please exercise common sense when using the parking layer. Parking data is not guaranteed to be accurate or up-to-date
+                        Please use common sense when using the parking layer. Parking data is not guaranteed to be accurate or up-to-date.
                     </Text>
                     <Checkbox
                         label="Free parking only"
