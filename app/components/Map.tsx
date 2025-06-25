@@ -184,12 +184,12 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster, ma
 
     return (
         <>
-            <Modal opened={modalOpen} onClose={() => setModalOpen(false)} title={modalData?.name || 'Details'} centered>
+            <Modal opened={modalOpen} onClose={() => setModalOpen(false)} title={modalData?.name || (modalData?.tags?.parking == 'layby' ? 'Layby Parking' : modalData?.tags?.parking == 'street_side' ? 'Street Side Parking' : null) || 'Details'} centered>
                 {modalData?.tags ? (
                     <Stack>
                         {/* If amenity=parking but access tag is missing, display a warning */}
                         {modalData.tags.amenity === 'parking' && !modalData.tags.access && (
-                            <Text c="dimmed" size="sm">
+                            <Text c="gray.7" size="sm">
                                 <b>Note:</b> This parking area does not specify access restrictions and may not be open to the public.
                             </Text>
                         )}
@@ -324,8 +324,8 @@ export default function FullscreenMapWithQueries() {
     const [printLoading, setPrintLoading] = useState(false);
     const [clustering, setClustering] = useState(true);
     const [parkingSettingsOpen, setParkingSettingsOpen] = useState(false);
-    const [parkingFreeOnly, setParkingFreeOnly] = useState(false);
-    const [parkingAmbiguous, setParkingAmbiguous] = useState(true);
+    const [parkingFreeOnly, setParkingFreeOnly] = useState(true);
+    const [parkingAmbiguous, setParkingAmbiguous] = useState(false);
     const [parkingCustomersOnly, setParkingCustomersOnly] = useState(false);
     const [tileType, setTileType] = useState('osm');
     const printContainerRef = useRef<HTMLDivElement>(null);
@@ -429,6 +429,7 @@ export default function FullscreenMapWithQueries() {
                 // Filter out parking with fee
                 elements = elements.filter((el: OsmElement) => {
                     if (!el.tags) return true; // Keep if no tags
+                    if (el.tags['parking'] === 'layby' || el.tags['parking'] === 'street_side') return true; // Keep layby and street parking
                     const fee = el.tags['fee'] || el.tags['parking:fee'];
                     if (parkingAmbiguous && !fee) return true; // Include if fee is not specified
                     else if (!fee) return false; // Exclude if fee is not specified and parkingAmbiguous is false)
@@ -526,8 +527,11 @@ export default function FullscreenMapWithQueries() {
         const toAdd = selected.filter((label) => !addedLabels.includes(label));
         const newQueries = toAdd.map((label) => {
             let queryStr = presetQueries[label];
-            if (label === '🅿️ Parking' && parkingFreeOnly) {
-                queryStr = 'nwr["amenity"="parking"]["fee"!~"yes|ticket|disc"]';
+            if (label === '🅿️ Parking') {
+                setParkingSettingsOpen(true);
+                if (parkingFreeOnly) {
+                    queryStr = 'nwr["amenity"="parking"]["fee"!~"yes|ticket|disc"]';
+                }
             }
             return {
                 id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 10) + Date.now().toString(36),
@@ -682,8 +686,11 @@ export default function FullscreenMapWithQueries() {
     return (
         <>
             {/* Parking settings modal */}
-            <Modal opened={parkingSettingsOpen} onClose={() => setParkingSettingsOpen(false)} title="Parking Layer Settings" zIndex={300}>
+            <Modal opened={parkingSettingsOpen} onClose={() => setParkingSettingsOpen(false)} title="Parking Layer Settings" zIndex={300} centered size="md">
                 <Stack>
+                    <Text c="gray.7" size="sm">
+                        Please exercise common sense when using the parking layer. Parking data is not guaranteed to be accurate or up-to-date
+                    </Text>
                     <Checkbox
                         label="Free parking only"
                         checked={parkingFreeOnly}
@@ -692,7 +699,7 @@ export default function FullscreenMapWithQueries() {
                     {
                         parkingFreeOnly && (
                             <Checkbox
-                                label="Include parking where fee is not specified?"
+                                label="Include parking where fee is not known?"
                                 checked={parkingAmbiguous}
                                 onChange={(e) => { setParkingAmbiguous(e.currentTarget.checked); setNeedsRefresh(true); }}
                             />
@@ -705,8 +712,8 @@ export default function FullscreenMapWithQueries() {
                             onChange={(e) => { setParkingCustomersOnly(e.currentTarget.checked); setNeedsRefresh(true); }}
                         />
                     )}
-                    {parkingFreeOnly && (
-                        <Text c="dimmed" size="sm">
+                    {needsRefresh && (
+                        <Text c="gray.7" size="sm">
                             Refresh the map to see changes.
                         </Text>
                     )}
