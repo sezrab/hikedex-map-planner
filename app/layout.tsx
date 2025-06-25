@@ -19,7 +19,7 @@ const fontBody = Open_Sans({
 });
 
 export const metadata = {
-  title: 'Hikedex – plan & print backpacking, wild camping, vanlife, and travel',
+  title: 'Hikedex – backpacking, wild camping, vanlife, and travel maps',
   description: 'Everything you need for any adventure, anywhere in the world. Instantly find parking, water, toilets, food stops, and more along your route. Print them all onto a single map or save offline.',
   keywords: [
     'wild camping',
@@ -44,7 +44,7 @@ export const metadata = {
     'hikedex'
   ].join(', '),
   openGraph: {
-    title: 'Hikedex – plan & print backpacking, wild camping, vanlife, and travel',
+    title: 'Hikedex – backpacking, wild camping, vanlife, and travel maps',
     description: 'Everything you need for any adventure, anywhere in the world. Instantly find parking, water, toilets, food stops, and more along your route. Print them all onto a single map or save offline.',
     url: 'https://hikedex.app/',
     siteName: 'Hikedex',
@@ -61,7 +61,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hikedex – plan & print backpacking, wild camping, vanlife, and travel',
+    title: 'Hikedex – backpacking, wild camping, vanlife, and travel maps',
     description: 'Everything you need for any adventure, anywhere in the world. Instantly find parking, water, toilets, food stops, and more along your route. Print them all onto a single map or save offline.',
     site: '@hikedex',
     images: ['https://hikedex.app/logo.svg'],

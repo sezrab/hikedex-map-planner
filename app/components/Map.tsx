@@ -1046,7 +1046,7 @@ export default function FullscreenMapWithQueries() {
                     </Button>
                 </Stack>
             </Drawer >
-            <Group gap={'5px'}
+            <Group gap={'8px'}
                 style={{
                     position: 'fixed',
                     top: 20,
