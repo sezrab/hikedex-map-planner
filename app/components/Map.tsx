@@ -61,7 +61,7 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster, ma
     const map = useMapEvents({});
     const markerClusterGroup = useRef<L.MarkerClusterGroup | null>(null);
     const [modalOpen, setModalOpen] = useState(false);
-    const [modalData, setModalData] = useState<{ name?: string; tags?: Record<string, string> } | null>(null);
+    const [modalData, setModalData] = useState<{ name?: string; tags?: Record<string, string>; lat?: number; lon?: number } | null>(null);
 
     // In ClusteredMarkers, update marker icon style to add white outline
     const markerStyle = 'border: 2px solid rgba(255, 255, 255, 0.5); border-radius: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.15); background: rgba(255, 255, 255, 0.5); display: flex; align-items: center; justify-content: center; padding: 5px';
@@ -158,6 +158,8 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster, ma
                             setModalData({
                                 name: el.tags?.name,
                                 tags: el.tags,
+                                lat: el.lat,
+                                lon: el.lon,
                             });
                             setModalOpen(true);
                         }
@@ -183,7 +185,7 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster, ma
 
     return (
         <>
-            <Modal opened={modalOpen} onClose={() => setModalOpen(false)} title={modalData?.name || (modalData?.tags?.parking == 'layby' ? 'Layby Parking' : modalData?.tags?.parking == 'street_side' ? 'Street Side Parking' : null) || 'Details'} centered>
+            <Modal opened={modalOpen} onClose={() => setModalOpen(false)} title={modalData?.name || (modalData?.tags?.parking == 'layby' ? 'Layby Parking' : modalData?.tags?.parking == 'street_side' ? 'Street Side Parking' : null) || 'Details'} size={'lg'} centered>
                 {modalData?.tags ? (
                     <Stack>
                         {/* If amenity=parking but access tag is missing, display a warning */}
@@ -203,11 +205,42 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster, ma
                                 {Object.entries(modalData.tags).map(([key, value]) => (
                                     <Table.Tr key={key}>
                                         <Table.Td>{key}</Table.Td>
-                                        <Table.Td>{value}</Table.Td>
+                                        <Table.Td>
+                                            {typeof value === 'string' && (
+                                                // URL
+                                                /^https?:\/\/\S+$/i.test(value) ? (
+                                                    <a href={value} target="_blank" rel="noopener noreferrer">{value}</a>
+                                                ) :
+                                                    // Email
+                                                    /^[\w.-]+@[\w.-]+\.\w{2,}$/.test(value) ? (
+                                                        <a href={`mailto:${value}`}>{value}</a>
+                                                    ) :
+                                                        // Phone number (stricter: must have at least 8 digits, and contain only digits, spaces, +, -, (, ))
+                                                        /^\+?[\d\s\-().]{8,}$/.test(value) && (value.replace(/[^\d]/g, '').length >= 8) && /^[\d\s\-().+]+$/.test(value) ? (
+                                                            <a href={`tel:${value.replace(/\D/g, '')}`}>{value}</a>
+                                                        ) : (
+                                                            value
+                                                        )
+                                            )}
+                                            {typeof value !== 'string' && value}
+                                        </Table.Td>
                                     </Table.Tr>
                                 ))}
                             </Table.Tbody>
                         </Table>
+                        {modalData.lat !== undefined && modalData.lon !== undefined && (
+                            <Button
+                                component="a"
+                                href={`https://www.google.com/maps/search/?api=1&query=${modalData.lat},${modalData.lon}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                color="blue"
+                                mt="sm"
+                                aria-label="Open in Google Maps"
+                            >
+                                Navigate here
+                            </Button>
+                        )}
                     </Stack>
                 ) : (
                     <div>No tag data available.</div>

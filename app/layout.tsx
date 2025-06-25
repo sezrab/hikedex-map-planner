@@ -19,8 +19,57 @@ const fontBody = Open_Sans({
 });
 
 export const metadata = {
-  title: 'Hikedex - adventure travel companion',
-  description: 'Find all the amenities you need for any adventure, anywhere in the world. Backpacking, hiking, wild camping, vanlife, or just a day out, hikedex has your back.',
+  title: 'Hikedex – plan & print backpacking, wild camping, vanlife, and travel',
+  description: 'Everything you need for any adventure, anywhere in the world. Instantly find parking, water, toilets, food stops, and more along your route. Print them all onto a single map or save offline.',
+  keywords: [
+    'wild camping',
+    'vanlife',
+    'backpacking',
+    'printable maps',
+    'travel maps',
+    'free camping',
+    'road trip',
+    'overlanding',
+    'outdoor travel',
+    'global map',
+    'camping app',
+    'travel amenities',
+    'campervan',
+    'hiking',
+    'adventure travel',
+    'find parking',
+    'drinking water',
+    'public toilets',
+    'groceries',
+    'hikedex'
+  ].join(', '),
+  openGraph: {
+    title: 'Hikedex – plan & print backpacking, wild camping, vanlife, and travel',
+    description: 'Everything you need for any adventure, anywhere in the world. Instantly find parking, water, toilets, food stops, and more along your route. Print them all onto a single map or save offline.',
+    url: 'https://hikedex.app/',
+    siteName: 'Hikedex',
+    images: [
+      {
+        url: 'https://hikedex.app/logo.svg',
+        width: 512,
+        height: 512,
+        alt: 'Hikedex Logo',
+      },
+    ],
+    locale: 'en_GB',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hikedex – plan & print backpacking, wild camping, vanlife, and travel',
+    description: 'Everything you need for any adventure, anywhere in the world. Instantly find parking, water, toilets, food stops, and more along your route. Print them all onto a single map or save offline.',
+    site: '@hikedex',
+    images: ['https://hikedex.app/logo.svg'],
+  },
+  metadataBase: new URL('https://hikedex.app'),
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -40,6 +89,48 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             font-family: ${fontHeaders.style.fontFamily}, sans-serif;
           }
         `}</style>
+        <link rel="canonical" href="https://hikedex.app/" />
+        <meta property="og:url" content="https://hikedex.app/" />
+        <meta property="og:image" content="https://hikedex.app/logo.svg" />
+        <meta name="twitter:image" content="https://hikedex.app/logo.svg" />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Hikedex",
+            "url": "https://hikedex.app/",
+            "description": "Everything you need for any adventure, anywhere in the world. Instantly find parking, water, toilets, food stops, and more along your route. Print them all onto a single map or save offline.",
+            "applicationCategory": "TravelApplication",
+            "operatingSystem": "All",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "keywords": [
+              "wild camping",
+              "vanlife",
+              "backpacking",
+              "printable maps",
+              "travel maps",
+              "free camping",
+              "road trip",
+              "overlanding",
+              "outdoor travel",
+              "global map",
+              "camping app",
+              "travel amenities",
+              "campervan",
+              "hiking",
+              "adventure travel",
+              "find parking",
+              "drinking water",
+              "public toilets",
+              "groceries",
+              "hikedex"
+            ]
+          }
+        `}</script>
       </head>
       <body>
         <MantineProvider theme={
@@ -47,20 +138,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             fontFamily: fontBody.style.fontFamily,
             headings: { fontFamily: fontHeaders.style.fontFamily },
             black: '#352f36',
-            colors: {
-              indigo: [
-                '#f0f5ff',
-                '#d9e6ff',
-                '#c2d7ff',
-                '#a3c8ff',
-                '#85baff',
-                '#66abff',
-                '#4f9cff',
-                '#338dff',
-                '#1a7eff',
-                '#006fff',
-              ],
-            },
           }
         }>
           {children}

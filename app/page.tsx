@@ -13,8 +13,8 @@ function Hero() {
         <Title>
           A <span style={{ color: '#228be6' }}>no-nonsense</span> travel <br /> companion.
         </Title>
-        <Text mt="md">
-          Find everything you need for any adventure, anywhere in the world. From food and water to parking and toilets, hikedex has your back.
+        <Text mt="md" component="h2" style={{ fontFamily: 'var(--mantine-font-family)' }}>
+          Hiking, backpacking, vanlife, or travelling. Find everything you need for any adventure, anywhere in the world. From food and water to parking and toilets, hikedex has your back.
         </Text>
         <Group mt={30}>
           <Button
@@ -31,7 +31,7 @@ function Hero() {
       <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
         <Image
           src="https://images.unsplash.com/photo-1512617835784-a92626c0a554?q=80&w=1374&auto=format&fit=crop"
-          alt="Mountain"
+          alt="Backpacking with Hikedex"
           radius="md"
           w="100%"
           fit="cover"
