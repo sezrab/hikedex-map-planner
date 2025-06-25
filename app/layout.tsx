@@ -46,7 +46,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {
             fontFamily: fontBody.style.fontFamily,
             headings: { fontFamily: fontHeaders.style.fontFamily },
-            autoContrast: true,
             black: '#352f36',
             colors: {
               indigo: [

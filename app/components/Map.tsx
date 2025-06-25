@@ -747,7 +747,12 @@ export default function FullscreenMapWithQueries() {
                         color="blue"
                         variant="filled"
                         aria-label="Close marker selection tutorial"
-                        onClick={() => setMarkerSelectionModalOpen(false)}
+                        onClick={() => {
+                            setMarkerSelectionModalOpen(false);
+                            setTimeout(() => {
+                                setDrawerOpened(false);
+                            }, 200);
+                        }}
                     >
                         Got it
                     </Button>
@@ -941,7 +946,7 @@ export default function FullscreenMapWithQueries() {
                             variant="filled"
                             color="indigo"
                             leftSection={faRefresh}
-                            onClick={refreshAllQueries}
+                            onClick={() => refreshAllQueries().then(() => setDrawerOpened(false))}
                             loading={loading}
                             disabled={queries.length === 0 || !mapBounds || !needsRefresh}
                         >
