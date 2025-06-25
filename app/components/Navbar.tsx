@@ -1,4 +1,4 @@
-import { Anchor, Button, Group, Title, Image } from '@mantine/core';
+import { Anchor, Button, Group, Title } from '@mantine/core';
 
 export default function Navbar({ page }: { page?: string }) {
     return (
