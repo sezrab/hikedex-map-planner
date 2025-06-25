@@ -42,7 +42,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}</style>
       </head>
       <body>
-        <MantineProvider>
+        <MantineProvider theme={
+          {
+            fontFamily: fontBody.style.fontFamily,
+            headings: { fontFamily: fontHeaders.style.fontFamily },
+            autoContrast: true,
+            black: '#352f36',
+            colors: {
+              indigo: [
+                '#f0f5ff',
+                '#d9e6ff',
+                '#c2d7ff',
+                '#a3c8ff',
+                '#85baff',
+                '#66abff',
+                '#4f9cff',
+                '#338dff',
+                '#1a7eff',
+                '#006fff',
+              ],
+            },
+          }
+        } withGlobalStyles withNormalizeCSS>
           {children}
         </MantineProvider>
       </body>

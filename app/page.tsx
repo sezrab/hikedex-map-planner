@@ -13,7 +13,7 @@ function Hero() {
         <Title>
           A <span style={{ color: '#228be6' }}>no-nonsense</span> travel <br /> companion.
         </Title>
-        <Text c="blue.9" mt="md">
+        <Text mt="md">
           Find everything you need for any adventure, anywhere in the world. From food and water to parking and toilets, hikedex has your back.
         </Text>
         <Group mt={30}>
