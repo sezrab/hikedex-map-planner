@@ -1,11 +1,11 @@
 import { Anchor, Button, Group, Title } from '@mantine/core';
-
+import Image from 'next/image';
 export default function Navbar({ page }: { page?: string }) {
     return (
         <Group mb='lg' align="center" style={{ flexWrap: 'wrap' }} >
             <Anchor href="/" display={{ base: 'none', xs: 'block' }} style={{ textDecoration: 'none', flex: 1, flexDirection: 'row' }}>
                 <Group gap='md' align="center" style={{ textDecoration: 'none', color: 'inherit', alignItems: 'center' }}>
-                    <img
+                    <Image
                         src="/logo.svg"
                         alt="Hikedex Logo"
                         height={40}
