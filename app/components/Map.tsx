@@ -8,7 +8,6 @@ import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import html2canvas from 'html2canvas';
 import { Modal, Table, Checkbox, MultiSelect, Select } from '@mantine/core';
 
@@ -839,7 +838,7 @@ export default function FullscreenMapWithQueries() {
                         </>
                     )}
                     {isMobile && (
-                        <Text c="dimmed" size="sm" pr="lg">
+                        <Text c="gray.7" size="sm" pr="lg">
                             Come back on a desktop to print or export the map.
                         </Text>
                     )}
@@ -848,7 +847,7 @@ export default function FullscreenMapWithQueries() {
                             <Select
                                 size="sm"
                                 label="Paper Size"
-                                labelProps={{ c: 'dimmed' }}
+                                labelProps={{ c: 'gray.7' }}
                                 value={paperSize}
                                 onChange={(val) => setPaperSize(val as 'A4' | 'A3')}
                                 data={[
@@ -860,7 +859,7 @@ export default function FullscreenMapWithQueries() {
                             <Select
                                 size="sm"
                                 label="Orientation"
-                                labelProps={{ c: 'dimmed' }}
+                                labelProps={{ c: 'gray.7' }}
                                 value={orientation}
                                 onChange={(val) => setOrientation(val as 'portrait' | 'landscape')}
                                 data={[
@@ -889,7 +888,7 @@ export default function FullscreenMapWithQueries() {
                     <Stack style={{ borderColor: '#ebedef', padding: '10px 10px', borderRadius: '5px', borderWidth: 2, borderStyle: 'solid' }}>
                         <MultiSelect
                             label="Add layers"
-                            labelProps={{ c: 'dimmed' }}
+                            labelProps={{ c: 'gray.7' }}
                             placeholder="Pick layers to add"
                             data={availablePresets.map((label) => ({
                                 value: label,
@@ -952,7 +951,7 @@ export default function FullscreenMapWithQueries() {
 
                     <Select
                         label="Map style"
-                        labelProps={{ c: 'dimmed' }}
+                        labelProps={{ c: 'gray.7' }}
                         value={tileType}
                         onChange={(value) => {
                             if (value !== null) setTileType(value);
@@ -1008,22 +1007,36 @@ export default function FullscreenMapWithQueries() {
                     </Button>
                 </Stack>
             </Drawer >
-            <ActionIcon
-                variant="white"
-                size="lg"
-                id="settings-drawer-button"
+            <Group gap={'5px'}
                 style={{
                     position: 'fixed',
                     top: 20,
                     left: 20,
-                }}
-                onClick={() => setDrawerOpened(true)}
-                aria-label="Open settings drawer"
-            >
-                {faBars}
-            </ActionIcon>
+                }}>
+                <ActionIcon
+                    variant="white"
+                    size="lg"
+                    id="home-button"
+                    component="a"
+                    href="/"
+                    aria-label="Go to home page"
+                >
+                    <i className="fas fa-home" />
+                </ActionIcon>
+                <ActionIcon
+                    variant="white"
+                    size="lg"
+                    id="settings-drawer-button"
+
+                    onClick={() => setDrawerOpened(true)}
+                    aria-label="Open settings drawer"
+                >
+                    {faBars}
+                </ActionIcon>
+
+            </Group >
             {/* Refresh button in top middle when needed */}
-            <Button
+            < Button
                 size="xs"
                 variant='white'
                 leftSection={faRefresh}
@@ -1038,10 +1051,11 @@ export default function FullscreenMapWithQueries() {
                     // zIndex: 500,
                     scale: needsRefresh && queries.length > 0 ? 1 : 0,
                     transition: 'scale 0.1s ease',
-                }}
+                }
+                }
             >
                 Refresh
-            </Button>
+            </Button >
             <Group style={{
                 position: 'fixed',
                 bottom: markerSelectionMode ? 40 : -50,
