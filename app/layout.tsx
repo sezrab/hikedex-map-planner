@@ -63,7 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               ],
             },
           }
-        } withGlobalStyles withNormalizeCSS>
+        }>
           {children}
         </MantineProvider>
       </body>
