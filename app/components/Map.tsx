@@ -185,7 +185,7 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster, ma
 
     return (
         <>
-            <Modal opened={modalOpen} onClose={() => setModalOpen(false)} title={modalData?.name || (modalData?.tags?.parking == 'layby' ? 'Layby Parking' : modalData?.tags?.parking == 'street_side' ? 'Street Side Parking' : null) || 'Details'} size={'lg'} centered>
+            <Modal opened={modalOpen} onClose={() => setModalOpen(false)} title={modalData?.name || (modalData?.tags?.parking == 'layby' ? 'Layby Parking' : modalData?.tags?.parking == 'street_side' ? 'Street Side Parking' : null) || 'Details'} size={'md'} centered>
                 {modalData?.tags ? (
                     <Stack>
                         {/* If amenity=parking but access tag is missing, display a warning */}
