@@ -205,7 +205,7 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster, ma
                                 {Object.entries(modalData.tags).map(([key, value]) => (
                                     <Table.Tr key={key}>
                                         <Table.Td>{key}</Table.Td>
-                                        <Table.Td>
+                                        <Table.Td style={{ wordBreak: 'break-word' }}>
                                             {typeof value === 'string' && (
                                                 // URL
                                                 /^https?:\/\/\S+$/i.test(value) ? (
@@ -214,13 +214,14 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster, ma
                                                     // Email
                                                     /^[\w.-]+@[\w.-]+\.\w{2,}$/.test(value) ? (
                                                         <a href={`mailto:${value}`}>{value}</a>
-                                                    ) :
-                                                        // Phone number (stricter: must have at least 8 digits, and contain only digits, spaces, +, -, (, ))
-                                                        /^\+?[\d\s\-().]{8,}$/.test(value) && (value.replace(/[^\d]/g, '').length >= 8) && /^[\d\s\-().+]+$/.test(value) ? (
-                                                            <a href={`tel:${value.replace(/\D/g, '')}`}>{value}</a>
-                                                        ) : (
+                                                    ) : (
+                                                        // If key = "phone" then format as phone number
+                                                        key === 'phone' ? (
+                                                            <a href={`tel:${value}`}>{value}</a>
+                                                        ) :
+                                                            // Otherwise just display the string
                                                             value
-                                                        )
+                                                    )
                                             )}
                                             {typeof value !== 'string' && value}
                                         </Table.Td>
