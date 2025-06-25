@@ -27,7 +27,7 @@ const presetQueries: Record<string, string> = {
     '🅿️ Parking': `nwr["amenity"="parking"]`,
     '🛒 Groceries': `nwr["shop"~"supermarket|convenience|greengrocer"]`,
     '☕ Cafes': `nwr["amenity"="cafe"]`,
-    '🍻 Pubs, Restaurants': `nwr["amenity"~"pub|restaurant"]`,
+    '🍻 Pubs, Restaurants': `nwr["amenity"~"^pub$|^restaurant$"]`,
     '💧 Drinking Water': `nwr["amenity"="drinking_water"]`,
     '🌊 Natural Springs': `nwr["natural"="spring"]`,
     '🚻 Toilets': `nwr["amenity"="toilets"]`,
