@@ -1,432 +1,294 @@
 {
   "queries": [
     {
-      "label": "groceries",
-      "queryString": "nwr[\"shop\"~\"supermarket|convenience|greengrocer\"]",
+      "label": "drinking_water",
+      "queryString": "nwr[\"amenity\"=\"drinking_water\"]",
       "data": [
         {
-          "id": 254873403,
-          "lat": 56.8241641,
-          "lon": -5.0888139,
+          "id": 1509156911,
+          "lat": 56.43816,
+          "lon": -4.712769,
           "tags": {
-            "amenity": "fuel",
-            "brand": "Gleaner",
-            "fuel:HGV_diesel": "yes",
-            "fuel:diesel": "yes",
-            "fuel:octane_95": "yes",
-            "fuel:octane_98": "yes",
-            "name": "Ben Nevis Services",
-            "operator": "Gleaner",
-            "shop": "convenience",
-            "source": "survey"
-          }
-        },
-        {
-          "id": 254878072,
-          "lat": 56.8120281,
-          "lon": -5.1180464,
-          "tags": {
-            "addr:city": "Fort William",
-            "addr:postcode": "PH33 6JH",
-            "addr:street": "Grange Road",
-            "brand": "Spar",
-            "brand:wikidata": "Q610492",
-            "brand:wikipedia": "en:SPAR (retailer)",
-            "name": "Spar",
-            "opening_hours": "Mo-Sa 07:00-22:00;Su 08:00-22:00",
-            "phone": "+44 1397 705562",
-            "shop": "supermarket",
-            "website": "https://www.spar.co.uk/store-locator/lan10842-spar-grange-fort-william"
-          }
-        },
-        {
-          "id": 305522609,
-          "lat": 56.819414,
-          "lon": -5.1088506,
-          "tags": {
-            "addr:city": "Fort William",
-            "addr:country": "GB",
-            "addr:housename": "Airds Crossing",
-            "addr:postcode": "PH33 6EU",
-            "addr:street": "High Street",
-            "addr:unit": "1",
-            "brand:wikidata": "Q17032096",
-            "check_date": "2025-05-10",
-            "name": "International Food Store",
-            "shop": "convenience",
-            "source:addr": "FHRS Open Data"
-          }
-        },
-        {
-          "id": 773369433,
-          "lat": 56.0417765,
-          "lon": -4.368044,
-          "tags": {
-            "brand": "Co-op Food",
-            "brand:wikidata": "Q3277439",
-            "brand:wikipedia": "en:Co-op Food",
-            "check_date": "2024-07-15",
-            "check_date:opening_hours": "2024-07-15",
-            "name": "Co-op Food",
-            "opening_hours": "Mo-Su 07:00-22:00",
-            "operator": "The Co-operative Group",
-            "operator:wikidata": "Q117202",
-            "shop": "supermarket",
-            "website": "https://www.coop.co.uk/store-finder/G63-9RH/56-main-street"
-          }
-        },
-        {
-          "id": 905998547,
-          "lat": 56.7130395,
-          "lon": -4.9642485,
-          "tags": {
-            "addr:city": "Kinlochleven",
-            "addr:parentstreet": "Leven Road",
-            "addr:postcode": "PH50 4RW",
-            "addr:street": "Stevenson Terrace",
-            "brand": "Co-op Food",
-            "brand:wikidata": "Q3277439",
-            "check_date": "2025-05-11",
-            "check_date:opening_hours": "2024-07-15",
-            "fhrs:id": "538398",
-            "name": "Co-op Food",
-            "opening_hours": "Mo-Su 07:00-22:00",
-            "operator": "The Co-operative Group",
-            "operator:wikidata": "Q117202",
-            "shop": "supermarket",
-            "website": "https://www.coop.co.uk/store-finder/PH50-4RW/leven-road"
-          }
-        },
-        {
-          "id": 1149203535,
-          "lat": 56.0427806,
-          "lon": -4.3683745,
-          "tags": {
-            "brand": "Spar",
-            "brand:wikidata": "Q610492",
-            "brand:wikipedia": "en:Spar (retailer)",
-            "name": "Spar",
-            "shop": "convenience"
-          }
-        },
-        {
-          "id": 2469956158,
-          "lat": 56.8042393,
-          "lon": -5.0741139,
-          "tags": {
-            "name": "Glen Nevis campsite shop",
-            "opening_hours": "Su-Th 08:00-20:00; Fr,Sa 08:00-21:00",
-            "shop": "convenience"
-          }
-        },
-        {
-          "id": 2801442590,
-          "lat": 56.8219856,
-          "lon": -5.0869084,
-          "tags": {
-            "addr:city": "Fort William",
-            "addr:postcode": "PH33 6PH",
-            "addr:street": "Claggan Road",
-            "brand": "Spar",
-            "brand:wikidata": "Q610492",
-            "brand:wikipedia": "en:SPAR (retailer)",
-            "fhrs:id": "360495",
-            "name": "Spar",
-            "shop": "convenience",
-            "website": "https://www.spar.co.uk/store-locator/lan10683-spar-claggan/"
-          }
-        },
-        {
-          "id": 2902828927,
-          "lat": 56.0657739,
-          "lon": -4.4519827,
-          "tags": {
-            "addr:housenumber": "2-4",
-            "addr:street": "Stirling Road",
-            "brand": "Spar",
-            "brand:wikidata": "Q610492",
-            "brand:wikipedia": "en:Spar (retailer)",
-            "check_date": "2024-06-08",
-            "currency:GBP": "yes",
-            "internet_access": "no",
-            "name": "Spar",
-            "opening_hours": "Mo-Sa 06:30-22:00; Su 08:00-22:00",
-            "operator": "Spar",
-            "organic": "yes",
-            "payment:cash": "yes",
-            "payment:credit_cards": "yes",
-            "payment:debit_cards": "yes",
-            "shop": "convenience",
-            "source": "survey",
-            "toilets": "no",
-            "toilets:wheelchair": "no",
-            "website": "https://www.spar.co.uk/store-locator/lan04576-spar-drymen/",
-            "wheelchair": "no"
-          }
-        },
-        {
-          "id": 3128346311,
-          "lat": 55.987635,
-          "lon": -4.3149357,
-          "tags": {
-            "addr:city": "Blanefield",
-            "addr:country": "GB",
-            "addr:housenumber": "51",
-            "addr:postcode": "G63 9JD",
-            "addr:street": "Glasgow Road",
-            "alt_name": "Shop Smart",
-            "fhrs:id": "17014",
-            "name": "Shopsmart",
-            "shop": "convenience"
-          }
-        },
-        {
-          "id": 4165748362,
-          "lat": 56.3307751,
-          "lon": -4.7168368,
-          "tags": {
-            "name": "Beinglas Campsite Shop",
-            "shop": "convenience"
-          }
-        },
-        {
-          "id": 4165952991,
-          "lat": 56.4386015,
-          "lon": -4.7134627,
-          "tags": {
-            "addr:postcode": "FK20 8RY",
-            "branch": "Brodie's Minimarket",
-            "brand": "KeyStore",
-            "brand:wikidata": "Q50528754",
+            "access": "yes",
+            "amenity": "drinking_water",
             "check_date": "2025-04-20",
-            "name": "KeyStore",
-            "opening_hours": "07:00-18:00",
-            "payment:cash": "yes",
-            "payment:credit_cards": "yes",
-            "payment:debit_cards": "yes",
-            "phone": "+44 1838 400275",
-            "shop": "convenience",
-            "website": "https://www.keystore.co.uk/store/keystore-express-tyndrum/"
-          }
-        },
-        {
-          "id": 4167972191,
-          "lat": 56.4381582,
-          "lon": -4.7126785,
-          "tags": {
-            "name": "The Green Welly Stop",
-            "opening_hours": "Mo-Su 07:00-22:00",
-            "payment:cash": "yes",
-            "shop": "convenience",
+            "fee": "no",
+            "man_made": "water_tap",
             "wheelchair": "yes"
           }
         },
         {
-          "id": 4172844823,
-          "lat": 56.4334591,
-          "lon": -4.7089117,
+          "id": 2469940371,
+          "lat": 56.8034368,
+          "lon": -5.0765405,
           "tags": {
-            "check_date": "2025-04-19",
-            "name": "Reception & Shop",
-            "opening_hours": "09:00-18:00",
-            "payment:cash": "yes",
-            "payment:credit_cards": "yes",
-            "payment:debit_cards": "yes",
-            "shop": "convenience",
-            "wheelchair": "yes"
+            "amenity": "drinking_water"
           }
         },
         {
-          "id": 4895401900,
-          "lat": 56.084121,
-          "lon": -4.5396763,
+          "id": 2469940396,
+          "lat": 56.8044471,
+          "lon": -5.0762098,
           "tags": {
-            "check_date:opening_hours": "2023-09-05",
-            "contact:phone": "+44 1360 870357",
-            "contact:website": "https://www.theoaktreeinn.co.uk/balmaha-village-shop",
-            "name": "Village Shop",
-            "opening_hours": "Mo-Su 08:00-20:00",
-            "opening_hours:signed": "no",
-            "shop": "convenience"
+            "amenity": "drinking_water"
           }
         },
         {
-          "id": 5438582813,
-          "lat": 56.8285344,
-          "lon": -5.081968,
+          "id": 4218094255,
+          "lat": 56.5177361,
+          "lon": -4.7688412,
           "tags": {
-            "addr:city": "Fort William",
-            "addr:place": "Fort William Retail Park",
-            "addr:postcode": "PH33 6PP",
-            "addr:street": "North Road",
-            "addr:unit": "Unit 3",
-            "brand": "M&S Foodhall",
-            "brand:wikidata": "Q714491",
-            "brand:wikipedia": "en:Marks & Spencer",
-            "check_date": "2024-07-21",
-            "check_date:opening_hours": "2024-07-21",
-            "contact:website": "https://www.marksandspencer.com/stores/fort-william-foodhall-2097",
-            "fhrs:id": "1013677",
-            "name": "M&S Foodhall",
-            "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-18:00",
-            "operator": "Marks and Spencers",
-            "shop": "supermarket"
+            "amenity": "drinking_water",
+            "check_date": "2022-07-30",
+            "man_made": "water_tap"
           }
         },
         {
-          "id": 5672286264,
-          "lat": 56.8381934,
-          "lon": -5.1065424,
+          "id": 6430320993,
+          "lat": 56.7143352,
+          "lon": -4.9603206,
           "tags": {
-            "brand": "McColl's",
-            "brand:wikidata": "Q16997477",
-            "brand:wikipedia": "en:McColl's",
-            "contact:website": "https://www.mccolls.co.uk/storelocator/fort-william-glenloy-street/",
-            "name": "McColl's",
-            "shop": "convenience"
+            "amenity": "drinking_water"
           }
         },
         {
-          "id": 11407694871,
-          "lat": 56.8196584,
-          "lon": -5.1084589,
+          "id": 6749616148,
+          "lat": 56.8163377,
+          "lon": -5.11384,
           "tags": {
-            "addr:city": "Fort William",
-            "addr:postcode": "PH33 6EU",
-            "addr:street": "Unit 2 Airds Crossing",
-            "brand": "Tesco Express",
-            "brand:wikidata": "Q98456772",
-            "check_date": "2025-05-10",
-            "name": "Tesco Express",
-            "operator": "Tesco",
-            "shop": "convenience"
+            "access": "yes",
+            "amenity": "drinking_water",
+            "bottle": "yes",
+            "fee": "no",
+            "fountain": "bottle_refill",
+            "name": "Top Up Tap",
+            "operator": "Scottish Water",
+            "operator:wikidata": "Q7438022"
           }
         },
         {
-          "id": 12110720358,
-          "lat": 56.5327618,
-          "lon": -4.8077993,
+          "id": 8867721197,
+          "lat": 56.084511,
+          "lon": -4.5412937,
           "tags": {
-            "name": "Buth Bheag - The Wee Shop",
-            "opening_hours": "Mo-Su 08:00-15:00",
-            "shop": "convenience"
+            "access": "yes",
+            "amenity": "drinking_water",
+            "bottle": "yes",
+            "fee": "no",
+            "man_made": "water_tap",
+            "name": "Top Up Tap",
+            "operator": "Scottish Water",
+            "operator:wikidata": "Q7438022"
           }
         },
         {
-          "id": 172284958,
-          "lat": 56.3920776,
-          "lon": -4.6171229,
+          "id": 8951041890,
+          "lat": 56.202451,
+          "lon": -4.7094828,
           "tags": {
-            "brand": "Londis",
-            "brand:wikidata": "Q21008564",
-            "building": "yes",
-            "check_date": "2025-04-19",
-            "name": "Crianlarich Store",
-            "opening_hours": "Mo-Sa 07:30-19:00; Su 08:00-18:00",
-            "operator": "Londis",
-            "payment:cash": "yes",
-            "payment:credit_cards": "yes",
-            "payment:debit_cards": "yes",
-            "shop": "convenience",
+            "amenity": "drinking_water",
+            "description": "a water tap directly at a sanitary dump station with a label \"drinking water\""
+          }
+        },
+        {
+          "id": 9244462201,
+          "lat": 55.941294,
+          "lon": -4.3179,
+          "tags": {
+            "access": "yes",
+            "amenity": "drinking_water",
+            "bottle": "yes",
+            "fee": "no",
+            "name": "Top Up Tap",
+            "operator": "Scottish Water",
+            "operator:wikidata": "Q7438022"
+          }
+        },
+        {
+          "id": 9411502854,
+          "lat": 56.2428086,
+          "lon": -4.6845399,
+          "tags": {
+            "access": "permissive",
+            "amenity": "drinking_water",
+            "man_made": "water_tap"
+          }
+        },
+        {
+          "id": 9575327268,
+          "lat": 56.152176,
+          "lon": -4.641613,
+          "tags": {
+            "access": "yes",
+            "amenity": "drinking_water",
+            "bottle": "yes",
+            "fee": "no",
+            "fountain": "bottle_refill",
+            "name": "Top Up Tap",
+            "operator": "Scottish Water",
+            "operator:wikidata": "Q7438022"
+          }
+        },
+        {
+          "id": 9849785971,
+          "lat": 56.8026374,
+          "lon": -5.0756513,
+          "tags": {
+            "amenity": "drinking_water"
+          }
+        },
+        {
+          "id": 9867874408,
+          "lat": 56.0657585,
+          "lon": -4.4526302,
+          "tags": {
+            "access": "yes",
+            "amenity": "drinking_water",
+            "bottle": "yes",
+            "fee": "no",
+            "man_made": "water_tap",
+            "name": "Top Up Tap",
+            "operator": "Scottish Water",
+            "operator:wikidata": "Q7438022"
+          }
+        },
+        {
+          "id": 11035423178,
+          "lat": 56.0141567,
+          "lon": -4.3627563,
+          "tags": {
+            "amenity": "drinking_water"
+          }
+        },
+        {
+          "id": 11130558270,
+          "lat": 56.020954,
+          "lon": -4.3709532,
+          "tags": {
+            "access": "permissive",
+            "amenity": "drinking_water",
+            "bottle": "yes",
+            "fee": "no",
+            "man_made": "water_tap"
+          }
+        },
+        {
+          "id": 11130583303,
+          "lat": 56.127715,
+          "lon": -4.6079737,
+          "tags": {
+            "access": "yes",
+            "amenity": "drinking_water",
+            "fee": "no",
+            "man_made": "water_tap"
+          }
+        },
+        {
+          "id": 11131394515,
+          "lat": 56.6504409,
+          "lon": -4.8389081,
+          "tags": {
+            "access": "permissive",
+            "amenity": "drinking_water",
+            "bottle": "yes",
+            "fee": "no",
+            "man_made": "water_tap",
+            "operator": "Kingshouse Hotel"
+          }
+        },
+        {
+          "id": 11165628245,
+          "lat": 56.0535318,
+          "lon": -4.4321454,
+          "tags": {
+            "amenity": "drinking_water",
+            "man_made": "water_tap",
+            "name": "Drinking water"
+          }
+        },
+        {
+          "id": 11169524784,
+          "lat": 56.2428147,
+          "lon": -4.6845778,
+          "tags": {
+            "amenity": "drinking_water"
+          }
+        },
+        {
+          "id": 11398464089,
+          "lat": 55.9505222,
+          "lon": -4.3097674,
+          "tags": {
+            "access": "yes",
+            "amenity": "drinking_water",
+            "bottle": "yes",
+            "name": "Top Up Tap",
+            "operator": "Scottish Water",
+            "operator:wikidata": "Q7438022"
+          }
+        },
+        {
+          "id": 11993646459,
+          "lat": 56.1495458,
+          "lon": -4.6415205,
+          "tags": {
+            "amenity": "drinking_water",
+            "bottle": "yes",
+            "covered": "no",
+            "description": "Mounted to fence on patio",
+            "fee": "no",
+            "indoor": "no",
+            "man_made": "water_tap",
+            "operator": "The Clansman",
+            "source": "survey",
             "wheelchair": "limited"
           }
         },
         {
-          "id": 197076676,
-          "lat": 56.8212763,
-          "lon": -5.1049242,
+          "id": 12162389049,
+          "lat": 56.5329086,
+          "lon": -4.8076029,
           "tags": {
-            "addr:city": "Fort William",
-            "addr:postcode": "PH33 6AN",
-            "addr:street": "An Aird",
-            "alt_name": "Morrisons Fort William",
-            "brand": "Morrisons",
-            "brand:wikidata": "Q922344",
-            "brand:wikipedia": "en:Morrisons",
-            "building": "yes",
-            "check_date": "2025-04-12",
-            "fhrs:id": "360617",
-            "internet_access": "wlan",
-            "internet_access:fee": "no",
-            "name": "Morrisons",
-            "opening_hours": "Mo-Sa 07:00-22:00; PH,Su 08:00-20:00",
-            "payment:cash": "yes",
-            "payment:credit_cards": "yes",
-            "payment:debit_cards": "yes",
-            "phone": "+44 1397 700333",
-            "shop": "supermarket",
-            "website": "https://my.morrisons.com/storefinder/178/fort-william",
+            "access": "permissive",
+            "amenity": "drinking_water",
+            "bottle": "yes",
+            "fee": "no",
+            "name": "Inverornan Hotel",
+            "survey:date": "2024-09-06"
+          }
+        },
+        {
+          "id": 12768434784,
+          "lat": 56.390825,
+          "lon": -4.6183014,
+          "tags": {
+            "access": "yes",
+            "amenity": "drinking_water",
+            "fee": "no",
+            "fountain": "bottle_refill"
+          }
+        },
+        {
+          "id": 12830442399,
+          "lat": 56.713673,
+          "lon": -4.9626517,
+          "tags": {
+            "access": "yes",
+            "amenity": "drinking_water",
+            "fee": "no",
+            "operator": "Scottish Water",
             "wheelchair": "yes"
           }
         },
         {
-          "id": 197076841,
-          "lat": 56.8219638,
-          "lon": -5.1011368,
+          "id": 12945164107,
+          "lat": 56.4333108,
+          "lon": -4.7118866,
           "tags": {
-            "addr:city": "Fort William",
-            "addr:postcode": "PH33 6AN",
-            "addr:street": "Camanachd Crescent",
-            "alt_name": "LIDL Fort William",
-            "brand": "Lidl",
-            "brand:wikidata": "Q151954",
-            "brand:wikipedia": "en:Lidl",
-            "building": "yes",
-            "check_date:opening_hours": "2024-11-04",
-            "fhrs:id": "360202",
-            "name": "Lidl",
-            "opening_hours": "Mo-Sa 08:00-22:00; Su 08:00-20:00",
-            "shop": "supermarket",
-            "website": "https://www.lidl.co.uk/s/en-GB/store-finder/fort-william/camanachd-crescent/",
-            "wheelchair": "yes"
-          }
-        },
-        {
-          "id": 283189291,
-          "lat": 56.8377405,
-          "lon": -5.1005231,
-          "tags": {
-            "brand": "Co-op Food",
-            "brand:wikidata": "Q3277439",
-            "brand:wikipedia": "en:Co-op Food",
-            "building": "yes",
-            "building:levels": "2",
-            "check_date": "2024-07-15",
-            "check_date:opening_hours": "2024-07-15",
-            "name": "Co-op Food",
-            "opening_hours": "Mo-Su 07:00-22:00",
-            "operator": "The Co-operative Group",
-            "operator:wikidata": "Q117202",
-            "phone": "+44 1397 703302",
-            "roof:shape": "gabled",
-            "shop": "supermarket",
-            "website": "https://www.coop.co.uk/store-finder/PH33-7EN/kilmallie-road"
-          }
-        },
-        {
-          "id": 595155091,
-          "lat": 56.8277884,
-          "lon": -5.0835716,
-          "tags": {
-            "addr:city": "Fort William",
-            "addr:unit": "Unit A",
-            "brand": "ALDI",
-            "brand:wikidata": "Q41171672",
-            "brand:wikipedia": "en:Aldi",
-            "building": "supermarket",
-            "contact:website": "https://stores.aldi.co.uk/fort-william/unit-a-north-road-rp",
-            "name": "ALDI",
-            "shop": "supermarket"
-          }
-        },
-        {
-          "id": 1198253966,
-          "lat": 56.1120822,
-          "lon": -4.5818911,
-          "tags": {
-            "building": "yes",
-            "name": "Reception (with Minimarket)",
-            "shop": "convenience"
+            "amenity": "drinking_water",
+            "covered": "no",
+            "fee": "no",
+            "indoor": "no"
           }
         }
       ]
@@ -464,6 +326,42 @@
           }
         },
         {
+          "id": 1493370820,
+          "lat": 55.9403589,
+          "lon": -4.3178202,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "19",
+            "addr:postcode": "G62 6BJ",
+            "addr:street": "Main Street",
+            "addr:suburb": "Milngavie",
+            "amenity": "cafe",
+            "check_date": "2024-11-17",
+            "fhrs:id": "635187",
+            "level": "0",
+            "name": "Café Alba"
+          }
+        },
+        {
+          "id": 2098393976,
+          "lat": 55.9424053,
+          "lon": -4.3177802,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "27",
+            "addr:postcode": "G62 8PD",
+            "addr:street": "Mugdock Road",
+            "addr:suburb": "Milngavie",
+            "amenity": "cafe",
+            "check_date": "2024-11-19",
+            "fhrs:id": "635205",
+            "level": "0",
+            "name": "Bullands Coffee House",
+            "outdoor_seating": "yes",
+            "phone": "+44 141 956 6255"
+          }
+        },
+        {
           "id": 2123026888,
           "lat": 56.819997,
           "lon": -5.1073765,
@@ -497,6 +395,52 @@
             "check_date": "2023-06-08",
             "fhrs:id": "360032",
             "name": "Lochaber Cafe",
+            "source:addr": "FHRS Open Data"
+          }
+        },
+        {
+          "id": 4157983293,
+          "lat": 55.9413981,
+          "lon": -4.3179991,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "8",
+            "addr:postcode": "G62 6PB",
+            "addr:street": "Douglas Street",
+            "addr:suburb": "Milngavie",
+            "amenity": "cafe",
+            "brand": "Costa",
+            "brand:wikidata": "Q608845",
+            "brand:wikipedia": "en:Costa Coffee",
+            "check_date": "2025-06-05",
+            "cuisine": "coffee_shop",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "635176",
+            "fhrs:local_authority_id": "PI/000055340",
+            "level": "0",
+            "name": "Costa",
+            "takeaway": "yes"
+          }
+        },
+        {
+          "id": 4157999092,
+          "lat": 55.9418935,
+          "lon": -4.3158818,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "44",
+            "addr:postcode": "G62 8AB",
+            "addr:street": "Station Road",
+            "addr:suburb": "Milngavie",
+            "amenity": "cafe",
+            "check_date": "2025-06-05",
+            "contact:facebook": "https://www.facebook.com/profile.php?id=61567765151044",
+            "contact:instagram": "https://www.instagram.com/westhighlandwaycafe/",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "1782453",
+            "level": "0",
+            "name": "The West Highland Cafe",
+            "opening_hours": "Mo-Fr 09:00-17:00; Sa 08:00-17:00; Su 10:00-16:00",
             "source:addr": "FHRS Open Data"
           }
         },
@@ -618,6 +562,15 @@
           }
         },
         {
+          "id": 5220044322,
+          "lat": 56.2026389,
+          "lon": -4.7095255,
+          "tags": {
+            "amenity": "cafe",
+            "name": "Bonnie and Ben Cafe"
+          }
+        },
+        {
           "id": 5438582820,
           "lat": 56.8183452,
           "lon": -5.1106502,
@@ -644,6 +597,15 @@
             "payment:debit_cards": "yes",
             "smoking": "no",
             "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 5713683921,
+          "lat": 56.2042013,
+          "lon": -4.712369,
+          "tags": {
+            "amenity": "cafe",
+            "name": "Tarbet Tearoom"
           }
         },
         {
@@ -728,6 +690,27 @@
           }
         },
         {
+          "id": 11039909390,
+          "lat": 55.9318249,
+          "lon": -4.3116765,
+          "tags": {
+            "amenity": "cafe",
+            "operator": "Allander Leisure Centre",
+            "outdoor_seating": "no"
+          }
+        },
+        {
+          "id": 11074863136,
+          "lat": 55.9342719,
+          "lon": -4.3151969,
+          "tags": {
+            "amenity": "cafe",
+            "check_date": "2023-07-29",
+            "name": "Waitrose Café",
+            "outdoor_seating": "no"
+          }
+        },
+        {
           "id": 11174979073,
           "lat": 56.8177019,
           "lon": -5.1106548,
@@ -769,12 +752,48 @@
           }
         },
         {
+          "id": 11964890258,
+          "lat": 56.2514487,
+          "lon": -4.708466,
+          "tags": {
+            "amenity": "cafe",
+            "check_date": "2024-06-08",
+            "cuisine": "coffee_shop;sandwich;cake;ice_cream",
+            "name": "The Den",
+            "opening_hours": "Mo off; Tu-Su 10:00-16:00",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes"
+          }
+        },
+        {
           "id": 12088750669,
           "lat": 56.0644763,
           "lon": -4.4520951,
           "tags": {
             "amenity": "cafe",
             "name": "Alfie & Co"
+          }
+        },
+        {
+          "id": 12113576377,
+          "lat": 55.9419607,
+          "lon": -4.3167154,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "11",
+            "addr:postcode": "G62 8PG",
+            "addr:street": "Station Road",
+            "addr:suburb": "Milngavie",
+            "amenity": "cafe",
+            "check_date": "2024-11-19",
+            "contact:phone": "+44 141 956 1742",
+            "cuisine": "coffee_shop",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "665978",
+            "fhrs:local_authority_id": "PI/000061660",
+            "level": "0",
+            "name": "Jessie Biscuit"
           }
         },
         {
@@ -786,6 +805,43 @@
             "indoor_seating": "no",
             "name": "Bocsa Beans",
             "takeaway": "only"
+          }
+        },
+        {
+          "id": 12156840691,
+          "lat": 55.939568,
+          "lon": -4.3153563,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "7",
+            "addr:postcode": "G62 6NB",
+            "addr:street": "Gavin's Mill Road",
+            "addr:suburb": "Milngavie",
+            "amenity": "cafe",
+            "brand": "Costa",
+            "brand:wikidata": "Q608845",
+            "check_date": "2025-06-06",
+            "cuisine": "coffee_shop",
+            "fhrs:id": "635216",
+            "name": "Costa",
+            "takeaway": "yes"
+          }
+        },
+        {
+          "id": 12200676327,
+          "lat": 55.9405085,
+          "lon": -4.3182726,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "18",
+            "addr:postcode": "G62 6BL",
+            "addr:street": "Main Street",
+            "addr:suburb": "Milngavie",
+            "amenity": "cafe",
+            "check_date": "2024-11-17",
+            "fhrs:id": "1648652",
+            "level": "0",
+            "name": "HollyBerries"
           }
         },
         {
@@ -826,6 +882,42 @@
             "source": "survey",
             "toilets": "yes",
             "wikimedia_commons": "File:Cafe on the slopes at Glencoe Mountain Resort - geograph.org.uk - 4657575.jpg"
+          }
+        },
+        {
+          "id": 236724544,
+          "lat": 55.9394816,
+          "lon": -4.3170352,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "3",
+            "addr:postcode": "G62 6NB",
+            "addr:street": "Gavins Mill Road",
+            "addr:suburb": "Milngavie",
+            "amenity": "cafe",
+            "building": "yes",
+            "check_date": "2025-06-06",
+            "fhrs:id": "964307",
+            "name": "Gavin's Mill",
+            "opening_hours": "Tu-Sa 10:00-16:30",
+            "source": "Bing"
+          }
+        },
+        {
+          "id": 451085410,
+          "lat": 55.9379781,
+          "lon": -4.3169674,
+          "tags": {
+            "addr:place": "Lennox Park",
+            "addr:street": "Gavin's Mill Road",
+            "addr:suburb": "Milngavie",
+            "amenity": "cafe",
+            "building": "retail",
+            "check_date": "2023-02-02",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "1597187",
+            "fhrs:local_authority_id": "23/00009/MIXED",
+            "name": "Christine's on the Green"
           }
         },
         {
@@ -873,6 +965,29 @@
             "amenity": "cafe",
             "building": "retail",
             "name": "Oscar's Cafe"
+          }
+        },
+        {
+          "id": 1273558669,
+          "lat": 55.9411867,
+          "lon": -4.3142946,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:place": "Milngavie Railway Station",
+            "addr:postcode": "G62 8BX",
+            "addr:street": "Station Road",
+            "addr:suburb": "Milngavie",
+            "amenity": "cafe",
+            "building": "kiosk",
+            "building:levels": "1",
+            "check_date": "2025-06-07",
+            "cuisine": "coffee_shop",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "635208",
+            "fhrs:local_authority_id": "PI/000060475",
+            "name": "Prego",
+            "opening_hours": "Mo-Fr 06:30-13:30",
+            "website": "https://myprego.com/"
           }
         }
       ]
@@ -1064,6 +1179,26 @@
           }
         },
         {
+          "id": 770084505,
+          "lat": 55.9401748,
+          "lon": -4.3180342,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "30",
+            "addr:postcode": "G62 6BU",
+            "addr:street": "Main Street",
+            "addr:suburb": "Milngavie",
+            "amenity": "pub",
+            "check_date": "2024-11-17",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "635148",
+            "fhrs:local_authority_id": "PI/000047806",
+            "level": "0",
+            "name": "The Talbot Arms",
+            "real_ale": "yes"
+          }
+        },
+        {
           "id": 905998523,
           "lat": 56.713367,
           "lon": -4.9636778,
@@ -1221,6 +1356,52 @@
             "stars": "3",
             "tourism": "hotel",
             "website": "https://www.winnockhotel.com/"
+          }
+        },
+        {
+          "id": 4157999790,
+          "lat": 55.9419534,
+          "lon": -4.3170324,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "1",
+            "addr:postcode": "G62 8PG",
+            "addr:street": "Station Road",
+            "addr:suburb": "Milngavie",
+            "amenity": "restaurant",
+            "check_date": "2025-06-05",
+            "contact:facebook": "https://www.facebook.com/garvieandco/",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "665977",
+            "fhrs:local_authority_id": "PI/000061174",
+            "level": "0",
+            "name": "Garvie & Co",
+            "opening_hours": "Mo-Th 10:00-23:00; Fr-Sa 10:00-24:00; Su 10:00-23:00",
+            "website": "https://garvieandco.com/"
+          }
+        },
+        {
+          "id": 4157999791,
+          "lat": 55.941978,
+          "lon": -4.3166047,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "15",
+            "addr:postcode": "G62 8PG",
+            "addr:street": "Station Road",
+            "addr:suburb": "Milngavie",
+            "amenity": "restaurant",
+            "check_date": "2025-06-06",
+            "cuisine": "asian",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "1209422",
+            "fhrs:local_authority_id": "19/00051/MIXED",
+            "level": "0",
+            "name": "Wutong",
+            "payment:cards": "no",
+            "payment:cash": "yes",
+            "payment:credit_cards": "no",
+            "payment:debit_cards": "no"
           }
         },
         {
@@ -1426,6 +1607,44 @@
           }
         },
         {
+          "id": 10313247040,
+          "lat": 55.9413899,
+          "lon": -4.3170231,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:postcode": "G62 6PA",
+            "addr:street": "Douglas Street",
+            "addr:suburb": "Milngavie",
+            "addr:unit": "6",
+            "amenity": "restaurant",
+            "check_date": "2024-11-19",
+            "cuisine": "indian",
+            "fhrs:id": "1209432",
+            "level": "0",
+            "name": "Classic India",
+            "phone": "+44 141 956 6360",
+            "website": "https://classicindiamilngavie.co.uk/"
+          }
+        },
+        {
+          "id": 10745305064,
+          "lat": 55.9402826,
+          "lon": -4.3189064,
+          "tags": {
+            "addr:housename": "Finsbay Pizza",
+            "addr:housenumber": "14 - 16",
+            "addr:postcode": "G62 6BW",
+            "addr:street": "Stewart Street",
+            "addr:suburb": "Milngavie",
+            "amenity": "pub",
+            "check_date": "2023-03-19",
+            "fhrs:id": "1154698",
+            "name": "Fullbacks",
+            "opening_hours": "Mo-Th 16:00+; Fr-Su 12:00+",
+            "source:addr": "FHRS Open Data"
+          }
+        },
+        {
           "id": 10777646106,
           "lat": 56.028047,
           "lon": -4.3800468,
@@ -1502,6 +1721,29 @@
           }
         },
         {
+          "id": 12115209680,
+          "lat": 55.9407982,
+          "lon": -4.3136609,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "26",
+            "addr:postcode": "G62 6RA",
+            "addr:street": "Crossveggate",
+            "addr:suburb": "Milngavie",
+            "amenity": "pub",
+            "brewery": "jaw_brew",
+            "check_date": "2025-06-06",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "1218359",
+            "fhrs:local_authority_id": "20/00002/FOOD",
+            "microbrewery": "yes",
+            "name": "Jaw Brew",
+            "opening_hours": "Mo-Su 12:00-22:00",
+            "phone": "+44 141 956 3946",
+            "website": "https://www.jawbrew.co.uk/"
+          }
+        },
+        {
           "id": 12174642077,
           "lat": 56.0286951,
           "lon": -4.3807698,
@@ -1521,6 +1763,19 @@
             "amenity": "restaurant",
             "cuisine": "italian_pizza",
             "name": "The Pizzeria"
+          }
+        },
+        {
+          "id": 12891857771,
+          "lat": 55.9400183,
+          "lon": -4.3145337,
+          "tags": {
+            "amenity": "restaurant",
+            "brand": "YO! Sushi",
+            "brand:wikidata": "Q3105441",
+            "check_date": "2025-06-06",
+            "cuisine": "sushi",
+            "name": "YO! Sushi"
           }
         },
         {
@@ -1665,6 +1920,26 @@
           }
         },
         {
+          "id": 146223208,
+          "lat": 55.9313354,
+          "lon": -4.3167579,
+          "tags": {
+            "addr:housenumber": "281",
+            "addr:postcode": "G61 3DQ",
+            "addr:street": "Milngavie Road",
+            "amenity": "pub",
+            "bar": "yes",
+            "brand": "Greene King",
+            "brand:wikidata": "Q5564162",
+            "building": "restaurant",
+            "check_date": "2022-08-28",
+            "fhrs:id": "552729",
+            "name": "The Burnbrae",
+            "website": "https://www.greeneking.co.uk/pubs/lanarkshire/burnbrae",
+            "wheelchair": "yes"
+          }
+        },
+        {
           "id": 172284485,
           "lat": 56.3919217,
           "lon": -4.6154194,
@@ -1741,13 +2016,783 @@
             "smoking": "outside",
             "website": "http://www.blanevalleyinn.co.uk"
           }
+        },
+        {
+          "id": 443744780,
+          "lat": 55.9416293,
+          "lon": -4.3106956,
+          "tags": {
+            "addr:housenumber": "1",
+            "addr:postcode": "G62 6AQ",
+            "addr:street": "Glasgow Road",
+            "addr:suburb": "Milngavie",
+            "amenity": "restaurant",
+            "building": "yes",
+            "cuisine": "italian",
+            "fhrs:id": "635186",
+            "name": "Andiamo",
+            "source:addr": "FHRS Open Data"
+          }
         }
       ]
     },
     {
-      "label": "drinking_water",
-      "queryString": "nwr[\"amenity\"=\"drinking_water\"]",
-      "data": []
+      "label": "groceries",
+      "queryString": "nwr[\"shop\"~\"supermarket|convenience|greengrocer\"]",
+      "data": [
+        {
+          "id": 254873403,
+          "lat": 56.8241641,
+          "lon": -5.0888139,
+          "tags": {
+            "amenity": "fuel",
+            "brand": "Gleaner",
+            "fuel:HGV_diesel": "yes",
+            "fuel:diesel": "yes",
+            "fuel:octane_95": "yes",
+            "fuel:octane_98": "yes",
+            "name": "Ben Nevis Services",
+            "operator": "Gleaner",
+            "shop": "convenience",
+            "source": "survey"
+          }
+        },
+        {
+          "id": 254878072,
+          "lat": 56.8120281,
+          "lon": -5.1180464,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6JH",
+            "addr:street": "Grange Road",
+            "brand": "Spar",
+            "brand:wikidata": "Q610492",
+            "brand:wikipedia": "en:SPAR (retailer)",
+            "name": "Spar",
+            "opening_hours": "Mo-Sa 07:00-22:00;Su 08:00-22:00",
+            "phone": "+44 1397 705562",
+            "shop": "supermarket",
+            "website": "https://www.spar.co.uk/store-locator/lan10842-spar-grange-fort-william"
+          }
+        },
+        {
+          "id": 305522609,
+          "lat": 56.819414,
+          "lon": -5.1088506,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:country": "GB",
+            "addr:housename": "Airds Crossing",
+            "addr:postcode": "PH33 6EU",
+            "addr:street": "High Street",
+            "addr:unit": "1",
+            "brand:wikidata": "Q17032096",
+            "check_date": "2025-05-10",
+            "name": "International Food Store",
+            "shop": "convenience",
+            "source:addr": "FHRS Open Data"
+          }
+        },
+        {
+          "id": 773369433,
+          "lat": 56.0417765,
+          "lon": -4.368044,
+          "tags": {
+            "brand": "Co-op Food",
+            "brand:wikidata": "Q3277439",
+            "brand:wikipedia": "en:Co-op Food",
+            "check_date": "2024-07-15",
+            "check_date:opening_hours": "2024-07-15",
+            "name": "Co-op Food",
+            "opening_hours": "Mo-Su 07:00-22:00",
+            "operator": "The Co-operative Group",
+            "operator:wikidata": "Q117202",
+            "shop": "supermarket",
+            "website": "https://www.coop.co.uk/store-finder/G63-9RH/56-main-street"
+          }
+        },
+        {
+          "id": 905998547,
+          "lat": 56.7130395,
+          "lon": -4.9642485,
+          "tags": {
+            "addr:city": "Kinlochleven",
+            "addr:parentstreet": "Leven Road",
+            "addr:postcode": "PH50 4RW",
+            "addr:street": "Stevenson Terrace",
+            "brand": "Co-op Food",
+            "brand:wikidata": "Q3277439",
+            "check_date": "2025-05-11",
+            "check_date:opening_hours": "2024-07-15",
+            "fhrs:id": "538398",
+            "name": "Co-op Food",
+            "opening_hours": "Mo-Su 07:00-22:00",
+            "operator": "The Co-operative Group",
+            "operator:wikidata": "Q117202",
+            "shop": "supermarket",
+            "website": "https://www.coop.co.uk/store-finder/PH50-4RW/leven-road"
+          }
+        },
+        {
+          "id": 1149203535,
+          "lat": 56.0427806,
+          "lon": -4.3683745,
+          "tags": {
+            "brand": "Spar",
+            "brand:wikidata": "Q610492",
+            "brand:wikipedia": "en:Spar (retailer)",
+            "name": "Spar",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 1783174283,
+          "lat": 55.9466582,
+          "lon": -4.3325944,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "34",
+            "addr:postcode": "G62 7BP",
+            "addr:street": "Craigash Road",
+            "addr:suburb": "Milngavie",
+            "addr:town": "Milngavie",
+            "brand": "Day-Today",
+            "brand:wikidata": "Q121435331",
+            "check_date": "2025-06-04",
+            "check_date:opening_hours": "2025-06-04",
+            "fhrs:id": "1629295",
+            "level": "0",
+            "name": "Day-Today",
+            "opening_hours": "Mo-Sa 06:30-21:00; Su 08:00-20:00",
+            "shop": "convenience",
+            "source:addr": "FHRS Open Data"
+          }
+        },
+        {
+          "id": 1783174284,
+          "lat": 55.9469118,
+          "lon": -4.3323392,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "44",
+            "addr:postcode": "G62 7BP",
+            "addr:street": "Craigash Road",
+            "addr:suburb": "Milngavie",
+            "brand": "KeyStore",
+            "brand:wikidata": "Q50528754",
+            "check_date": "2024-11-16",
+            "fhrs:id": "635151",
+            "level": "0",
+            "name": "KeyStore",
+            "opening_hours": "Mo-Sa 07:00-21:00; Su 07:00-20:00",
+            "payment:cash": "yes",
+            "payment:contactless": "yes",
+            "phone": "+44 141 956 6080",
+            "shop": "convenience",
+            "source": "Local_knowledge;Key Store Website",
+            "source:addr": "FHRS Open Data",
+            "website": "https://www.keystore.co.uk/store/keystore-milngavie/"
+          }
+        },
+        {
+          "id": 2469956158,
+          "lat": 56.8042393,
+          "lon": -5.0741139,
+          "tags": {
+            "name": "Glen Nevis campsite shop",
+            "opening_hours": "Su-Th 08:00-20:00; Fr,Sa 08:00-21:00",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 2801442590,
+          "lat": 56.8219856,
+          "lon": -5.0869084,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6PH",
+            "addr:street": "Claggan Road",
+            "brand": "Spar",
+            "brand:wikidata": "Q610492",
+            "brand:wikipedia": "en:SPAR (retailer)",
+            "fhrs:id": "360495",
+            "name": "Spar",
+            "shop": "convenience",
+            "website": "https://www.spar.co.uk/store-locator/lan10683-spar-claggan/"
+          }
+        },
+        {
+          "id": 2902828927,
+          "lat": 56.0657739,
+          "lon": -4.4519827,
+          "tags": {
+            "addr:housenumber": "2-4",
+            "addr:street": "Stirling Road",
+            "brand": "Spar",
+            "brand:wikidata": "Q610492",
+            "brand:wikipedia": "en:Spar (retailer)",
+            "check_date": "2024-06-08",
+            "currency:GBP": "yes",
+            "internet_access": "no",
+            "name": "Spar",
+            "opening_hours": "Mo-Sa 06:30-22:00; Su 08:00-22:00",
+            "operator": "Spar",
+            "organic": "yes",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "shop": "convenience",
+            "source": "survey",
+            "toilets": "no",
+            "toilets:wheelchair": "no",
+            "website": "https://www.spar.co.uk/store-locator/lan04576-spar-drymen/",
+            "wheelchair": "no"
+          }
+        },
+        {
+          "id": 3128346311,
+          "lat": 55.987635,
+          "lon": -4.3149357,
+          "tags": {
+            "addr:city": "Blanefield",
+            "addr:country": "GB",
+            "addr:housenumber": "51",
+            "addr:postcode": "G63 9JD",
+            "addr:street": "Glasgow Road",
+            "alt_name": "Shop Smart",
+            "fhrs:id": "17014",
+            "name": "Shopsmart",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 4165748362,
+          "lat": 56.3307751,
+          "lon": -4.7168368,
+          "tags": {
+            "name": "Beinglas Campsite Shop",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 4165952991,
+          "lat": 56.4386015,
+          "lon": -4.7134627,
+          "tags": {
+            "addr:postcode": "FK20 8RY",
+            "branch": "Brodie's Minimarket",
+            "brand": "KeyStore",
+            "brand:wikidata": "Q50528754",
+            "check_date": "2025-04-20",
+            "name": "KeyStore",
+            "opening_hours": "07:00-18:00",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "phone": "+44 1838 400275",
+            "shop": "convenience",
+            "website": "https://www.keystore.co.uk/store/keystore-express-tyndrum/"
+          }
+        },
+        {
+          "id": 4167972191,
+          "lat": 56.4381582,
+          "lon": -4.7126785,
+          "tags": {
+            "name": "The Green Welly Stop",
+            "opening_hours": "Mo-Su 07:00-22:00",
+            "payment:cash": "yes",
+            "shop": "convenience",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 4172844823,
+          "lat": 56.4334591,
+          "lon": -4.7089117,
+          "tags": {
+            "check_date": "2025-04-19",
+            "name": "Reception & Shop",
+            "opening_hours": "09:00-18:00",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "shop": "convenience",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 4895401900,
+          "lat": 56.084121,
+          "lon": -4.5396763,
+          "tags": {
+            "check_date:opening_hours": "2023-09-05",
+            "contact:phone": "+44 1360 870357",
+            "contact:website": "https://www.theoaktreeinn.co.uk/balmaha-village-shop",
+            "name": "Village Shop",
+            "opening_hours": "Mo-Su 08:00-20:00",
+            "opening_hours:signed": "no",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 5438582813,
+          "lat": 56.8285344,
+          "lon": -5.081968,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:place": "Fort William Retail Park",
+            "addr:postcode": "PH33 6PP",
+            "addr:street": "North Road",
+            "addr:unit": "Unit 3",
+            "brand": "M&S Foodhall",
+            "brand:wikidata": "Q714491",
+            "brand:wikipedia": "en:Marks & Spencer",
+            "check_date": "2024-07-21",
+            "check_date:opening_hours": "2024-07-21",
+            "contact:website": "https://www.marksandspencer.com/stores/fort-william-foodhall-2097",
+            "fhrs:id": "1013677",
+            "name": "M&S Foodhall",
+            "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-18:00",
+            "operator": "Marks and Spencers",
+            "shop": "supermarket"
+          }
+        },
+        {
+          "id": 5672286264,
+          "lat": 56.8381934,
+          "lon": -5.1065424,
+          "tags": {
+            "brand": "McColl's",
+            "brand:wikidata": "Q16997477",
+            "brand:wikipedia": "en:McColl's",
+            "contact:website": "https://www.mccolls.co.uk/storelocator/fort-william-glenloy-street/",
+            "name": "McColl's",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 11407694871,
+          "lat": 56.8196584,
+          "lon": -5.1084589,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6EU",
+            "addr:street": "Unit 2 Airds Crossing",
+            "brand": "Tesco Express",
+            "brand:wikidata": "Q98456772",
+            "check_date": "2025-05-10",
+            "name": "Tesco Express",
+            "operator": "Tesco",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 12103188006,
+          "lat": 55.9413353,
+          "lon": -4.3180941,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "10",
+            "addr:postcode": "G62 6PB",
+            "addr:street": "Douglas Street",
+            "addr:suburb": "Milngavie",
+            "branch": "Milngavie",
+            "brand": "Spar",
+            "brand:wikidata": "Q610492",
+            "check_date": "2025-06-05",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "1495946",
+            "fhrs:local_authority_id": "22/00005/MIXED",
+            "level": "0",
+            "name": "Spar",
+            "opening_hours": "Mo-Fr 07:30-19:00; Sa 08:00-19:00; Su 09:00-18:00",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 12110720358,
+          "lat": 56.5327618,
+          "lon": -4.8077993,
+          "tags": {
+            "name": "Buth Bheag - The Wee Shop",
+            "opening_hours": "Mo-Su 08:00-15:00",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 12164564581,
+          "lat": 55.9414537,
+          "lon": -4.3303828,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "7",
+            "addr:postcode": "G62 7PR",
+            "addr:street": "Carbeth Road",
+            "addr:suburb": "Milngavie",
+            "branch": "Carbeth Convenience",
+            "brand": "Premier",
+            "brand:wikidata": "Q7240340",
+            "check_date": "2024-11-17",
+            "contact:facebook": "profile.php?id=61564650135845",
+            "contact:phone": "+44 141 956 5955",
+            "contact:website": "https://www.premier-stores.co.uk/our-stores/carbeth-convenience",
+            "fixme": "Add FHRS ID",
+            "level": "0",
+            "name": "Premier",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 12200676349,
+          "lat": 55.9404565,
+          "lon": -4.3182366,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "20",
+            "addr:postcode": "G62 6BL",
+            "addr:street": "Main Street",
+            "addr:suburb": "Milngavie",
+            "check_date": "2024-11-17",
+            "fhrs:id": "635198",
+            "level": "0",
+            "name": "Baxters Newsagents",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 86865097,
+          "lat": 55.9397914,
+          "lon": -4.3148418,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "7",
+            "addr:postcode": "G62 6NB",
+            "addr:street": "Gavin's Mill Road",
+            "addr:suburb": "Milngavie",
+            "brand": "Tesco",
+            "brand:wikidata": "Q487494",
+            "brand:wikipedia": "en:Tesco",
+            "building:part": "retail",
+            "check_date": "2025-06-06",
+            "contact:website": "https://www.tesco.com/store-locator/glasgow/7-gavins-mill-rd",
+            "fhrs:id": "635147",
+            "level": "0",
+            "name": "Tesco",
+            "opening_hours": "Mo-Sa 07:00-23:00; Su 08:00-22:00",
+            "operator": "Tesco",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "shop": "supermarket",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 148601433,
+          "lat": 55.9408351,
+          "lon": -4.3176682,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:postcode": "G62 6BH",
+            "addr:street": "Main Street",
+            "addr:suburb": "Milngavie",
+            "addr:unit": "1",
+            "brand": "Marks & Spencer",
+            "brand:short": "M&S",
+            "brand:wikidata": "Q714491",
+            "brand:wikipedia": "en:Marks & Spencer",
+            "building": "yes",
+            "check_date": "2024-07-21",
+            "check_date:opening_hours": "2024-07-21",
+            "contact:website": "https://www.marksandspencer.com/stores/milngavie-simply-food-6525",
+            "fhrs:id": "635192",
+            "name": "M&S Simply Food",
+            "opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-19:00; Su 09:00-18:00",
+            "operator": "Marks & Spencer",
+            "phone": "+44 141 956 5029",
+            "shop": "supermarket"
+          }
+        },
+        {
+          "id": 172284958,
+          "lat": 56.3920776,
+          "lon": -4.6171229,
+          "tags": {
+            "brand": "Londis",
+            "brand:wikidata": "Q21008564",
+            "building": "yes",
+            "check_date": "2025-04-19",
+            "name": "Crianlarich Store",
+            "opening_hours": "Mo-Sa 07:30-19:00; Su 08:00-18:00",
+            "operator": "Londis",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "shop": "convenience",
+            "wheelchair": "limited"
+          }
+        },
+        {
+          "id": 197076676,
+          "lat": 56.8212763,
+          "lon": -5.1049242,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6AN",
+            "addr:street": "An Aird",
+            "alt_name": "Morrisons Fort William",
+            "brand": "Morrisons",
+            "brand:wikidata": "Q922344",
+            "brand:wikipedia": "en:Morrisons",
+            "building": "yes",
+            "check_date": "2025-04-12",
+            "fhrs:id": "360617",
+            "internet_access": "wlan",
+            "internet_access:fee": "no",
+            "name": "Morrisons",
+            "opening_hours": "Mo-Sa 07:00-22:00; PH,Su 08:00-20:00",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "phone": "+44 1397 700333",
+            "shop": "supermarket",
+            "website": "https://my.morrisons.com/storefinder/178/fort-william",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 197076841,
+          "lat": 56.8219638,
+          "lon": -5.1011368,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6AN",
+            "addr:street": "Camanachd Crescent",
+            "alt_name": "LIDL Fort William",
+            "brand": "Lidl",
+            "brand:wikidata": "Q151954",
+            "brand:wikipedia": "en:Lidl",
+            "building": "yes",
+            "check_date:opening_hours": "2024-11-04",
+            "fhrs:id": "360202",
+            "name": "Lidl",
+            "opening_hours": "Mo-Sa 08:00-22:00; Su 08:00-20:00",
+            "shop": "supermarket",
+            "website": "https://www.lidl.co.uk/s/en-GB/store-finder/fort-william/camanachd-crescent/",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 226419686,
+          "lat": 55.9371131,
+          "lon": -4.3175374,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "1-3",
+            "addr:postcode": "G62 6DB",
+            "addr:street": "South Mains Road",
+            "addr:suburb": "Milngavie",
+            "brand": "Day-Today",
+            "brand:wikidata": "Q121435331",
+            "building": "retail",
+            "check_date": "2024-05-27",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "1728239",
+            "fhrs:local_authority_id": "24/00036/MIXED",
+            "name": "Day-Today",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 283189291,
+          "lat": 56.8377405,
+          "lon": -5.1005231,
+          "tags": {
+            "brand": "Co-op Food",
+            "brand:wikidata": "Q3277439",
+            "brand:wikipedia": "en:Co-op Food",
+            "building": "yes",
+            "building:levels": "2",
+            "check_date": "2024-07-15",
+            "check_date:opening_hours": "2024-07-15",
+            "name": "Co-op Food",
+            "opening_hours": "Mo-Su 07:00-22:00",
+            "operator": "The Co-operative Group",
+            "operator:wikidata": "Q117202",
+            "phone": "+44 1397 703302",
+            "roof:shape": "gabled",
+            "shop": "supermarket",
+            "website": "https://www.coop.co.uk/store-finder/PH33-7EN/kilmallie-road"
+          }
+        },
+        {
+          "id": 443758688,
+          "lat": 55.9437205,
+          "lon": -4.3105464,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "68",
+            "addr:postcode": "G62 8DH",
+            "addr:street": "Strathblane Road",
+            "addr:suburb": "Milngavie",
+            "building": "retail",
+            "check_date": "2023-04-15",
+            "fhrs:id": "635195",
+            "name": "Milngavie Mini Market",
+            "shop": "convenience",
+            "source:addr": "FHRS Open Data"
+          }
+        },
+        {
+          "id": 453811833,
+          "lat": 55.9393569,
+          "lon": -4.3116953,
+          "tags": {
+            "brand": "Londis",
+            "brand:wikidata": "Q21008564",
+            "building": "retail",
+            "building:levels": "1",
+            "check_date": "2023-12-05",
+            "name": "Londis",
+            "opening_hours": "Mo-Fr 06:00-23:00; Sa-Su 07:00-22:00",
+            "operator": "Motor Fuel Group",
+            "operator:website": "https://www.motorfuelgroup.com/locations/milngavie-fs884/",
+            "operator:wikidata": "Q107271358",
+            "roof:levels": "0",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 498095224,
+          "lat": 55.9343715,
+          "lon": -4.3147676,
+          "tags": {
+            "addr:postcode": "G62 6HJ",
+            "addr:street": "Glasgow Road",
+            "brand": "Waitrose",
+            "brand:wikidata": "Q771734",
+            "brand:wikipedia": "en:Waitrose",
+            "building": "retail",
+            "building:levels": "1",
+            "check_date": "2025-05-09",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "810719",
+            "fhrs:local_authority_id": "PI/000061096",
+            "name": "Waitrose",
+            "nohousenumber": "yes",
+            "official_name": "Waitrose & Partners",
+            "opening_hours": "Mo-Fr 08:30-21:00; Sa-Su 08:30-20:00",
+            "operator": "Waitrose & Partners",
+            "payment:cash": "yes",
+            "roof:levels": "0",
+            "shop": "supermarket",
+            "website": "https://www.waitrose.com/find-a-store/milngavie"
+          }
+        },
+        {
+          "id": 595155091,
+          "lat": 56.8277884,
+          "lon": -5.0835716,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:unit": "Unit A",
+            "brand": "ALDI",
+            "brand:wikidata": "Q41171672",
+            "brand:wikipedia": "en:Aldi",
+            "building": "supermarket",
+            "contact:website": "https://stores.aldi.co.uk/fort-william/unit-a-north-road-rp",
+            "name": "ALDI",
+            "shop": "supermarket"
+          }
+        },
+        {
+          "id": 839005123,
+          "lat": 55.932722,
+          "lon": -4.315143,
+          "tags": {
+            "addr:city": "Glasgow",
+            "addr:housenumber": "10",
+            "addr:postcode": "G62 6AB",
+            "addr:street": "West Park",
+            "addr:suburb": "Milngavie",
+            "addr:unit": "Unit 1",
+            "brand": "ALDI",
+            "brand:wikidata": "Q41171672",
+            "brand:wikipedia": "en:Aldi",
+            "building": "retail",
+            "contact:website": "https://stores.aldi.co.uk/milngavie/unit-1-west-rp-main-st",
+            "fhrs:authority": "East Dunbartonshire",
+            "fhrs:id": "1209427",
+            "fhrs:local_authority_id": "19/00058/MIXED",
+            "name": "ALDI",
+            "shop": "supermarket",
+            "source:addr:postcode": "FHIS"
+          }
+        },
+        {
+          "id": 953975783,
+          "lat": 55.9345182,
+          "lon": -4.3443087,
+          "tags": {
+            "addr:postcode": "G61 3SE",
+            "addr:street": "Stockiemuir Road",
+            "addr:town": "Bearsden",
+            "brand": "M&S Simply Food",
+            "brand:wikidata": "Q714491",
+            "building": "retail",
+            "building:levels": "1",
+            "check_date": "2025-06-08",
+            "fhrs:id": "761721",
+            "name": "M&S Simply Food",
+            "operator": "M&S",
+            "roof:shape": "flat",
+            "shop": "convenience",
+            "source:addr": "FHRS Open Data",
+            "website": "https://www.marksandspencer.com/stores/bearsden-bp-1343"
+          }
+        },
+        {
+          "id": 1038051413,
+          "lat": 55.9307516,
+          "lon": -4.3359463,
+          "tags": {
+            "addr:housenumber": "57-59",
+            "addr:postcode": "G61 3JJ",
+            "addr:street": "Stockiemuir Avenue",
+            "brand": "Co-op Food",
+            "brand:wikidata": "Q3277439",
+            "brand:wikipedia": "en:Co-op Food",
+            "building": "retail",
+            "building:levels": "1",
+            "check_date": "2024-07-15",
+            "check_date:opening_hours": "2024-07-15",
+            "fhrs:id": "910779",
+            "name": "Co-op Food",
+            "opening_hours": "Mo-Su 07:00-22:00",
+            "operator": "The Co-operative Group",
+            "operator:wikidata": "Q117202",
+            "phone": "+44 1419 427 226",
+            "roof:colour": "grey",
+            "roof:shape": "flat",
+            "shop": "convenience",
+            "website": "https://www.coop.co.uk/store-finder/G61-3JJ/57-59-stockiemuir-avenue"
+          }
+        },
+        {
+          "id": 1198253966,
+          "lat": 56.1120822,
+          "lon": -4.5818911,
+          "tags": {
+            "building": "yes",
+            "name": "Reception (with Minimarket)",
+            "shop": "convenience"
+          }
+        }
+      ]
     },
     {
       "label": "toilets",
@@ -1787,6 +2832,18 @@
           }
         },
         {
+          "id": 377125327,
+          "lat": 56.2515642,
+          "lon": -4.7084354,
+          "tags": {
+            "amenity": "toilets",
+            "fee": "no",
+            "opening_hours": "09:00-17:00",
+            "source": "survey",
+            "wheelchair": "yes"
+          }
+        },
+        {
           "id": 739588378,
           "lat": 56.4384194,
           "lon": -4.7124688,
@@ -1815,6 +2872,23 @@
             "amenity": "toilets",
             "check_date": "2022-09-30",
             "fee": "no",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 2432233839,
+          "lat": 56.2025948,
+          "lon": -4.7094902,
+          "tags": {
+            "access": "permissive",
+            "amenity": "toilets",
+            "check_date": "2023-01-15",
+            "drinking_water": "yes",
+            "fee": "no",
+            "female": "yes",
+            "male": "yes",
+            "opening_hours": "24/7",
+            "toilets:disposal": "flush",
             "wheelchair": "yes"
           }
         },
@@ -2120,6 +3194,15 @@
           "id": 1177056253,
           "lat": 55.9931574,
           "lon": -4.3762055,
+          "tags": {
+            "amenity": "toilets",
+            "building": "yes"
+          }
+        },
+        {
+          "id": 1193418512,
+          "lat": 56.1705128,
+          "lon": -4.6782014,
           "tags": {
             "amenity": "toilets",
             "building": "yes"
@@ -3589,21 +4672,21 @@
     }
   ],
   "selectedLayers": [
-    "groceries",
+    "drinking_water",
     "cafes",
     "pubs_restaurants",
-    "drinking_water",
+    "groceries",
     "toilets",
     "import_gpx"
   ],
   "mapBounds": {
     "southWest": {
-      "lat": 55.94786835276837,
-      "lng": -6.0087460887256725
+      "lat": 55.929393258582806,
+      "lng": -6.041762243975167
     },
     "northEast": {
-      "lat": 56.86231019296807,
-      "lng": -3.227620540650643
+      "lat": 56.84427368274128,
+      "lng": -3.260636695900137
     }
   }
 }
