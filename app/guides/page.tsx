@@ -33,7 +33,7 @@ export default function Guides() {
                 <Navbar />
                 <Title order={1} mb="lg">Guides</Title>
                 <Text c="dark.9" mb="md">
-                    Pre-made, activity-specific guides to help you plan your next adventure. We're starting with a few popular ones, but more will be added soon!
+                    Pre-made, activity-specific guides to help you plan your next adventure. We&apos;re starting with a few popular ones, but more will be added soon!
                 </Text>
                 <Stack gap="lg" mt="xl">
                     <Group gap="lg" wrap="wrap">
