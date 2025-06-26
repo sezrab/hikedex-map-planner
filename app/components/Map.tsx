@@ -446,6 +446,11 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
     const containerWidth = orientation === 'portrait' ? baseWidth : baseHeight;
     const containerHeight = orientation === 'portrait' ? baseHeight : baseWidth;
     let scale = 1;
+
+    if (norefresh) {
+        setHasCenteredUserLocation(true);
+    }
+
     if (printPreview) {
         const vh = window.innerHeight;
         if (vh < containerHeight) {
