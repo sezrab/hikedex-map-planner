@@ -7,6 +7,7 @@ export interface BackpackingMapPageProps {
     pageUrl?: string;
     ogUrl?: string;
     headerImage?: string;
+    imagePosition?: 'top' | 'middle' | 'bottom';
 }
 
 export const backpackingPages: Record<string, BackpackingMapPageProps> = {
@@ -23,6 +24,21 @@ export const backpackingPages: Record<string, BackpackingMapPageProps> = {
         pageUrl: '/backpacking-uk/westhighlandway',
         ogUrl: 'https://hikedex.app/backpacking-uk/westhighlandway',
         headerImage: 'https://images.unsplash.com/photo-1607602274042-161d6cba839a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        imagePosition: 'bottom',
     },
-    // Add more slugs here as needed
+    southwestcoastpath: {
+        title: 'South West Coast Path: resupply points',
+        description: 'A printable map of the South West Coast Path showing resupply points, shops, cafes, water fountains, and public toilets for backpackers and hikers.',
+        details: [
+            'The South West Coast Path is a long-distance walking trail in England, stretching 630 miles (1,014 km) around the coastline of Devon and Cornwall. It is the longest National Trail in the UK and offers breathtaking views of cliffs, beaches, and coastal wildlife.',
+            "We've curated this map specially for backpackers walking the ever-pleasant cliffs and beaches of the South West Coast Path. The map shows resupply points along the route, including shops, cafes, water fountains, and public toilets.",
+            'This printable map is particularly useful for hikers who want to minimise their pack weight and ensure they have access to essential supplies without carrying everything from the start.'
+        ],
+        mapUrl: '/map/southwestcoastpath',
+        feedbackUrl: 'https://forms.gle/BzXeS9KyEAtwwGgxRA',
+        pageUrl: '/backpacking-uk/southwestcoastpath',
+        ogUrl: 'https://hikedex.app/backpacking-uk/southwestcoastpath',
+        headerImage: 'https://images.unsplash.com/photo-1543241964-2aff6a70473f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        imagePosition: 'middle'
+    },
 };

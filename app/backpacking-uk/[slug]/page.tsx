@@ -14,6 +14,7 @@ function BackpackingMapPage({
     feedbackUrl = 'https://forms.gle/BzXeS9KyEAtwWgxRA',
     ogUrl = '',
     headerImage,
+    imagePosition = 'middle'
 }: BackpackingMapPageProps) {
     const seoImage = headerImage || '/globe.svg';
     return (
@@ -51,7 +52,7 @@ function BackpackingMapPage({
                                 width: '100%',
                                 maxHeight: 290,
                                 objectFit: 'cover',
-                                objectPosition: 'bottom',
+                                objectPosition: imagePosition,
                                 borderRadius: 12,
                                 marginBottom: 32,
                                 boxShadow: '0 2px 16px rgba(0,0,0,0.08)'
