@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { MapContainer, TileLayer, useMapEvents, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, useMapEvents, useMap, Polyline } from 'react-leaflet';
 
 import L, { LeafletEvent } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -10,7 +10,8 @@ import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import html2canvas from 'html2canvas';
 import { Modal, Table, Checkbox, MultiSelect, Select } from '@mantine/core';
-
+import { Dropzone } from '@mantine/dropzone';
+import * as toGeoJSON from '@tmcw/togeojson';
 import {
     Drawer,
     Button,
@@ -31,6 +32,7 @@ const presetQueries: Record<string, string> = {
     '💧 Drinking Water': `nwr["amenity"="drinking_water"]`,
     '🌊 Natural Springs': `nwr["natural"="spring"]`,
     '🚻 Toilets': `nwr["amenity"="toilets"]`,
+    '🗺️ Import GPX': `#gpx`,
 };
 const queryIcons: Record<string, string> = {
     '🚏 Bus Stops': '<i class="fas fa-bus" style="color:#1e40af; font-size:20px"></i>',
@@ -41,6 +43,7 @@ const queryIcons: Record<string, string> = {
     '💧 Drinking Water': '<i class="fas fa-faucet-drip" style="color:#1e40af; font-size:20px"></i>',
     '🚻 Toilets': '<i class="fas fa-restroom" style="color:#1e40af; font-size:20px"></i>',
     '🌊 Natural Springs': '<i class="fas fa-water" style="color:#1e40af; font-size:20px"></i>',
+    '🗺️ Import GPX': '<i class="fas fa-file-import" style="color:#1e40af; font-size:20px"></i>'
 };
 
 type OsmElement = {
@@ -368,7 +371,14 @@ export default function FullscreenMapWithQueries() {
     const [markerSelectionMode, setMarkerSelectionMode] = useState(false);
     const [selectedMarkerIds, setSelectedMarkerIds] = useState<Set<number>>(new Set());
     const [markerSelectionModalOpen, setMarkerSelectionModalOpen] = useState(false);
-
+    const [gpxSettingsOpen, setGPXSettingsOpen] = useState(false);
+    const [gpxFiles, setGpxFiles] = useState<{
+        id: string;
+        name: string;
+        geojson: GeoJSON.FeatureCollection<GeoJSON.LineString | GeoJSON.MultiLineString>;
+        color: string;
+    }[]>([]);
+    const [gpxProximity, setGpxProximity] = useState(1); // km
 
     function MapEventsHandler() {
         useMapEvents({
@@ -716,6 +726,122 @@ export default function FullscreenMapWithQueries() {
         return null;
     }
 
+    // Helper to parse GPX file to GeoJSON
+    const parseGpxToGeoJson = async (file: File) => {
+        const text = await file.text();
+        // const xml = parser.parse(text); // Removed unused variable
+        // Use togeojson to convert
+        const dom = new window.DOMParser().parseFromString(text, 'text/xml');
+        const geojson = toGeoJSON.gpx(dom) as GeoJSON.FeatureCollection<GeoJSON.LineString | GeoJSON.MultiLineString>;
+        return geojson;
+    };
+
+    // Helper to generate high-contrast color palette
+    const gpxColorPalette = [
+        '#e6194b', // red
+        '#3cb44b', // green
+        '#ffe119', // yellow
+        '#4363d8', // blue
+        '#f58231', // orange
+        '#911eb4', // purple
+        '#46f0f0', // cyan
+        '#f032e6', // magenta
+        '#bcf60c', // lime
+        '#fabebe', // pink
+        '#008080', // teal
+        '#e6beff', // lavender
+        '#9a6324', // brown
+        '#fffac8', // beige
+        '#800000', // maroon
+        '#aaffc3', // mint
+        '#808000', // olive
+        '#ffd8b1', // apricot
+        '#000075', // navy
+        '#808080', // gray
+        '#ffffff', // white
+        '#000000', // black
+    ];
+    let gpxColorIndex = 0;
+
+    // Add GPX file(s)
+    const handleGpxDrop = async (files: File[]) => {
+        const newFiles = await Promise.all(files.map(async (file) => {
+            const geojson = await parseGpxToGeoJson(file);
+            // Pick next high-contrast color
+            const color = gpxColorPalette[gpxColorIndex % gpxColorPalette.length];
+            gpxColorIndex++;
+            return {
+                id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 10) + Date.now().toString(36),
+                name: file.name,
+                geojson,
+                color,
+            };
+        }));
+        setGpxFiles((prev) => [...prev, ...newFiles]);
+        setNeedsRefresh(true);
+    };
+
+    // Remove GPX file by id
+    const removeGpxFile = (id: string) => {
+        setGpxFiles((prev) => prev.filter((f) => f.id !== id));
+        setNeedsRefresh(true);
+    };
+
+    // Helper: get all coordinates from all GPX lines
+    const getAllGpxCoords = () => {
+        const coords: [number, number][] = [];
+        gpxFiles.forEach((f) => {
+            f.geojson.features.forEach((feat) => {
+                if (feat.geometry.type === 'LineString') {
+                    (feat.geometry.coordinates as [number, number][]).forEach(([lon, lat]) => coords.push([lat, lon]));
+                } else if (feat.geometry.type === 'MultiLineString') {
+                    (feat.geometry.coordinates as [number, number][][]).forEach((line) => {
+                        line.forEach(([lon, lat]) => coords.push([lat, lon]));
+                    });
+                }
+            });
+        });
+        return coords;
+    };
+
+    // Haversine distance in km
+    function haversine(lat1: number, lon1: number, lat2: number, lon2: number) {
+        const R = 6371;
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    }
+
+    // Select markers within X km of any GPX line
+    const selectMarkersNearGpx = () => {
+        // set marker selection mode if not already
+        setClustering(false);
+        setGPXSettingsOpen(false);
+        if (!markerSelectionMode)
+            setMarkerSelectionModalOpen(true);
+        setMarkerSelectionMode(true);
+        setGPXSettingsOpen(false);
+        setDrawerOpened(false);
+        const coords = getAllGpxCoords();
+        if (coords.length === 0) return;
+        const newSelected = new Set<number>();
+        queries.forEach((query) => {
+            query.data.forEach((el) => {
+                for (const [lat, lon] of coords) {
+                    if (haversine(lat, lon, el.lat, el.lon) <= gpxProximity) {
+                        newSelected.add(el.id);
+                        break;
+                    }
+                }
+            });
+        });
+        setSelectedMarkerIds(newSelected);
+    };
+
     return (
         <>
             {/* Parking settings modal */}
@@ -751,6 +877,66 @@ export default function FullscreenMapWithQueries() {
                         </Text>
                     )}
 
+                </Stack>
+            </Modal>
+
+            {/* GPX Settings */}
+            <Modal
+                opened={gpxSettingsOpen}
+                onClose={() => setGPXSettingsOpen(false)}
+                title="Import GPX Files"
+                centered
+                size="md"
+                zIndex={350}
+            >
+                <Stack>
+                    <Dropzone
+                        onDrop={handleGpxDrop}
+                        multiple
+                        accept={{ 'application/gpx+xml': ['.gpx'], 'application/xml': ['.gpx'] }}
+                        maxSize={5 * 1024 * 1024}
+                        style={{ minHeight: 100, border: '2px dashed #ccc', borderRadius: 8, padding: '30px', cursor: 'pointer' }}
+                    >
+                        <Text c="gray.7" size="sm">
+                            Drag and drop GPX files here, or click to select files (max 5MB each)
+                        </Text>
+                    </Dropzone>
+                    {gpxFiles.length > 0 && (
+                        <Stack>
+                            <Text fw={500} size="sm">Imported GPX Tracks:</Text>
+                            {gpxFiles.map((f) => (
+                                <Group key={f.id}>
+                                    <span style={{ color: f.color, fontWeight: 600 }}>&#9632;</span>
+                                    <Text>{f.name}</Text>
+                                    <Space style={{ flex: 1 }} />
+                                    <Button size="xs" color="red" variant="light" onClick={() => removeGpxFile(f.id)} aria-label={`Remove ${f.name}`}>Remove</Button>
+                                </Group>
+                            ))}
+                        </Stack>
+                    )}
+                    {gpxFiles.length > 0 && !isMobile && (
+                        <Group>
+                            <Text size="sm">Select markers within</Text>
+                            <Space style={{ flex: 1 }} />
+                            <Select
+                                size="xs"
+                                value={gpxProximity.toString()}
+                                onChange={v => setGpxProximity(Number(v))}
+                                comboboxProps={{
+                                    withinPortal: true,
+                                    zIndex: 500
+                                }}
+                                data={[
+                                    { value: '0.5', label: '0.5 km' },
+                                    { value: '1', label: '1 km' },
+                                    { value: '2', label: '2 km' },
+                                    { value: '5', label: '5 km' },
+                                ]}
+                                style={{ width: 90 }}
+                            />
+                            <Button size="xs" onClick={selectMarkersNearGpx} aria-label="Select markers near GPX">Select</Button>
+                        </Group>
+                    )}
                 </Stack>
             </Modal>
 
@@ -795,7 +981,7 @@ export default function FullscreenMapWithQueries() {
 
 
             {/* Map container - resize and scale if print preview */}
-            < div
+            <div
                 ref={printContainerRef}
                 style={{
                     width: printPreview ? `${containerWidth}px` : '100vw',
@@ -819,6 +1005,8 @@ export default function FullscreenMapWithQueries() {
                     zoom={15}
                     style={{ height: '100%', width: '100%', zIndex: 0 }}
                     zoomControl={false}
+                    zoomDelta={0.5}
+                    zoomSnap={0.5}
                 >
                     <TileLayer
                         url={selectedTile.url}
@@ -845,6 +1033,26 @@ export default function FullscreenMapWithQueries() {
                         />
                     )}
                     <UserLocationSetter />
+                    {/* Render GPX lines */}
+                    {gpxFiles.map((f) => f.geojson.features.map((feat, i) =>
+                        feat.geometry.type === 'LineString' ? (
+                            <Polyline
+                                key={f.id + '-' + i}
+                                positions={(feat.geometry.coordinates as [number, number][]).map(([lon, lat]) => [lat, lon])}
+                                pathOptions={{ color: f.color, weight: 4, opacity: 0.8 }}
+                                renderer={L.canvas()}
+                            />
+                        ) : feat.geometry.type === 'MultiLineString' ? (
+                            (feat.geometry.coordinates as [number, number][][]).map((line, j) => (
+                                <Polyline
+                                    key={f.id + '-' + i + '-' + j}
+                                    positions={line.map(([lon, lat]) => [lat, lon])}
+                                    pathOptions={{ color: f.color, weight: 4, opacity: 0.8 }}
+                                    renderer={L.canvas()}
+                                />
+                            ))
+                        ) : null
+                    ))}
                 </MapContainer>
             </div >
 
@@ -957,6 +1165,18 @@ export default function FullscreenMapWithQueries() {
                                             size="sm"
                                             onClick={() => setParkingSettingsOpen(true)}
                                             aria-label="Parking layer settings"
+                                        >
+                                            <i className="fas fa-cog" style={{ fontSize: 14 }} />
+                                        </ActionIcon>
+                                    )}
+                                    {/* label === '🗺️ Import GPX' */}
+                                    {label === '🗺️ Import GPX' && (
+                                        <ActionIcon
+                                            variant="subtle"
+                                            color="gray"
+                                            size="sm"
+                                            onClick={() => setGPXSettingsOpen(true)}
+                                            aria-label="Import GPX file"
                                         >
                                             <i className="fas fa-cog" style={{ fontSize: 14 }} />
                                         </ActionIcon>
@@ -1134,6 +1354,20 @@ export default function FullscreenMapWithQueries() {
                     aria-label="Clear marker selection"
                 >
                     Clear Selection
+                </Button>
+                <Button
+                    size="xs"
+                    variant="white"
+                    color="gray"
+                    onClick={() => {
+                        setClustering(true);
+                        setMarkerSelectionModalOpen(false);
+                        setMarkerSelectionMode(false);
+                        setDrawerOpened(false);
+                    }}
+                    aria-label="Exit marker selection mode"
+                >
+                    Exit Marker Selection
                 </Button>
             </Group >
         </>
