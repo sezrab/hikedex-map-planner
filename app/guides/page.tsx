@@ -1,16 +1,40 @@
-import { Container, Title, Text, Card, Button, Stack, Group, Flex } from '@mantine/core';
+import { Container, Title, Text, Card, Button, Stack, Group, Image, CardSection } from '@mantine/core';
 import Link from 'next/link';
 import Navbar from '@/app/components/Navbar';
+import { guidesConfig } from './guidesConfig';
 
 type GuideCardProps = {
+    image?: string;
     title: string;
     description: string;
+    descriptionShort?: string; // Optional short description for the guide
     href: string;
 };
 
-function GuideCard({ title, description, href }: GuideCardProps) {
+function GuideCard({ image, title, description, descriptionShort, href }: GuideCardProps) {
     return (
         <Card padding="lg" radius="md" style={{ minWidth: 320, flex: '1 1 320px', maxWidth: 400 }}>
+            <CardSection>
+                <Image
+                    src={image || 'https://images.unsplash.com/photo-1512617835784-a92626c0a554?q=80&w=1374&auto=format&fit=crop'}
+                    height={160}
+                    alt="Norway"
+                />
+            </CardSection>
+            <Group justify="space-between" mt="md" mb="xs">
+                <Text fw={500}>
+                    {title}
+                </Text>
+            </Group>
+
+            <Text size="sm" c="dimmed">
+                {descriptionShort || description}
+            </Text>
+
+            <Button color="blue" fullWidth mt="md" radius="md" component={Link} href={href} variant="light">
+                See more
+            </Button>
+            {/* 
             <Group justify="space-between" align="center">
                 <div>
                     <Title order={2} size="h3" mb={4}>{title}</Title>
@@ -21,7 +45,7 @@ function GuideCard({ title, description, href }: GuideCardProps) {
                         Read more
                     </Button>
                 </Flex>
-            </Group>
+            </Group> */}
         </Card>
     );
 }
@@ -37,11 +61,16 @@ export default function Guides() {
                 </Text>
                 <Stack gap="lg" mt="xl">
                     <Group gap="lg" wrap="wrap">
-                        <GuideCard
-                            title="Backpacking UK"
-                            description="Explore the best backpacking routes in the UK with detailed maps and essential information."
-                            href="/backpacking-uk"
-                        />
+                        {Object.entries(guidesConfig).map(([slug, guide]) => (
+                            <GuideCard
+                                key={slug}
+                                image={guide.guideImage}
+                                title={guide.guideTitle}
+                                description={guide.guideDescription}
+                                descriptionShort={guide.guideDescriptionShort}
+                                href={`/g/${slug}`}
+                            />
+                        ))}
                     </Group>
                 </Stack>
             </Container>

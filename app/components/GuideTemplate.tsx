@@ -3,24 +3,35 @@
 import { Button, Container, Group, Text, Flex } from '@mantine/core';
 import Head from 'next/head';
 import Navbar from '@/app/components/Navbar';
-import { useParams } from 'next/navigation';
-import { backpackingPages, BackpackingMapPageProps } from '../backpackingPages';
 
-function BackpackingMapPage({
+export interface GuideTemplateProps {
+    title: string;
+    description: string;
+    details: string[];
+    mapUrl: string;
+    feedbackUrl?: string;
+    ogUrl?: string;
+    headerImage?: string;
+    imagePosition?: 'top' | 'middle' | 'bottom';
+    guideType?: string;
+}
+
+export default function GuideTemplate({
     title,
     description,
     details,
     mapUrl,
-    feedbackUrl = 'https://forms.gle/BzXeS9KyEAtwWgxRA',
+    feedbackUrl = '',
     ogUrl = '',
     headerImage,
-    imagePosition = 'middle'
-}: BackpackingMapPageProps) {
+    imagePosition = 'middle',
+    guideType = 'Guide',
+}: GuideTemplateProps) {
     const seoImage = headerImage || '/globe.svg';
     return (
         <>
             <Head>
-                <title>{title} | Backpacking UK</title>
+                <title>{title} | {guideType}</title>
                 <meta name="description" content={description} />
                 <meta property="og:title" content={title} />
                 <meta property="og:description" content={description} />
@@ -105,41 +116,4 @@ function BackpackingMapPage({
             </main>
         </>
     );
-}
-
-export default function BackpackingSlugPage() {
-    const params = useParams();
-    const slug = typeof params.slug === 'string' ? params.slug : Array.isArray(params.slug) ? params.slug[0] : '';
-    const pageProps = backpackingPages[slug];
-    if (!pageProps) {
-        return (<main
-            style={{
-                minHeight: '100vh',
-                display: 'flex',
-                flexDirection: 'column',
-                background: 'linear-gradient(135deg, #e3f2fd, #bbdefb)',
-            }}
-        >
-            <Container py="xl" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <Navbar />
-                <div style={{ flex: 1, display: 'flex', alignItems: 'center', }}>
-                    <Flex
-                        w={'100vw'}
-                        justify="space-between"
-                        align="center"
-                        gap="xl"
-                        direction={{ base: 'column', sm: 'row' }}
-                        mih={0}
-                    >
-                        <div style={{ flex: 1 }}>
-                            <h1 style={{ color: '#212529', margin: 0 }}>Not found</h1>
-                            <Text c="dark.9" mt="md">No backpacking info found for this route.</Text>
-                        </div>
-                    </Flex>
-                </div>
-            </Container>
-        </main>
-        );
-    }
-    return <BackpackingMapPage {...pageProps} />;
 }
