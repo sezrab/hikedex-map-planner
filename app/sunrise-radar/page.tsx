@@ -61,6 +61,8 @@ function RadarForm() {
                 </Text>
             </Modal>
             <Flex
+                w={'100vw'}
+                p={{ base: '', sm: '15%' }}
                 justify="space-between"
                 align="center"
                 gap="xl"

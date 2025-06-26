@@ -23,34 +23,46 @@ import {
     Space,
 } from '@mantine/core';
 
+const queryLabels: Record<string, string> = {
+    'bus_stops': '🚏 Bus Stops',
+    'parking': '🅿️ Parking',
+    'groceries': '🛒 Groceries',
+    'cafes': '☕ Cafes',
+    'pubs_restaurants': '🍻 Pubs, Restaurants',
+    'drinking_water': '💧 Drinking Water',
+    'natural_springs': '🌊 Natural Springs',
+    'toilets': '🚻 Toilets',
+    'import_gpx': '🗺️ Import GPX',
+}
+
 const presetQueries: Record<string, string> = {
-    '🚏 Bus Stops': `nwr["highway"="bus_stop"]`,
-    '🅿️ Parking': `nwr["amenity"="parking"]`,
-    '🛒 Groceries': `nwr["shop"~"supermarket|convenience|greengrocer"]`,
-    '☕ Cafes': `nwr["amenity"="cafe"]`,
-    '🍻 Pubs, Restaurants': `nwr["amenity"~"^pub$|^restaurant$"]`,
-    '💧 Drinking Water': `nwr["amenity"="drinking_water"]`,
-    '🌊 Natural Springs': `nwr["natural"="spring"]`,
-    '🚻 Toilets': `nwr["amenity"="toilets"]`,
-    '🗺️ Import GPX': `#gpx`,
+    'bus_stops': `nwr["highway"="bus_stop"]`,
+    'parking': `nwr["amenity"="parking"]`,
+    'groceries': `nwr["shop"~"supermarket|convenience|greengrocer"]`,
+    'cafes': `nwr["amenity"="cafe"]`,
+    'pubs_restaurants': `nwr["amenity"~"^pub$|^restaurant$"]`,
+    'drinking_water': `nwr["amenity"="drinking_water"]`,
+    'natural_springs': `nwr["natural"="spring"]`,
+    'toilets': `nwr["amenity"="toilets"]`,
+    'import_gpx': `#gpx`,
 };
 const queryIcons: Record<string, string> = {
-    '🚏 Bus Stops': '<i class="fas fa-bus" style="color:#1e40af; font-size:20px"></i>',
-    '🅿️ Parking': '<i class="fas fa-parking" style="color:#1e40af; font-size:20px"></i>',
-    '🛒 Groceries': '<i class="fas fa-shopping-cart" style="color:#1e40af; font-size:20px"></i>',
-    '☕ Cafes': '<i class="fas fa-coffee" style="color:#1e40af; font-size:20px"></i>',
-    '🍻 Pubs, Restaurants': '<i class="fas fa-martini-glass" style="color:#1e40af; font-size:20px"></i>',
-    '💧 Drinking Water': '<i class="fas fa-faucet-drip" style="color:#1e40af; font-size:20px"></i>',
-    '🚻 Toilets': '<i class="fas fa-restroom" style="color:#1e40af; font-size:20px"></i>',
-    '🌊 Natural Springs': '<i class="fas fa-water" style="color:#1e40af; font-size:20px"></i>',
-    '🗺️ Import GPX': '<i class="fas fa-file-import" style="color:#1e40af; font-size:20px"></i>'
+    'bus_stops': '<i class="fas fa-bus" style="color:#1e40af; font-size:20px"></i>',
+    'parking': '<i class="fas fa-parking" style="color:#1e40af; font-size:20px"></i>',
+    'groceries': '<i class="fas fa-shopping-cart" style="color:#1e40af; font-size:20px"></i>',
+    'cafes': '<i class="fas fa-coffee" style="color:#1e40af; font-size:20px"></i>',
+    'pubs_restaurants': '<i class="fas fa-martini-glass" style="color:#1e40af; font-size:20px"></i>',
+    'drinking_water': '<i class="fas fa-faucet-drip" style="color:#1e40af; font-size:20px"></i>',
+    'toilets': '<i class="fas fa-restroom" style="color:#1e40af; font-size:20px"></i>',
+    'natural_springs': '<i class="fas fa-water" style="color:#1e40af; font-size:20px"></i>',
+    'import_gpx': '<i class="fas fa-file-import" style="color:#1e40af; font-size:20px"></i>'
 };
 
 type OsmElement = {
     id: number;
     lat: number;
     lon: number;
-    tags?: Record<string, string>;
+    tags: Record<string, string> | undefined;
 };
 
 type Query = {
@@ -348,7 +360,29 @@ function useIsMobile() {
     return isMobile;
 }
 
-export default function FullscreenMapWithQueries() {
+// Types for export/import state
+interface ExportedQuery {
+    label: string;
+    queryString: string;
+    data: OsmElement[];
+}
+interface ExportedGpxFile {
+    name: string;
+    geojson: GeoJSON.FeatureCollection<GeoJSON.LineString | GeoJSON.MultiLineString>;
+    color: string;
+}
+export interface ExportedMapState {
+    queries: ExportedQuery[];
+    gpxFiles: ExportedGpxFile[];
+    selectedLayers: string[];
+    mapBounds: {
+        southWest: { lat: number; lng: number };
+        northEast: { lat: number; lng: number };
+    } | null;
+}
+
+
+export default function FullscreenMapWithQueries({ jsonData, norefresh }: { jsonData?: ExportedMapState, norefresh?: boolean } = {}) {
     const [queries, setQueries] = useState<Query[]>([]);
     const [drawerOpened, setDrawerOpened] = useState(false);
     const [mapBounds, setMapBounds] = useState<L.LatLngBounds | null>(null);
@@ -379,6 +413,7 @@ export default function FullscreenMapWithQueries() {
         color: string;
     }[]>([]);
     const [gpxProximity, setGpxProximity] = useState(1); // km
+    const mapRef = useRef<L.Map | null>(null);
 
     function MapEventsHandler() {
         useMapEvents({
@@ -425,23 +460,24 @@ export default function FullscreenMapWithQueries() {
         return `${sw.lat},${sw.lng},${ne.lat},${ne.lng}`;
     };
 
-    const fetchQueryData = async (queryString: string, bbox: L.LatLngBounds, label?: string) => {
+    const fetchQueryData = async (queryString: string, bbox: L.LatLngBounds, label?: string): Promise<OsmElement[]> => {
         const bboxStr = buildBBox(bbox);
         const fullQuery = `[out:json][timeout:25];${queryString}(${bboxStr});out center;`;
         const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(fullQuery)}`;
         try {
             const res = await fetch(url);
             const json = await res.json();
-            let elements = json.elements
-                .map((el: {
-                    type: string;
-                    id: number;
-                    lat?: number;
-                    lon?: number;
-                    tags?: Record<string, string>;
-                    center?: { lat: number; lon: number };
-                    members?: { type: string; lat: number; lon: number }[];
-                }) => {
+            type OverpassElement = {
+                type: string;
+                id: number;
+                lat?: number;
+                lon?: number;
+                tags?: Record<string, string>;
+                center?: { lat: number; lon: number };
+                members?: { type: string; lat: number; lon: number }[];
+            };
+            let elements = (json.elements as OverpassElement[])
+                .map((el) => {
                     if (el.type === 'node') {
                         return {
                             id: el.id,
@@ -466,7 +502,13 @@ export default function FullscreenMapWithQueries() {
                     }
                     return null;
                 })
-                .filter((el: OsmElement | null) => el !== null && el.id !== undefined && el.lat !== undefined && el.lon !== undefined);
+                .filter(
+                    (el): el is OsmElement =>
+                        el !== null &&
+                        typeof el.id === 'number' &&
+                        typeof el.lat === 'number' &&
+                        typeof el.lon === 'number'
+                );
             // Filter parking for fee-free if needed
             if (label === '🅿️ Parking' && parkingFreeOnly) {
                 // Filter out parking with fee
@@ -570,7 +612,7 @@ export default function FullscreenMapWithQueries() {
         const toAdd = selected.filter((label) => !addedLabels.includes(label));
         const newQueries = toAdd.map((label) => {
             let queryStr = presetQueries[label];
-            if (label === '🅿️ Parking') {
+            if (label === "parking") {
                 setParkingSettingsOpen(true);
                 if (parkingFreeOnly) {
                     queryStr = 'nwr["amenity"="parking"]["fee"!~"yes|ticket|disc"]';
@@ -842,8 +884,141 @@ export default function FullscreenMapWithQueries() {
         setSelectedMarkerIds(newSelected);
     };
 
+    // DEV: Export/Import state helpers
+    const isDev = typeof window !== 'undefined' && window.location.search.includes('dev=1');
+    const [devModalOpen, setDevModalOpen] = useState(false);
+    const [importText, setImportText] = useState('');
+    const [importError, setImportError] = useState('');
+
+    // Helper: build exportable state
+    const buildExportState = (): ExportedMapState => {
+        return {
+            queries: queries.map(q => ({
+                label: q.label,
+                queryString: q.queryString,
+                data: q.data,
+            })),
+            gpxFiles: gpxFiles.map(f => ({
+                name: f.name,
+                geojson: f.geojson,
+                color: f.color,
+            })),
+            selectedLayers: queries.map(q => q.label),
+            mapBounds: mapBounds ? {
+                southWest: mapBounds.getSouthWest(),
+                northEast: mapBounds.getNorthEast(),
+            } : null,
+        };
+    };
+
+    // Helper: load state from JSON
+    const loadExportState = (state: ExportedMapState) => {
+        if (state.queries) setQueries(state.queries.map((q) => ({
+            id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 10) + Date.now().toString(36),
+            ...q,
+        })));
+        if (state.gpxFiles) setGpxFiles(state.gpxFiles.map((f) => ({
+            id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 10) + Date.now().toString(36),
+            ...f,
+        })));
+        // No need to set selectedLayers, as queries are set
+        if (state.mapBounds && state.mapBounds.southWest && state.mapBounds.northEast) {
+            setTimeout(() => {
+                if (mapRef.current) {
+                    const map = mapRef.current;
+                    const { southWest, northEast } = state.mapBounds!;
+                    if (southWest && northEast) {
+                        const bounds = L.latLngBounds(
+                            L.latLng(southWest.lat, southWest.lng),
+                            L.latLng(northEast.lat, northEast.lng)
+                        );
+                        map.fitBounds(bounds, { animate: false });
+                    }
+                } else {
+                    console.warn('Map not initialized yet, cannot set bounds');
+                }
+            }, 500);
+        }
+    };
+
+    // Load from jsonData prop if provided
+    useEffect(() => {
+        if (jsonData) {
+            loadExportState(jsonData as ExportedMapState);
+        }
+    }, [jsonData]);
+
+    // Optional: Load JSON data from ?json=FILENAME.json parameter
+    const windowSearch = typeof window !== 'undefined' ? window.location.search : undefined;
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        const params = new URLSearchParams(windowSearch);
+        const jsonFile = params.get('json');
+        if (!jsonFile) return;
+        // Prevent duplicate layers
+        if (queries.some(q => q.label === jsonFile)) return;
+        fetch('/' + jsonFile)
+            .then(res => res.json())
+            .then((data) => {
+                // Accepts either {elements: OsmElement[]} or OsmElement[]
+                const elements: OsmElement[] = Array.isArray(data) ? data : data.elements || [];
+                setQueries(prev => [
+                    ...prev,
+                    {
+                        id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 10) + Date.now().toString(36),
+                        label: jsonFile,
+                        queryString: '',
+                        data: elements,
+                    }
+                ]);
+            })
+            .catch(() => {
+                // Optionally show error
+                console.warn('Could not load JSON file:', jsonFile);
+            });
+    }, [windowSearch, queries]);
+
     return (
         <>
+            {/* DEV: Export/Import State Modal */}
+            {isDev && (
+                <>
+                    <Modal opened={devModalOpen} onClose={() => setDevModalOpen(false)} title="Export/Import Map State (DEV)" size="lg" centered>
+                        <Stack>
+                            <Button onClick={() => {
+                                const json = JSON.stringify(buildExportState(), null, 2);
+                                navigator.clipboard.writeText(json);
+                            }}>Copy State to Clipboard</Button>
+                            <Button onClick={() => {
+                                const json = JSON.stringify(buildExportState(), null, 2);
+                                const blob = new Blob([json], { type: 'application/json' });
+                                const url = URL.createObjectURL(blob);
+                                const a = document.createElement('a');
+                                a.href = url;
+                                a.download = 'map-state.json';
+                                a.click();
+                                URL.revokeObjectURL(url);
+                            }}>Download State as JSON</Button>
+                            <Text>Paste JSON below to import:</Text>
+                            <textarea style={{ width: '100%', minHeight: 120 }} value={importText} onChange={e => setImportText(e.target.value)} />
+                            {importError && <Text c="red">{importError}</Text>}
+                            <Button onClick={() => {
+                                try {
+                                    const state = JSON.parse(importText);
+                                    loadExportState(state);
+                                    setImportError('');
+                                    setDevModalOpen(false);
+                                } catch {
+                                    setImportError('Invalid JSON');
+                                }
+                            }}>Import State</Button>
+                        </Stack>
+                    </Modal>
+                    <Button style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 9999 }} color="gray" size="xs" onClick={() => setDevModalOpen(true)}>
+                        DEV: Export/Import State
+                    </Button>
+                </>
+            )}
             {/* Parking settings modal */}
             <Modal opened={parkingSettingsOpen} onClose={() => setParkingSettingsOpen(false)} title="Parking Layer Settings" zIndex={300} centered size="md">
                 <Stack>
@@ -1007,6 +1182,7 @@ export default function FullscreenMapWithQueries() {
                     zoomControl={false}
                     zoomDelta={0.5}
                     zoomSnap={0.5}
+                    ref={mapRef}
                 >
                     <TileLayer
                         url={selectedTile.url}
@@ -1139,7 +1315,7 @@ export default function FullscreenMapWithQueries() {
                             placeholder="Pick layers to add"
                             data={availablePresets.map((label) => ({
                                 value: label,
-                                label,
+                                label: queryLabels[label] || label,
                             }))}
                             // hide the pills
                             styles={{ pill: { display: 'none' } }}
@@ -1156,9 +1332,9 @@ export default function FullscreenMapWithQueries() {
                             {queries.length === 0 && <Text c="dimmed">No layers yet. Add some above!</Text>}
                             {queries.map(({ id, label }) => (
                                 <Group key={id} align='center' justify='space-between'>
-                                    <Text>{label}</Text>
+                                    <Text>{queryLabels[label]}</Text>
                                     <Space style={{ flexGrow: 1 }} />
-                                    {label === '🅿️ Parking' && (
+                                    {label == "parking" && (
                                         <ActionIcon
                                             variant="subtle"
                                             color="gray"
@@ -1170,7 +1346,7 @@ export default function FullscreenMapWithQueries() {
                                         </ActionIcon>
                                     )}
                                     {/* label === '🗺️ Import GPX' */}
-                                    {label === '🗺️ Import GPX' && (
+                                    {label == "import_gpx" && (
                                         <ActionIcon
                                             variant="subtle"
                                             color="gray"
@@ -1295,26 +1471,28 @@ export default function FullscreenMapWithQueries() {
 
             </Group >
             {/* Refresh button in top middle when needed */}
-            < Button
-                size="xs"
-                variant='white'
-                leftSection={faRefresh}
-                onClick={refreshAllQueries}
-                loading={loading}
-                style={{
-                    position: 'fixed',
-                    top: 20,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    transformOrigin: 'left',
-                    // zIndex: 500,
-                    scale: needsRefresh && queries.length > 0 ? 1 : 0,
-                    transition: 'scale 0.1s ease',
-                }
-                }
-            >
-                Refresh
-            </Button >
+            {!norefresh && (
+                < Button
+                    size="xs"
+                    variant='white'
+                    leftSection={faRefresh}
+                    onClick={refreshAllQueries}
+                    loading={loading}
+                    style={{
+                        position: 'fixed',
+                        top: 20,
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        transformOrigin: 'left',
+                        // zIndex: 500,
+                        scale: needsRefresh && queries.length > 0 ? 1 : 0,
+                        transition: 'scale 0.1s ease',
+                    }
+                    }
+                >
+                    Refresh
+                </Button >
+            )}
             <Group style={{
                 position: 'fixed',
                 bottom: markerSelectionMode ? 40 : -50,

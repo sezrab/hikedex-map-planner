@@ -1,0 +1,3609 @@
+{
+  "queries": [
+    {
+      "label": "groceries",
+      "queryString": "nwr[\"shop\"~\"supermarket|convenience|greengrocer\"]",
+      "data": [
+        {
+          "id": 254873403,
+          "lat": 56.8241641,
+          "lon": -5.0888139,
+          "tags": {
+            "amenity": "fuel",
+            "brand": "Gleaner",
+            "fuel:HGV_diesel": "yes",
+            "fuel:diesel": "yes",
+            "fuel:octane_95": "yes",
+            "fuel:octane_98": "yes",
+            "name": "Ben Nevis Services",
+            "operator": "Gleaner",
+            "shop": "convenience",
+            "source": "survey"
+          }
+        },
+        {
+          "id": 254878072,
+          "lat": 56.8120281,
+          "lon": -5.1180464,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6JH",
+            "addr:street": "Grange Road",
+            "brand": "Spar",
+            "brand:wikidata": "Q610492",
+            "brand:wikipedia": "en:SPAR (retailer)",
+            "name": "Spar",
+            "opening_hours": "Mo-Sa 07:00-22:00;Su 08:00-22:00",
+            "phone": "+44 1397 705562",
+            "shop": "supermarket",
+            "website": "https://www.spar.co.uk/store-locator/lan10842-spar-grange-fort-william"
+          }
+        },
+        {
+          "id": 305522609,
+          "lat": 56.819414,
+          "lon": -5.1088506,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:country": "GB",
+            "addr:housename": "Airds Crossing",
+            "addr:postcode": "PH33 6EU",
+            "addr:street": "High Street",
+            "addr:unit": "1",
+            "brand:wikidata": "Q17032096",
+            "check_date": "2025-05-10",
+            "name": "International Food Store",
+            "shop": "convenience",
+            "source:addr": "FHRS Open Data"
+          }
+        },
+        {
+          "id": 773369433,
+          "lat": 56.0417765,
+          "lon": -4.368044,
+          "tags": {
+            "brand": "Co-op Food",
+            "brand:wikidata": "Q3277439",
+            "brand:wikipedia": "en:Co-op Food",
+            "check_date": "2024-07-15",
+            "check_date:opening_hours": "2024-07-15",
+            "name": "Co-op Food",
+            "opening_hours": "Mo-Su 07:00-22:00",
+            "operator": "The Co-operative Group",
+            "operator:wikidata": "Q117202",
+            "shop": "supermarket",
+            "website": "https://www.coop.co.uk/store-finder/G63-9RH/56-main-street"
+          }
+        },
+        {
+          "id": 905998547,
+          "lat": 56.7130395,
+          "lon": -4.9642485,
+          "tags": {
+            "addr:city": "Kinlochleven",
+            "addr:parentstreet": "Leven Road",
+            "addr:postcode": "PH50 4RW",
+            "addr:street": "Stevenson Terrace",
+            "brand": "Co-op Food",
+            "brand:wikidata": "Q3277439",
+            "check_date": "2025-05-11",
+            "check_date:opening_hours": "2024-07-15",
+            "fhrs:id": "538398",
+            "name": "Co-op Food",
+            "opening_hours": "Mo-Su 07:00-22:00",
+            "operator": "The Co-operative Group",
+            "operator:wikidata": "Q117202",
+            "shop": "supermarket",
+            "website": "https://www.coop.co.uk/store-finder/PH50-4RW/leven-road"
+          }
+        },
+        {
+          "id": 1149203535,
+          "lat": 56.0427806,
+          "lon": -4.3683745,
+          "tags": {
+            "brand": "Spar",
+            "brand:wikidata": "Q610492",
+            "brand:wikipedia": "en:Spar (retailer)",
+            "name": "Spar",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 2469956158,
+          "lat": 56.8042393,
+          "lon": -5.0741139,
+          "tags": {
+            "name": "Glen Nevis campsite shop",
+            "opening_hours": "Su-Th 08:00-20:00; Fr,Sa 08:00-21:00",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 2801442590,
+          "lat": 56.8219856,
+          "lon": -5.0869084,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6PH",
+            "addr:street": "Claggan Road",
+            "brand": "Spar",
+            "brand:wikidata": "Q610492",
+            "brand:wikipedia": "en:SPAR (retailer)",
+            "fhrs:id": "360495",
+            "name": "Spar",
+            "shop": "convenience",
+            "website": "https://www.spar.co.uk/store-locator/lan10683-spar-claggan/"
+          }
+        },
+        {
+          "id": 2902828927,
+          "lat": 56.0657739,
+          "lon": -4.4519827,
+          "tags": {
+            "addr:housenumber": "2-4",
+            "addr:street": "Stirling Road",
+            "brand": "Spar",
+            "brand:wikidata": "Q610492",
+            "brand:wikipedia": "en:Spar (retailer)",
+            "check_date": "2024-06-08",
+            "currency:GBP": "yes",
+            "internet_access": "no",
+            "name": "Spar",
+            "opening_hours": "Mo-Sa 06:30-22:00; Su 08:00-22:00",
+            "operator": "Spar",
+            "organic": "yes",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "shop": "convenience",
+            "source": "survey",
+            "toilets": "no",
+            "toilets:wheelchair": "no",
+            "website": "https://www.spar.co.uk/store-locator/lan04576-spar-drymen/",
+            "wheelchair": "no"
+          }
+        },
+        {
+          "id": 3128346311,
+          "lat": 55.987635,
+          "lon": -4.3149357,
+          "tags": {
+            "addr:city": "Blanefield",
+            "addr:country": "GB",
+            "addr:housenumber": "51",
+            "addr:postcode": "G63 9JD",
+            "addr:street": "Glasgow Road",
+            "alt_name": "Shop Smart",
+            "fhrs:id": "17014",
+            "name": "Shopsmart",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 4165748362,
+          "lat": 56.3307751,
+          "lon": -4.7168368,
+          "tags": {
+            "name": "Beinglas Campsite Shop",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 4165952991,
+          "lat": 56.4386015,
+          "lon": -4.7134627,
+          "tags": {
+            "addr:postcode": "FK20 8RY",
+            "branch": "Brodie's Minimarket",
+            "brand": "KeyStore",
+            "brand:wikidata": "Q50528754",
+            "check_date": "2025-04-20",
+            "name": "KeyStore",
+            "opening_hours": "07:00-18:00",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "phone": "+44 1838 400275",
+            "shop": "convenience",
+            "website": "https://www.keystore.co.uk/store/keystore-express-tyndrum/"
+          }
+        },
+        {
+          "id": 4167972191,
+          "lat": 56.4381582,
+          "lon": -4.7126785,
+          "tags": {
+            "name": "The Green Welly Stop",
+            "opening_hours": "Mo-Su 07:00-22:00",
+            "payment:cash": "yes",
+            "shop": "convenience",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 4172844823,
+          "lat": 56.4334591,
+          "lon": -4.7089117,
+          "tags": {
+            "check_date": "2025-04-19",
+            "name": "Reception & Shop",
+            "opening_hours": "09:00-18:00",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "shop": "convenience",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 4895401900,
+          "lat": 56.084121,
+          "lon": -4.5396763,
+          "tags": {
+            "check_date:opening_hours": "2023-09-05",
+            "contact:phone": "+44 1360 870357",
+            "contact:website": "https://www.theoaktreeinn.co.uk/balmaha-village-shop",
+            "name": "Village Shop",
+            "opening_hours": "Mo-Su 08:00-20:00",
+            "opening_hours:signed": "no",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 5438582813,
+          "lat": 56.8285344,
+          "lon": -5.081968,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:place": "Fort William Retail Park",
+            "addr:postcode": "PH33 6PP",
+            "addr:street": "North Road",
+            "addr:unit": "Unit 3",
+            "brand": "M&S Foodhall",
+            "brand:wikidata": "Q714491",
+            "brand:wikipedia": "en:Marks & Spencer",
+            "check_date": "2024-07-21",
+            "check_date:opening_hours": "2024-07-21",
+            "contact:website": "https://www.marksandspencer.com/stores/fort-william-foodhall-2097",
+            "fhrs:id": "1013677",
+            "name": "M&S Foodhall",
+            "opening_hours": "Mo-Sa 08:00-20:00; Su 09:00-18:00",
+            "operator": "Marks and Spencers",
+            "shop": "supermarket"
+          }
+        },
+        {
+          "id": 5672286264,
+          "lat": 56.8381934,
+          "lon": -5.1065424,
+          "tags": {
+            "brand": "McColl's",
+            "brand:wikidata": "Q16997477",
+            "brand:wikipedia": "en:McColl's",
+            "contact:website": "https://www.mccolls.co.uk/storelocator/fort-william-glenloy-street/",
+            "name": "McColl's",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 11407694871,
+          "lat": 56.8196584,
+          "lon": -5.1084589,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6EU",
+            "addr:street": "Unit 2 Airds Crossing",
+            "brand": "Tesco Express",
+            "brand:wikidata": "Q98456772",
+            "check_date": "2025-05-10",
+            "name": "Tesco Express",
+            "operator": "Tesco",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 12110720358,
+          "lat": 56.5327618,
+          "lon": -4.8077993,
+          "tags": {
+            "name": "Buth Bheag - The Wee Shop",
+            "opening_hours": "Mo-Su 08:00-15:00",
+            "shop": "convenience"
+          }
+        },
+        {
+          "id": 172284958,
+          "lat": 56.3920776,
+          "lon": -4.6171229,
+          "tags": {
+            "brand": "Londis",
+            "brand:wikidata": "Q21008564",
+            "building": "yes",
+            "check_date": "2025-04-19",
+            "name": "Crianlarich Store",
+            "opening_hours": "Mo-Sa 07:30-19:00; Su 08:00-18:00",
+            "operator": "Londis",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "shop": "convenience",
+            "wheelchair": "limited"
+          }
+        },
+        {
+          "id": 197076676,
+          "lat": 56.8212763,
+          "lon": -5.1049242,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6AN",
+            "addr:street": "An Aird",
+            "alt_name": "Morrisons Fort William",
+            "brand": "Morrisons",
+            "brand:wikidata": "Q922344",
+            "brand:wikipedia": "en:Morrisons",
+            "building": "yes",
+            "check_date": "2025-04-12",
+            "fhrs:id": "360617",
+            "internet_access": "wlan",
+            "internet_access:fee": "no",
+            "name": "Morrisons",
+            "opening_hours": "Mo-Sa 07:00-22:00; PH,Su 08:00-20:00",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "phone": "+44 1397 700333",
+            "shop": "supermarket",
+            "website": "https://my.morrisons.com/storefinder/178/fort-william",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 197076841,
+          "lat": 56.8219638,
+          "lon": -5.1011368,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6AN",
+            "addr:street": "Camanachd Crescent",
+            "alt_name": "LIDL Fort William",
+            "brand": "Lidl",
+            "brand:wikidata": "Q151954",
+            "brand:wikipedia": "en:Lidl",
+            "building": "yes",
+            "check_date:opening_hours": "2024-11-04",
+            "fhrs:id": "360202",
+            "name": "Lidl",
+            "opening_hours": "Mo-Sa 08:00-22:00; Su 08:00-20:00",
+            "shop": "supermarket",
+            "website": "https://www.lidl.co.uk/s/en-GB/store-finder/fort-william/camanachd-crescent/",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 283189291,
+          "lat": 56.8377405,
+          "lon": -5.1005231,
+          "tags": {
+            "brand": "Co-op Food",
+            "brand:wikidata": "Q3277439",
+            "brand:wikipedia": "en:Co-op Food",
+            "building": "yes",
+            "building:levels": "2",
+            "check_date": "2024-07-15",
+            "check_date:opening_hours": "2024-07-15",
+            "name": "Co-op Food",
+            "opening_hours": "Mo-Su 07:00-22:00",
+            "operator": "The Co-operative Group",
+            "operator:wikidata": "Q117202",
+            "phone": "+44 1397 703302",
+            "roof:shape": "gabled",
+            "shop": "supermarket",
+            "website": "https://www.coop.co.uk/store-finder/PH33-7EN/kilmallie-road"
+          }
+        },
+        {
+          "id": 595155091,
+          "lat": 56.8277884,
+          "lon": -5.0835716,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:unit": "Unit A",
+            "brand": "ALDI",
+            "brand:wikidata": "Q41171672",
+            "brand:wikipedia": "en:Aldi",
+            "building": "supermarket",
+            "contact:website": "https://stores.aldi.co.uk/fort-william/unit-a-north-road-rp",
+            "name": "ALDI",
+            "shop": "supermarket"
+          }
+        },
+        {
+          "id": 1198253966,
+          "lat": 56.1120822,
+          "lon": -4.5818911,
+          "tags": {
+            "building": "yes",
+            "name": "Reception (with Minimarket)",
+            "shop": "convenience"
+          }
+        }
+      ]
+    },
+    {
+      "label": "cafes",
+      "queryString": "nwr[\"amenity\"=\"cafe\"]",
+      "data": [
+        {
+          "id": 80345308,
+          "lat": 56.0440893,
+          "lon": -4.445745,
+          "tags": {
+            "amenity": "cafe",
+            "description": "Fully licenced cafe (breakfast, lunch and evening meals) eat in or takeaway.",
+            "name": "The But and Ben licenced cafe"
+          }
+        },
+        {
+          "id": 773369429,
+          "lat": 56.0451746,
+          "lon": -4.37177,
+          "tags": {
+            "amenity": "cafe",
+            "name": "Town & Country",
+            "source": "local_knowledge"
+          }
+        },
+        {
+          "id": 1095368888,
+          "lat": 56.8346651,
+          "lon": -5.0743505,
+          "tags": {
+            "amenity": "cafe"
+          }
+        },
+        {
+          "id": 2123026888,
+          "lat": 56.819997,
+          "lon": -5.1073765,
+          "tags": {
+            "amenity": "cafe",
+            "check_date": "2025-05-10",
+            "cuisine": "coffee_shop",
+            "internet_access": "wlan",
+            "name": "Cozy Cafe"
+          }
+        },
+        {
+          "id": 2504847285,
+          "lat": 56.8355384,
+          "lon": -5.0780908,
+          "tags": {
+            "amenity": "cafe",
+            "name": "J J's Cafe'"
+          }
+        },
+        {
+          "id": 2801344802,
+          "lat": 56.820309,
+          "lon": -5.1062229,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:country": "GB",
+            "addr:place": "Travel Centre",
+            "addr:postcode": "PH33 6EN",
+            "amenity": "cafe",
+            "check_date": "2023-06-08",
+            "fhrs:id": "360032",
+            "name": "Lochaber Cafe",
+            "source:addr": "FHRS Open Data"
+          }
+        },
+        {
+          "id": 4170005396,
+          "lat": 56.6241074,
+          "lon": -4.8363677,
+          "tags": {
+            "amenity": "cafe",
+            "name": "Eagles Rest Cafe"
+          }
+        },
+        {
+          "id": 4171825290,
+          "lat": 56.8160726,
+          "lon": -5.1129845,
+          "tags": {
+            "amenity": "cafe",
+            "name": "The Hub"
+          }
+        },
+        {
+          "id": 4171919599,
+          "lat": 56.8168314,
+          "lon": -5.1133626,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:country": "GB",
+            "addr:housenumber": "115,117",
+            "addr:postcode": "PH33 6DG",
+            "addr:street": "High Street",
+            "air_conditioning": "yes",
+            "amenity": "cafe",
+            "check_date": "2025-05-10",
+            "check_date:opening_hours": "2023-09-21",
+            "fhrs:id": "360113",
+            "indoor_seating": "yes",
+            "name": "Café 115",
+            "opening_hours:signed": "no",
+            "outdoor_seating": "yes",
+            "source:addr": "FHRS Open Data"
+          }
+        },
+        {
+          "id": 4172660896,
+          "lat": 56.8181174,
+          "lon": -5.1106472,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6AT",
+            "addr:street": "High Street",
+            "amenity": "cafe",
+            "check_date": "2025-05-10",
+            "name": "The Old Deli",
+            "opening_hours": "Su-We 08:00-17:00; Th-Sa 08:00-21:00",
+            "phone": "+44 1397 698739"
+          }
+        },
+        {
+          "id": 4284741659,
+          "lat": 55.9876243,
+          "lon": -4.3147712,
+          "tags": {
+            "addr:city": "Blanefield",
+            "addr:country": "GB",
+            "addr:housenumber": "41,43",
+            "addr:postcode": "G63 9JW",
+            "addr:street": "Glasgow Road",
+            "amenity": "cafe",
+            "cuisine": "coffee",
+            "fhrs:id": "1224757",
+            "name": "The Wilsons"
+          }
+        },
+        {
+          "id": 4284749190,
+          "lat": 56.0642157,
+          "lon": -4.4520709,
+          "tags": {
+            "addr:housenumber": "50",
+            "addr:street": "Main Street",
+            "amenity": "cafe",
+            "cuisine": "regional",
+            "internet_access": "wlan",
+            "name": "Skoosh",
+            "outdoor_seating": "yes",
+            "phone": "+44 1360 661212",
+            "takeaway": "yes"
+          }
+        },
+        {
+          "id": 4895401899,
+          "lat": 56.0841127,
+          "lon": -4.5395596,
+          "tags": {
+            "amenity": "cafe",
+            "contact:facebook": "stmocha",
+            "contact:instagram": "stmochacoffee",
+            "diet:gluten_free": "yes",
+            "diet:vegan": "yes",
+            "diet:vegetarian": "yes",
+            "name": "St. Mocha",
+            "opening_hours": "Mo-Su 08:30-17:00",
+            "website": "https://www.stmocha.co.uk/balmaha"
+          }
+        },
+        {
+          "id": 5126522332,
+          "lat": 56.4219233,
+          "lon": -4.6779737,
+          "tags": {
+            "amenity": "cafe",
+            "contact:facebook": "https://www.facebook.com/countrymumkinstyndrum",
+            "contact:phone": "+44 1838 400391",
+            "internet_access": "yes",
+            "name": "Artisan Café & Deli",
+            "opening_hours": "Mo-Su 10:00-16:00",
+            "outdoor_seating": "yes"
+          }
+        },
+        {
+          "id": 5438582820,
+          "lat": 56.8183452,
+          "lon": -5.1106502,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:housenumber": "21",
+            "addr:postcode": "PH33 6DH",
+            "addr:street": "High Street",
+            "air_conditioning": "no",
+            "amenity": "cafe",
+            "check_date": "2025-05-10",
+            "cuisine": "coffee_shop;sandwich",
+            "diet:kosher": "no",
+            "diet:vegan": "only",
+            "diet:vegetarian": "only",
+            "fhrs:id": "1016585",
+            "indoor_seating": "yes",
+            "name": "The Wildcat",
+            "not:name": "Origin Cafe",
+            "opening_hours": "Mo-Su 09:00-16:00",
+            "outdoor_seating": "no",
+            "payment:cash": "no",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "smoking": "no",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 6749616150,
+          "lat": 56.8166728,
+          "lon": -5.1136874,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:country": "GB",
+            "addr:housenumber": "127",
+            "addr:postcode": "PH33 6DG",
+            "addr:street": "High Street",
+            "amenity": "cafe",
+            "check_date": "2025-05-10",
+            "fhrs:id": "360028",
+            "name": "The Hot Roast Company",
+            "source:addr:postcode": "FHRS Open Data"
+          }
+        },
+        {
+          "id": 6810176220,
+          "lat": 56.8171724,
+          "lon": -5.1127126,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:housenumber": "95",
+            "addr:postcode": "PH33 6DG",
+            "addr:street": "High Street",
+            "amenity": "cafe",
+            "check_date": "2025-05-10",
+            "fhrs:id": "666088",
+            "indoor_seating": "yes",
+            "name": "Aroma Cafe",
+            "not:brand:wikidata": "Q2909872",
+            "outdoor_seating": "no",
+            "phone": "+44 1397 698010"
+          }
+        },
+        {
+          "id": 10313234250,
+          "lat": 55.9725812,
+          "lon": -4.330777,
+          "tags": {
+            "amenity": "cafe",
+            "check_date": "2023-10-08",
+            "name": "Spider Monkey Coffee Co",
+            "phone": "+44 141 956 6775"
+          }
+        },
+        {
+          "id": 10814728036,
+          "lat": 56.0451548,
+          "lon": -4.3724125,
+          "tags": {
+            "amenity": "cafe",
+            "check_date": "2023-04-15",
+            "name": "The Kitchen Window",
+            "opening_hours": "Tu-Su 10:00-17:00"
+          }
+        },
+        {
+          "id": 10814728038,
+          "lat": 56.0336016,
+          "lon": -4.3868411,
+          "tags": {
+            "amenity": "cafe",
+            "check_date": "2023-04-15",
+            "name": "Eatery",
+            "opening_hours": "09:30-16:30"
+          }
+        },
+        {
+          "id": 10815336675,
+          "lat": 55.9721972,
+          "lon": -4.3290461,
+          "tags": {
+            "amenity": "cafe",
+            "check_date": "2024-03-30",
+            "cuisine": "coffee_shop;sandwich",
+            "name": "Caulders",
+            "opening_hours": "09:00-17:00"
+          }
+        },
+        {
+          "id": 11174979073,
+          "lat": 56.8177019,
+          "lon": -5.1106548,
+          "tags": {
+            "amenity": "cafe",
+            "check_date": "2025-05-10",
+            "indoor_seating": "yes",
+            "name": "Highland Cinema Café",
+            "outdoor_seating": "yes"
+          }
+        },
+        {
+          "id": 11534626742,
+          "lat": 55.9836773,
+          "lon": -4.3831936,
+          "tags": {
+            "amenity": "cafe",
+            "note": "Exact location needs confirmation."
+          }
+        },
+        {
+          "id": 11961099039,
+          "lat": 56.8374999,
+          "lon": -5.1058598,
+          "tags": {
+            "amenity": "cafe",
+            "check_date": "2024-06-06",
+            "name": "LAD Community Café"
+          }
+        },
+        {
+          "id": 11961099041,
+          "lat": 56.8375924,
+          "lon": -5.1057095,
+          "tags": {
+            "amenity": "cafe",
+            "check_date": "2024-06-06",
+            "name": "Bake ‚n‘ Roll"
+          }
+        },
+        {
+          "id": 12088750669,
+          "lat": 56.0644763,
+          "lon": -4.4520951,
+          "tags": {
+            "amenity": "cafe",
+            "name": "Alfie & Co"
+          }
+        },
+        {
+          "id": 12155994189,
+          "lat": 56.1498594,
+          "lon": -4.6416079,
+          "tags": {
+            "amenity": "cafe",
+            "indoor_seating": "no",
+            "name": "Bocsa Beans",
+            "takeaway": "only"
+          }
+        },
+        {
+          "id": 12218011801,
+          "lat": 56.8159232,
+          "lon": -5.1151386,
+          "tags": {
+            "amenity": "cafe",
+            "check_date": "2025-05-10",
+            "name": "Kilted Camel"
+          }
+        },
+        {
+          "id": 12770985334,
+          "lat": 56.4382274,
+          "lon": -4.7125447,
+          "tags": {
+            "amenity": "cafe",
+            "name": "Green Welly Snack Stop Cafe",
+            "website": "https://www.thegreenwellystop.co.uk/snack-stop"
+          }
+        },
+        {
+          "id": 210468653,
+          "lat": 56.6215781,
+          "lon": -4.8421973,
+          "tags": {
+            "amenity": "cafe",
+            "building": "commercial",
+            "building:levels": "1",
+            "cuisine": "coffee_shop;sandwich;hot_dog",
+            "internet_access": "wlan",
+            "internet_access:fee": "no",
+            "name": "Plateau Cafe",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "source": "survey",
+            "toilets": "yes",
+            "wikimedia_commons": "File:Cafe on the slopes at Glencoe Mountain Resort - geograph.org.uk - 4657575.jpg"
+          }
+        },
+        {
+          "id": 753114225,
+          "lat": 56.8239684,
+          "lon": -5.090514,
+          "tags": {
+            "amenity": "cafe",
+            "brand": "Costa",
+            "brand:wikidata": "Q608845",
+            "brand:wikipedia": "en:Costa Coffee",
+            "building": "yes",
+            "cuisine": "coffee_shop",
+            "drive_through": "yes",
+            "name": "Costa",
+            "takeaway": "yes"
+          }
+        },
+        {
+          "id": 1135975607,
+          "lat": 55.9818851,
+          "lon": -4.3664626,
+          "tags": {
+            "amenity": "cafe",
+            "building": "retail",
+            "cuisine": "coffee_shop;burger;sandwich;dessert",
+            "drive_through": "yes",
+            "indoor_seating": "yes",
+            "name": "St Mocha",
+            "nohousenumber": "yes",
+            "opening_hours": "Mo-Fr 07:00-18:00; Sa,Su 08:00-18:00",
+            "outdoor_seating": "yes",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "phone": "01360 870357",
+            "website": "https://www.stmocha.co.uk/carbeth"
+          }
+        },
+        {
+          "id": 1239448414,
+          "lat": 55.9626763,
+          "lon": -4.2990902,
+          "tags": {
+            "amenity": "cafe",
+            "building": "retail",
+            "name": "Oscar's Cafe"
+          }
+        }
+      ]
+    },
+    {
+      "label": "pubs_restaurants",
+      "queryString": "nwr[\"amenity\"~\"^pub$|^restaurant$\"]",
+      "data": [
+        {
+          "id": 245661174,
+          "lat": 56.6319798,
+          "lon": -4.8279633,
+          "tags": {
+            "amenity": "restaurant",
+            "internet_access": "wlan",
+            "name": "Cafe Ossian"
+          }
+        },
+        {
+          "id": 254907335,
+          "lat": 56.8150526,
+          "lon": -5.1157991,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6ED",
+            "addr:street": "Achintore Road",
+            "amenity": "restaurant",
+            "fhrs:id": "360529",
+            "name": "West End Hotel",
+            "source": "survey",
+            "tourism": "hotel"
+          }
+        },
+        {
+          "id": 254907444,
+          "lat": 56.8169546,
+          "lon": -5.1131672,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:housenumber": "103",
+            "addr:postcode": "PH33 6DG",
+            "addr:street": "High Street",
+            "alt_name": "Ben Nevis Bar and Restaurant",
+            "amenity": "pub",
+            "check_date": "2025-05-10",
+            "cuisine": "coffee_shop;ice_cream;local;tea",
+            "diet:vegan": "yes",
+            "diet:vegetarian": "yes",
+            "fhrs:id": "360577",
+            "indoor_seating": "yes",
+            "name": "Ben Nevis",
+            "name:gd": "Beinn Nibheis",
+            "opening_hours": "12:00-15:00,17:00-21:00",
+            "outdoor_seating": "no",
+            "smoking": "no",
+            "source": "survey",
+            "toilets": "yes",
+            "toilets:wheelchair": "no",
+            "wheelchair": "limited"
+          }
+        },
+        {
+          "id": 254909707,
+          "lat": 56.817162,
+          "lon": -5.1123498,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:housenumber": "66",
+            "addr:postcode": "PH33 6AD",
+            "addr:street": "High Street",
+            "amenity": "pub",
+            "check_date": "2025-05-10",
+            "fhrs:id": "359715",
+            "indoor_seating": "yes",
+            "name": "Grog and Gruel",
+            "outdoor_seating": "no",
+            "source": "survey"
+          }
+        },
+        {
+          "id": 254909713,
+          "lat": 56.817929,
+          "lon": -5.1113947,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:country": "GB",
+            "addr:housenumber": "47",
+            "addr:postcode": "PH33 6DH",
+            "addr:street": "High Street",
+            "amenity": "pub",
+            "check_date": "2025-05-10",
+            "fhrs:id": "360574",
+            "indoor_seating": "yes",
+            "name": "The Volunteer Arms",
+            "outdoor_seating": "no",
+            "source": "survey",
+            "source:addr": "FHRS Open Data"
+          }
+        },
+        {
+          "id": 254909716,
+          "lat": 56.8185959,
+          "lon": -5.1101551,
+          "tags": {
+            "amenity": "pub",
+            "check_date": "2025-05-10",
+            "indoor_seating": "yes",
+            "name": "The Crofter",
+            "outdoor_seating": "no",
+            "source": "survey",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 289774859,
+          "lat": 56.4383493,
+          "lon": -4.7122381,
+          "tags": {
+            "amenity": "restaurant",
+            "check_date": "2025-04-20",
+            "cuisine": "coffee_shop;sandwich;pizza;burger",
+            "diet:gluten_free": "yes",
+            "diet:vegetarian": "yes",
+            "fhrs:id": "54864",
+            "name": "The Green Welly Stop",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "postal_code": "FK20 8RY",
+            "source": "survey",
+            "website": "https://www.thegreenwellystop.co.uk/restaurant",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 471301540,
+          "lat": 56.816908,
+          "lon": -5.1149214,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6DB",
+            "addr:street": "Town Pier",
+            "amenity": "restaurant",
+            "cuisine": "international",
+            "delivery": "no",
+            "fhrs:id": "360469",
+            "name": "Crannog Seafood Restaurant",
+            "opening_hours": "12:00-14:30; 18:00+",
+            "phone": "+44 1397 705589",
+            "start_date": "1989-05-05",
+            "takeaway": "no",
+            "website": "https://www.crannog.net/"
+          }
+        },
+        {
+          "id": 471620944,
+          "lat": 56.8174904,
+          "lon": -5.1106976,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:country": "GB",
+            "addr:housenumber": "4",
+            "addr:postcode": "PH33 6AJ",
+            "addr:street": "Cameron Square",
+            "amenity": "pub",
+            "check_date": "2025-05-10",
+            "cuisine": "regional",
+            "fhrs:id": "979704",
+            "name": "Garrison West",
+            "source:addr": "FHRS Open Data"
+          }
+        },
+        {
+          "id": 471620946,
+          "lat": 56.8182322,
+          "lon": -5.108538,
+          "tags": {
+            "amenity": "restaurant",
+            "name": "Stables Restaurant"
+          }
+        },
+        {
+          "id": 472231412,
+          "lat": 56.8243503,
+          "lon": -5.0933852,
+          "tags": {
+            "amenity": "pub",
+            "name": "Railway Social Club"
+          }
+        },
+        {
+          "id": 905998523,
+          "lat": 56.713367,
+          "lon": -4.9636778,
+          "tags": {
+            "addr:city": "Kinlochleven",
+            "addr:postcode": "PH50 4RP",
+            "addr:street": "Leven Road",
+            "amenity": "restaurant",
+            "check_date": "2025-05-11",
+            "name": "Highland Getaway Inn",
+            "tourism": "hotel",
+            "website": "https://www.highlandgetaway.co.uk/"
+          }
+        },
+        {
+          "id": 905998529,
+          "lat": 56.7149567,
+          "lon": -4.9638378,
+          "tags": {
+            "addr:city": "Kinlochleven",
+            "addr:postcode": "PH50 4QH",
+            "addr:street": "Riverside Road",
+            "amenity": "restaurant",
+            "name": "Tailrace Inn",
+            "stars": "3",
+            "tourism": "hotel",
+            "website": "http://www.tailraceinn.com/"
+          }
+        },
+        {
+          "id": 969244871,
+          "lat": 56.1494988,
+          "lon": -4.6413466,
+          "tags": {
+            "amenity": "pub",
+            "diet:vegan": "yes",
+            "diet:vegetarian": "yes",
+            "food": "yes",
+            "indoor_seating": "yes",
+            "name": "The Clansman",
+            "opening_hours": "Mo-Su 06:00-22:00+",
+            "outdoor_seating": "yes",
+            "phone": "+441360 870273",
+            "smoking": "no",
+            "website": "https://www.rowardennanhotel.co.uk/"
+          }
+        },
+        {
+          "id": 969262696,
+          "lat": 56.066093,
+          "lon": -4.452505,
+          "tags": {
+            "addr:city": "Drymen",
+            "addr:housenumber": "2",
+            "addr:postcode": "G63 0BG",
+            "addr:street": "Main Street",
+            "amenity": "pub",
+            "bar": "yes",
+            "contact:email": "info@clachaninndrymen.co.uk",
+            "contact:phone": "+44 1360 660824",
+            "contact:website": "http://www.clachaninndrymen.co.uk/",
+            "food": "yes",
+            "name": "The Clachan Inn",
+            "restaurant": "yes",
+            "rooms": "4",
+            "smoking": "no",
+            "tourism": "hotel"
+          }
+        },
+        {
+          "id": 1762620732,
+          "lat": 56.020926,
+          "lon": -4.3706759,
+          "tags": {
+            "amenity": "restaurant",
+            "check_date": "2023-04-15",
+            "name": "The Beech Tree"
+          }
+        },
+        {
+          "id": 2119555758,
+          "lat": 56.8170828,
+          "lon": -5.1125141,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:housenumber": "72",
+            "addr:postcode": "PH33 6AD",
+            "addr:street": "High Street",
+            "amenity": "restaurant",
+            "check_date": "2025-05-10",
+            "cuisine": "regional",
+            "fhrs:id": "360145",
+            "indoor_seating": "yes",
+            "name": "The Tavern",
+            "outdoor_seating": "no",
+            "phone": "+44 1397 703600",
+            "website": "http://www.thetavernrestaurant.co.uk",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 2120554354,
+          "lat": 56.8182293,
+          "lon": -5.1104182,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:housenumber": "24-26",
+            "addr:postcode": "PH33 6AT",
+            "addr:street": "High Street",
+            "amenity": "restaurant",
+            "check_date": "2025-05-10",
+            "cuisine": "indian;thai",
+            "fhrs:id": "360295",
+            "indoor_seating": "yes",
+            "name": "Café Mango",
+            "outdoor_seating": "no",
+            "website": "https://cafemango.co.uk/",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 2260062092,
+          "lat": 56.8164498,
+          "lon": -5.1137752,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:country": "GB",
+            "addr:housenumber": "98-104",
+            "addr:postcode": "PH33 6DG",
+            "addr:street": "High Street",
+            "addr:unit": "3",
+            "amenity": "pub",
+            "brand": "Wetherspoon",
+            "brand:wikidata": "Q6109362",
+            "brand:wikipedia": "en:Wetherspoons",
+            "check_date": "2025-05-10",
+            "contact:website": "https://www.jdwetherspoon.com/pubs/all-pubs/scotland/highland/the-great-glen-fort-william",
+            "dog": "no",
+            "fhrs:id": "562151",
+            "name": "The Great Glen",
+            "wikidata": "Q88973860"
+          }
+        },
+        {
+          "id": 3985408641,
+          "lat": 56.065777,
+          "lon": -4.4530742,
+          "tags": {
+            "addr:city": "Drymen",
+            "addr:postcode": "G63 0BG",
+            "addr:street": "The Square",
+            "amenity": "restaurant",
+            "name": "Winnock Hotel",
+            "phone": "+44 1360 660245",
+            "stars": "3",
+            "tourism": "hotel",
+            "website": "https://www.winnockhotel.com/"
+          }
+        },
+        {
+          "id": 4159958094,
+          "lat": 56.0660964,
+          "lon": -4.4518147,
+          "tags": {
+            "addr:housenumber": "5",
+            "addr:street": "Stirling Road",
+            "amenity": "restaurant",
+            "check_date": "2024-06-08",
+            "name": "The Drymen Inn",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "tourism": "hotel"
+          }
+        },
+        {
+          "id": 4165813809,
+          "lat": 56.3306744,
+          "lon": -4.7168391,
+          "tags": {
+            "amenity": "restaurant",
+            "name": "Beinglas"
+          }
+        },
+        {
+          "id": 4171790496,
+          "lat": 56.8168769,
+          "lon": -5.1129026,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:country": "GB",
+            "addr:housenumber": "88",
+            "addr:postcode": "PH33 6AD",
+            "addr:street": "High Street",
+            "amenity": "restaurant",
+            "check_date": "2025-05-10",
+            "fhrs:id": "1035964",
+            "name": "The Geographer",
+            "source:addr:postcode": "FHRS Open Data"
+          }
+        },
+        {
+          "id": 4171879790,
+          "lat": 56.8184471,
+          "lon": -5.1104108,
+          "tags": {
+            "amenity": "restaurant",
+            "check_date": "2025-05-10",
+            "cuisine": "pizza",
+            "name": "The Pizzeria"
+          }
+        },
+        {
+          "id": 4171925694,
+          "lat": 56.8160674,
+          "lon": -5.1149599,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:housenumber": "141",
+            "addr:postcode": "PH33 6EA",
+            "addr:street": "High Street",
+            "amenity": "restaurant",
+            "check_date": "2025-05-10",
+            "cuisine": "indian",
+            "fhrs:id": "360254",
+            "name": "Spice Tandoori",
+            "takeaway": "yes"
+          }
+        },
+        {
+          "id": 4171925695,
+          "lat": 56.8158904,
+          "lon": -5.1152188,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:housenumber": "155",
+            "addr:postcode": "PH33 6EA",
+            "addr:street": "High Street",
+            "amenity": "restaurant",
+            "check_date": "2025-05-10",
+            "cuisine": "chinese",
+            "fhrs:id": "360466",
+            "name": "China Palace",
+            "takeaway": "yes"
+          }
+        },
+        {
+          "id": 4172690991,
+          "lat": 56.8210815,
+          "lon": -5.105309,
+          "tags": {
+            "amenity": "restaurant",
+            "indoor_seating": "yes",
+            "name": "The Café",
+            "outdoor_seating": "no"
+          }
+        },
+        {
+          "id": 4331258987,
+          "lat": 56.6513393,
+          "lon": -4.8407928,
+          "tags": {
+            "amenity": "pub",
+            "name": "The Way Inn"
+          }
+        },
+        {
+          "id": 5094622524,
+          "lat": 56.5177049,
+          "lon": -4.7689381,
+          "tags": {
+            "amenity": "restaurant",
+            "check_date": "2025-05-09",
+            "indoor_seating": "yes",
+            "name": "Bridge of Orchy Hotel",
+            "outdoor_seating": "yes"
+          }
+        },
+        {
+          "id": 5894653874,
+          "lat": 56.0655475,
+          "lon": -4.4530652,
+          "tags": {
+            "amenity": "restaurant"
+          }
+        },
+        {
+          "id": 6651920144,
+          "lat": 56.4361692,
+          "lon": -4.711563,
+          "tags": {
+            "addr:postcode": "FK20 8RY",
+            "amenity": "restaurant",
+            "check_date": "2025-04-19",
+            "cuisine": "pizza;indian;burger;pasta;sandwich",
+            "diet:carnivore": "yes",
+            "diet:vegetarian": "yes",
+            "highchair": "yes",
+            "name": "Ben Lui Restaurant",
+            "opening_hours": "10:00-21:00",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "takeaway": "yes",
+            "toilets": "yes",
+            "website": "https://www.benlui.co.uk",
+            "website:menu": "https://benlui.co.uk/menu",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 6661724872,
+          "lat": 56.8160052,
+          "lon": -5.115045,
+          "tags": {
+            "amenity": "restaurant",
+            "check_date": "2025-05-10",
+            "name": "Sonas Lounge and Restaurant"
+          }
+        },
+        {
+          "id": 6704067330,
+          "lat": 56.3931682,
+          "lon": -4.6196267,
+          "tags": {
+            "amenity": "restaurant",
+            "cuisine": "regional;pizza;burger",
+            "diet:vegetarian": "yes",
+            "name": "The Crianlarich Hotel",
+            "tourism": "hotel"
+          }
+        },
+        {
+          "id": 9676545801,
+          "lat": 56.8214994,
+          "lon": -5.0956284,
+          "tags": {
+            "addr:postcode": "PH33 6PF",
+            "amenity": "restaurant",
+            "brand": "Browns",
+            "brand:wikidata": "Q4976672",
+            "contact:phone": "+44 1397 705721",
+            "cuisine": "british",
+            "name": "Brown's Restaurant",
+            "operator": "Nevis Bank Hotel Ltd",
+            "outdoor_seating": "no",
+            "payment:american_express": "yes",
+            "toilets:access": "customers"
+          }
+        },
+        {
+          "id": 9927517118,
+          "lat": 56.716447,
+          "lon": -4.9719949,
+          "tags": {
+            "amenity": "pub",
+            "check_date": "2025-05-11",
+            "name": "Bothy Bar",
+            "website": "https://www.macdonaldhotel.co.uk/food-drink/the-bothy-bar/"
+          }
+        },
+        {
+          "id": 10777646106,
+          "lat": 56.028047,
+          "lon": -4.3800468,
+          "tags": {
+            "addr:postcode": "G63 9LQ",
+            "addr:street": "Killearn Mill",
+            "amenity": "restaurant",
+            "name": "Turnip The Beet"
+          }
+        },
+        {
+          "id": 10974262276,
+          "lat": 56.8160853,
+          "lon": -5.1135455,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:housename": "Saint Mary's House",
+            "addr:postcode": "PH33 6DY",
+            "addr:street": "Gordon Square",
+            "amenity": "pub",
+            "branch": "Fort William",
+            "check_date": "2025-05-10",
+            "contact:email": "fortbill@blackislebar.com",
+            "contact:phone": "+44 1397 700876",
+            "cuisine": "pizza",
+            "diet:dairy_free": "yes",
+            "diet:gluten_free": "yes",
+            "diet:vegan": "yes",
+            "diet:vegetarian": "yes",
+            "dog": "yes",
+            "internet_access": "wlan",
+            "internet_access:fee": "no",
+            "level": "0;1",
+            "name": "Black Isle Bar - Fort William",
+            "operator": "Black Isle Brewing Co",
+            "operator:wikidata": "Q4921060",
+            "organic": "yes",
+            "outdoor_seating": "yes",
+            "real_ale": "yes",
+            "short_name": "Black Isle Bar",
+            "smoking": "outside",
+            "toilets": "yes",
+            "toilets:access": "customers",
+            "toilets:wheelchair": "designated",
+            "website": "https://www.blackislebrewery.com/visit-us/fort-william-bar/",
+            "wheelchair": "limited"
+          }
+        },
+        {
+          "id": 11165615392,
+          "lat": 55.9723572,
+          "lon": -4.3306501,
+          "tags": {
+            "amenity": "restaurant",
+            "name": "Stables Tearoom"
+          }
+        },
+        {
+          "id": 11407694869,
+          "lat": 56.0660931,
+          "lon": -4.4525408,
+          "tags": {
+            "amenity": "pub"
+          }
+        },
+        {
+          "id": 11973931718,
+          "lat": 56.8186762,
+          "lon": -5.1109084,
+          "tags": {
+            "amenity": "restaurant",
+            "cuisine": "pizza",
+            "name": "Rio Pizzeria"
+          }
+        },
+        {
+          "id": 12174642077,
+          "lat": 56.0286951,
+          "lon": -4.3807698,
+          "tags": {
+            "amenity": "restaurant",
+            "name": "Turnip the Beet",
+            "opening_hours": "Mo-Sa 09:00-17:00; Su 09:00-16:00",
+            "phone": "+447572095132",
+            "website": "https://www.turnipthebeet.co.uk/"
+          }
+        },
+        {
+          "id": 12874129002,
+          "lat": 56.8184014,
+          "lon": -5.1105056,
+          "tags": {
+            "amenity": "restaurant",
+            "cuisine": "italian_pizza",
+            "name": "The Pizzeria"
+          }
+        },
+        {
+          "id": 27864045,
+          "lat": 56.4373883,
+          "lon": -4.711502,
+          "tags": {
+            "addr:postcode": "FK20 8RY",
+            "amenity": "pub",
+            "building": "retail",
+            "building:material": "brick",
+            "height": "5 m",
+            "name": "The Tyndrum Inn Restaurant",
+            "outdoor_seating": "yes",
+            "roof:material": "roof_tiles",
+            "roof:shape": "pitched",
+            "source": "survey",
+            "source:building": "OS_OpenData_StreetView"
+          }
+        },
+        {
+          "id": 36957248,
+          "lat": 56.801955,
+          "lon": -5.0696376,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:place": "Glen Nevis",
+            "addr:postcode": "PH33 6SX",
+            "amenity": "restaurant",
+            "building": "yes",
+            "cuisine": "regional",
+            "fhrs:id": "360470",
+            "name": "Glen Nevis Restaurant & Bar",
+            "opening_hours": "Mo-Su 11:00-23:00",
+            "outdoor_seating": "yes",
+            "smoking": "outside",
+            "source": "survey",
+            "takeaway": "no",
+            "website": "https://www.glen-nevis.co.uk/food-and-drink"
+          }
+        },
+        {
+          "id": 57726832,
+          "lat": 56.6514894,
+          "lon": -4.8413101,
+          "tags": {
+            "addr:city": "Glencoe",
+            "addr:country": "GB",
+            "addr:postcode": "PH49 4HY",
+            "addr:street": "Glencoe",
+            "amenity": "restaurant",
+            "building": "yes",
+            "name": "Kingshouse Hotel",
+            "source": "survey",
+            "tourism": "hotel",
+            "website": "https://www.kingshousehotel.co.uk/",
+            "wikidata": "Q6412938",
+            "wikipedia": "en:Kings House Hotel"
+          }
+        },
+        {
+          "id": 59688772,
+          "lat": 56.4358521,
+          "lon": -4.7109121,
+          "tags": {
+            "addr:postcode": "FK20 8RY",
+            "amenity": "restaurant",
+            "building": "retail",
+            "building:levels": "1",
+            "cuisine": "burger;fish_and_chips;local",
+            "diet:gluten_free": "yes",
+            "diet:vegan": "yes",
+            "diet:vegetarian": "yes",
+            "fhrs:id": "21119",
+            "internet_access": "wlan",
+            "internet_access:fee": "no",
+            "internet_access:ssid": "RFC Free Wi-Fi",
+            "name": "The Real Food Cafe",
+            "note": "FIXME - add summer opening hours (from website)",
+            "opening_hours": "Mo-Su 07:30-21:00",
+            "outdoor_seating": "yes",
+            "payment:mastercard": "yes",
+            "payment:visa": "yes",
+            "phone": "+44 1838 400235",
+            "smoking": "no",
+            "source": "survey",
+            "source:building": "OS_OpenData_StreetView",
+            "start_date": "2005",
+            "survey:date": "2024-09-06",
+            "takeaway": "yes",
+            "toilets": "yes",
+            "website": "https://therealfoodcafe.com/",
+            "website:menu": "https://therealfoodcafe.com/pages/menus",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 59696434,
+          "lat": 56.8103516,
+          "lon": -5.0720819,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:place": "Achintee",
+            "addr:postcode": "PH33 6TE",
+            "amenity": "pub",
+            "building": "yes",
+            "contact:facebook": "https://www.facebook.com/bennevisinn/",
+            "fhrs:id": "360019",
+            "food": "yes",
+            "name": "Ben Nevis Inn",
+            "phone": "+44 1397 701227",
+            "source": "Bing",
+            "source:building": "OS_OpenData_StreetView",
+            "website": "https://www.ben-nevis-inn.co.uk/"
+          }
+        },
+        {
+          "id": 95098406,
+          "lat": 56.8226744,
+          "lon": -5.1047768,
+          "tags": {
+            "amenity": "restaurant",
+            "building": "yes",
+            "name": "Brewer's Fayre",
+            "source": "survey"
+          }
+        },
+        {
+          "id": 100833156,
+          "lat": 56.8227682,
+          "lon": -5.1012898,
+          "tags": {
+            "addr:city": "Fort William",
+            "addr:postcode": "PH33 6AN",
+            "addr:street": "Camanachd Crescent",
+            "amenity": "pub",
+            "building": "yes",
+            "name": "Fort William Shinty Club",
+            "name:gd": "Comann Camanachd a' Ghearasdain",
+            "phone": "+44 1397 700399",
+            "website": "https://fwshinty.com/"
+          }
+        },
+        {
+          "id": 172284485,
+          "lat": 56.3919217,
+          "lon": -4.6154194,
+          "tags": {
+            "amenity": "pub",
+            "building": "yes",
+            "name": "Rod & Reel"
+          }
+        },
+        {
+          "id": 201015121,
+          "lat": 56.8146219,
+          "lon": -5.1163837,
+          "tags": {
+            "amenity": "restaurant",
+            "building": "yes",
+            "check_date": "2024-08-13",
+            "name": "Lime Tree Hotel",
+            "source": "Bing",
+            "tourism": "hotel"
+          }
+        },
+        {
+          "id": 251911356,
+          "lat": 56.0840733,
+          "lon": -4.5399111,
+          "tags": {
+            "accommodation": "yes",
+            "addr:postcode": "G63 0JQ",
+            "amenity": "restaurant",
+            "building": "yes",
+            "contact:facebook": "theoaktreeinn",
+            "contact:instagram": "oaktreeinn",
+            "contact:website": "https://www.theoaktreeinn.co.uk/",
+            "email": "info@theoaktreeinn.co.uk",
+            "name": "The Oak Tree Inn",
+            "phone": "+441360870357",
+            "tourism": "guest_house"
+          }
+        },
+        {
+          "id": 308853192,
+          "lat": 56.3283371,
+          "lon": -4.721739,
+          "tags": {
+            "addr:city": "Arrochar",
+            "addr:postcode": "G83 7DX",
+            "addr:suburb": "Inverarnan",
+            "amenity": "pub",
+            "building": "yes",
+            "building:levels": "3",
+            "description": "300 year old Haunted Inn; Live music every weekend.",
+            "heritage": "yes",
+            "name": "The Drovers Inn",
+            "phone": "+44 1301 704234",
+            "website": "https://www.droversinn.co.uk/",
+            "wikidata": "Q17839249"
+          }
+        },
+        {
+          "id": 378001227,
+          "lat": 55.9877934,
+          "lon": -4.3145651,
+          "tags": {
+            "addr:city": "Blanefield",
+            "addr:housenumber": "54",
+            "addr:postcode": "G63 9BP",
+            "addr:street": "Glasgow Road",
+            "amenity": "pub",
+            "building": "yes",
+            "name": "Blane Valley Inn",
+            "opening_hours": "11:00-00:00",
+            "phone": "+44 1360 770303",
+            "smoking": "outside",
+            "website": "http://www.blanevalleyinn.co.uk"
+          }
+        }
+      ]
+    },
+    {
+      "label": "drinking_water",
+      "queryString": "nwr[\"amenity\"=\"drinking_water\"]",
+      "data": []
+    },
+    {
+      "label": "toilets",
+      "queryString": "nwr[\"amenity\"=\"toilets\"]",
+      "data": [
+        {
+          "id": 245663063,
+          "lat": 56.6240671,
+          "lon": -4.8363201,
+          "tags": {
+            "amenity": "toilets",
+            "check_date": "2024-04-14",
+            "source": "guess / local knowledge;survey"
+          }
+        },
+        {
+          "id": 289775460,
+          "lat": 56.3925008,
+          "lon": -4.6188899,
+          "tags": {
+            "amenity": "toilets",
+            "fee": "no",
+            "source": "survey"
+          }
+        },
+        {
+          "id": 305924510,
+          "lat": 56.4382878,
+          "lon": -4.7127739,
+          "tags": {
+            "amenity": "toilets",
+            "check_date": "2022-09-15",
+            "fee": "no",
+            "opening_hours": "24/7",
+            "source": "survey",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 739588378,
+          "lat": 56.4384194,
+          "lon": -4.7124688,
+          "tags": {
+            "amenity": "toilets",
+            "check_date": "2022-09-15",
+            "fee": "no",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 1764527535,
+          "lat": 56.1522464,
+          "lon": -4.6417726,
+          "tags": {
+            "amenity": "toilets",
+            "check_date": "2024-07-25",
+            "fee": "no"
+          }
+        },
+        {
+          "id": 2205597311,
+          "lat": 56.6319355,
+          "lon": -4.8280105,
+          "tags": {
+            "amenity": "toilets",
+            "check_date": "2022-09-30",
+            "fee": "no",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 2467516024,
+          "lat": 56.820556,
+          "lon": -5.1061215,
+          "tags": {
+            "amenity": "toilets",
+            "changing_table": "yes",
+            "description": "closed at night",
+            "fee": "yes",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 4357285243,
+          "lat": 56.8044693,
+          "lon": -5.0758542,
+          "tags": {
+            "access": "permissive",
+            "amenity": "toilets",
+            "drinking_water": "yes",
+            "fee": "no",
+            "male": "yes",
+            "toilets:disposal": "flush",
+            "toilets:position": "seated"
+          }
+        },
+        {
+          "id": 4357285244,
+          "lat": 56.8045042,
+          "lon": -5.075767,
+          "tags": {
+            "access": "permissive",
+            "amenity": "toilets",
+            "drinking_water": "yes",
+            "fee": "no",
+            "female": "yes",
+            "toilets:disposal": "flush",
+            "toilets:position": "seated"
+          }
+        },
+        {
+          "id": 5224732571,
+          "lat": 56.3902639,
+          "lon": -4.6184205,
+          "tags": {
+            "amenity": "toilets",
+            "fee": "no",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 5673016349,
+          "lat": 56.8101223,
+          "lon": -5.0769785,
+          "tags": {
+            "access": "yes",
+            "amenity": "toilets",
+            "fee": "no",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 6966543831,
+          "lat": 56.818747,
+          "lon": -5.1084203,
+          "tags": {
+            "amenity": "toilets",
+            "fee": "0,50 £"
+          }
+        },
+        {
+          "id": 7522042686,
+          "lat": 56.6504808,
+          "lon": -4.8388963,
+          "tags": {
+            "access": "permissive",
+            "amenity": "toilets",
+            "fee": "no"
+          }
+        },
+        {
+          "id": 9773494338,
+          "lat": 56.0849197,
+          "lon": -4.5388969,
+          "tags": {
+            "amenity": "toilets",
+            "charge": "0.50 GBP",
+            "fee": "yes",
+            "payment:coins": "yes",
+            "payment:contactless": "yes",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 10899716806,
+          "lat": 56.4336018,
+          "lon": -4.7126592,
+          "tags": {
+            "amenity": "toilets",
+            "female": "no",
+            "male": "yes"
+          }
+        },
+        {
+          "id": 10969664001,
+          "lat": 56.4245908,
+          "lon": -4.6697781,
+          "tags": {
+            "access": "permissive",
+            "amenity": "toilets",
+            "changing_table": "yes",
+            "toilets:disposal": "flush"
+          }
+        },
+        {
+          "id": 11130710975,
+          "lat": 56.3309234,
+          "lon": -4.7167449,
+          "tags": {
+            "access": "permissive",
+            "amenity": "toilets",
+            "fee": "no"
+          }
+        },
+        {
+          "id": 11130710976,
+          "lat": 56.3308727,
+          "lon": -4.716769,
+          "tags": {
+            "access": "permissive",
+            "amenity": "toilets",
+            "fee": "no"
+          }
+        },
+        {
+          "id": 11165621575,
+          "lat": 56.0535059,
+          "lon": -4.4321569,
+          "tags": {
+            "amenity": "toilets",
+            "fee": "no"
+          }
+        },
+        {
+          "id": 11165628024,
+          "lat": 56.100184,
+          "lon": -4.5615866,
+          "tags": {
+            "amenity": "toilets"
+          }
+        },
+        {
+          "id": 11165628874,
+          "lat": 55.9725489,
+          "lon": -4.330573,
+          "tags": {
+            "amenity": "toilets"
+          }
+        },
+        {
+          "id": 11169484722,
+          "lat": 56.3307315,
+          "lon": -4.7168696,
+          "tags": {
+            "amenity": "toilets"
+          }
+        },
+        {
+          "id": 11248467026,
+          "lat": 55.9725412,
+          "lon": -4.3307363,
+          "tags": {
+            "amenity": "toilets",
+            "dog": "no",
+            "name": "Adapted Toilet",
+            "name:gd": "Taigh-beag Ciarramach",
+            "wheelchair": "designated"
+          }
+        },
+        {
+          "id": 12877472601,
+          "lat": 56.6507572,
+          "lon": -4.839638,
+          "tags": {
+            "amenity": "toilets"
+          }
+        },
+        {
+          "id": 12945164109,
+          "lat": 56.4335721,
+          "lon": -4.7125679,
+          "tags": {
+            "amenity": "toilets",
+            "female": "yes",
+            "male": "no"
+          }
+        },
+        {
+          "id": 59688775,
+          "lat": 56.4356432,
+          "lon": -4.7105218,
+          "tags": {
+            "access": "yes",
+            "amenity": "toilets",
+            "building": "yes",
+            "fee": "no",
+            "source": "survey",
+            "source:building": "OS_OpenData_StreetView",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 94129891,
+          "lat": 56.7139116,
+          "lon": -4.9624507,
+          "tags": {
+            "amenity": "toilets",
+            "building": "yes",
+            "check_date": "2025-05-11",
+            "fee": "donation",
+            "opening_hours": "Mo-Su 08:00-18:00"
+          }
+        },
+        {
+          "id": 197685183,
+          "lat": 56.8030804,
+          "lon": -5.0749042,
+          "tags": {
+            "access": "permissive",
+            "amenity": "toilets",
+            "building": "yes",
+            "fee": "no",
+            "name": "Ben view Facilities",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 200724193,
+          "lat": 56.8183759,
+          "lon": -5.1091863,
+          "tags": {
+            "access": "yes",
+            "amenity": "toilets",
+            "building": "yes",
+            "charge": "GBP 0.50",
+            "check_date": "2024-12-30",
+            "fee": "yes",
+            "fixme": "opening_hours needs to be checked",
+            "opening_hours": "08:00-21:00",
+            "source": "Bing",
+            "toilets:disposal": "flush",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 218224201,
+          "lat": 55.9497288,
+          "lon": -4.3092377,
+          "tags": {
+            "amenity": "toilets",
+            "building": "yes",
+            "opening_hours": "08:00-18:00",
+            "source": "bing;survey",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": 369584627,
+          "lat": 56.0769031,
+          "lon": -4.5619223,
+          "tags": {
+            "amenity": "toilets",
+            "building": "yes",
+            "fee": "no",
+            "toilets:disposal": "composting"
+          }
+        },
+        {
+          "id": 645025872,
+          "lat": 56.8381129,
+          "lon": -5.1059629,
+          "tags": {
+            "access": "yes",
+            "amenity": "toilets",
+            "building": "yes",
+            "check_date": "2024-06-06",
+            "opening_hours": "08:30-17:00"
+          }
+        },
+        {
+          "id": 1160008579,
+          "lat": 56.7998267,
+          "lon": -5.0694424,
+          "tags": {
+            "amenity": "toilets",
+            "building": "yes"
+          }
+        },
+        {
+          "id": 1177056253,
+          "lat": 55.9931574,
+          "lon": -4.3762055,
+          "tags": {
+            "amenity": "toilets",
+            "building": "yes"
+          }
+        },
+        {
+          "id": 1200333535,
+          "lat": 56.1277488,
+          "lon": -4.6079351,
+          "tags": {
+            "amenity": "toilets",
+            "fee": "no",
+            "wheelchair": "yes"
+          }
+        }
+      ]
+    },
+    {
+      "label": "import_gpx",
+      "queryString": "#gpx",
+      "data": []
+    }
+  ],
+  "gpxFiles": [
+    {
+      "name": "westhighlandway.gpx",
+      "geojson": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {
+              "_gpxType": "trk",
+              "name": "West Highland Way",
+              "type": "Track",
+              "coordinateProperties": {}
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -4.3178301261,
+                  55.9415253353
+                ],
+                [
+                  -4.3194385502,
+                  55.9436520514
+                ],
+                [
+                  -4.3210643227,
+                  55.9453964548
+                ],
+                [
+                  -4.3219606122,
+                  55.9463232487
+                ],
+                [
+                  -4.3221131614,
+                  55.9475097805
+                ],
+                [
+                  -4.3210809284,
+                  55.949663813
+                ],
+                [
+                  -4.3214909941,
+                  55.9511615141
+                ],
+                [
+                  -4.3214304748,
+                  55.9528253706
+                ],
+                [
+                  -4.324815698,
+                  55.9545140953
+                ],
+                [
+                  -4.329164054,
+                  55.9562294551
+                ],
+                [
+                  -4.33101342,
+                  55.9576774268
+                ],
+                [
+                  -4.3318037859,
+                  55.9588308606
+                ],
+                [
+                  -4.3342216274,
+                  55.9604028362
+                ],
+                [
+                  -4.3373490414,
+                  55.9617815479
+                ],
+                [
+                  -4.341298634,
+                  55.963504063
+                ],
+                [
+                  -4.3437971809,
+                  55.9650743242
+                ],
+                [
+                  -4.3458876132,
+                  55.9665174954
+                ],
+                [
+                  -4.3468495517,
+                  55.9678473251
+                ],
+                [
+                  -4.3493502463,
+                  55.9707655938
+                ],
+                [
+                  -4.349902962,
+                  55.9732716071
+                ],
+                [
+                  -4.3496487259,
+                  55.9770063507
+                ],
+                [
+                  -4.3493454206,
+                  55.9799331345
+                ],
+                [
+                  -4.3479794396,
+                  55.9825206652
+                ],
+                [
+                  -4.3466051157,
+                  55.984973521
+                ],
+                [
+                  -4.3453690135,
+                  55.9870642204
+                ],
+                [
+                  -4.3485883322,
+                  55.987272527
+                ],
+                [
+                  -4.3524319182,
+                  55.9871992023
+                ],
+                [
+                  -4.3528067805,
+                  55.9880908128
+                ],
+                [
+                  -4.3514608406,
+                  55.9896893503
+                ],
+                [
+                  -4.351223031,
+                  55.9936934019
+                ],
+                [
+                  -4.352738289,
+                  55.9948778159
+                ],
+                [
+                  -4.3567810684,
+                  55.9954297001
+                ],
+                [
+                  -4.3592295872,
+                  55.9974500153
+                ],
+                [
+                  -4.3604303221,
+                  55.9987302368
+                ],
+                [
+                  -4.3610588044,
+                  56.0011448727
+                ],
+                [
+                  -4.3612765343,
+                  56.002084408
+                ],
+                [
+                  -4.3580715615,
+                  56.003448984
+                ],
+                [
+                  -4.3617271709,
+                  56.0068392436
+                ],
+                [
+                  -4.3659936924,
+                  56.0110265676
+                ],
+                [
+                  -4.3681620819,
+                  56.0123780187
+                ],
+                [
+                  -4.3707158089,
+                  56.0200134026
+                ],
+                [
+                  -4.3719311029,
+                  56.0228211462
+                ],
+                [
+                  -4.3763497852,
+                  56.0268254555
+                ],
+                [
+                  -4.3827291999,
+                  56.030072727
+                ],
+                [
+                  -4.3889410248,
+                  56.0331881119
+                ],
+                [
+                  -4.3932991578,
+                  56.0374626491
+                ],
+                [
+                  -4.397086947,
+                  56.0441748122
+                ],
+                [
+                  -4.4039106382,
+                  56.0519062668
+                ],
+                [
+                  -4.4076691144,
+                  56.0516532094
+                ],
+                [
+                  -4.4116317255,
+                  56.0508118423
+                ],
+                [
+                  -4.4148937625,
+                  56.0496905799
+                ],
+                [
+                  -4.419182226,
+                  56.0489324944
+                ],
+                [
+                  -4.4231371155,
+                  56.0492592988
+                ],
+                [
+                  -4.4278069762,
+                  56.0507402717
+                ],
+                [
+                  -4.4306636283,
+                  56.052751123
+                ],
+                [
+                  -4.4343018399,
+                  56.0556901732
+                ],
+                [
+                  -4.4348065846,
+                  56.0586011297
+                ],
+                [
+                  -4.4394410259,
+                  56.0683957743
+                ],
+                [
+                  -4.4328239612,
+                  56.0692004666
+                ],
+                [
+                  -4.4317800976,
+                  56.0768603445
+                ],
+                [
+                  -4.4365896576,
+                  56.0804952674
+                ],
+                [
+                  -4.4378437176,
+                  56.0825376133
+                ],
+                [
+                  -4.440256518,
+                  56.0838380511
+                ],
+                [
+                  -4.4450434222,
+                  56.0845521938
+                ],
+                [
+                  -4.4512093295,
+                  56.0854634637
+                ],
+                [
+                  -4.4551310959,
+                  56.0852057736
+                ],
+                [
+                  -4.458115535,
+                  56.0841128151
+                ],
+                [
+                  -4.4616099234,
+                  56.0847172401
+                ],
+                [
+                  -4.4653051038,
+                  56.0859466843
+                ],
+                [
+                  -4.469350332,
+                  56.0876183961
+                ],
+                [
+                  -4.4731809759,
+                  56.0896987194
+                ],
+                [
+                  -4.4780350619,
+                  56.0901855662
+                ],
+                [
+                  -4.4821921708,
+                  56.0898324199
+                ],
+                [
+                  -4.4835360292,
+                  56.0882325629
+                ],
+                [
+                  -4.482692267,
+                  56.0863621428
+                ],
+                [
+                  -4.4854778864,
+                  56.0846883164
+                ],
+                [
+                  -4.4942220004,
+                  56.0819504565
+                ],
+                [
+                  -4.5002083216,
+                  56.0800767441
+                ],
+                [
+                  -4.502083298,
+                  56.08048813
+                ],
+                [
+                  -4.5038473037,
+                  56.0816656908
+                ],
+                [
+                  -4.5195591524,
+                  56.0822896567
+                ],
+                [
+                  -4.53038445,
+                  56.0831467239
+                ],
+                [
+                  -4.5412604604,
+                  56.0847657665
+                ],
+                [
+                  -4.5456361152,
+                  56.0853047442
+                ],
+                [
+                  -4.5468309084,
+                  56.0863586343
+                ],
+                [
+                  -4.5476836968,
+                  56.0883183552
+                ],
+                [
+                  -4.5490154629,
+                  56.0890098861
+                ],
+                [
+                  -4.5530853825,
+                  56.0909929752
+                ],
+                [
+                  -4.5566621452,
+                  56.0928063938
+                ],
+                [
+                  -4.5563024817,
+                  56.0982964265
+                ],
+                [
+                  -4.5668876237,
+                  56.1039189155
+                ],
+                [
+                  -4.5693389732,
+                  56.1057104443
+                ],
+                [
+                  -4.5746954312,
+                  56.1052393501
+                ],
+                [
+                  -4.5769242997,
+                  56.1073050109
+                ],
+                [
+                  -4.5781836578,
+                  56.109301002
+                ],
+                [
+                  -4.5782766984,
+                  56.1106921854
+                ],
+                [
+                  -4.5814999626,
+                  56.1131864006
+                ],
+                [
+                  -4.584672486,
+                  56.1149176255
+                ],
+                [
+                  -4.5882007912,
+                  56.1183490256
+                ],
+                [
+                  -4.5924636643,
+                  56.1207313023
+                ],
+                [
+                  -4.5955602296,
+                  56.1200844945
+                ],
+                [
+                  -4.5973289647,
+                  56.1212606243
+                ],
+                [
+                  -4.5996844162,
+                  56.1227838813
+                ],
+                [
+                  -4.6028600852,
+                  56.123346066
+                ],
+                [
+                  -4.6056935418,
+                  56.1259826125
+                ],
+                [
+                  -4.6081269217,
+                  56.1274591324
+                ],
+                [
+                  -4.6119337047,
+                  56.1278279901
+                ],
+                [
+                  -4.6166488022,
+                  56.128536987
+                ],
+                [
+                  -4.6196207918,
+                  56.129642348
+                ],
+                [
+                  -4.6223357524,
+                  56.1316968369
+                ],
+                [
+                  -4.6261607277,
+                  56.1335029508
+                ],
+                [
+                  -4.6272819955,
+                  56.1346025744
+                ],
+                [
+                  -4.6300210355,
+                  56.1393527799
+                ],
+                [
+                  -4.6346785444,
+                  56.1415453592
+                ],
+                [
+                  -4.6365210292,
+                  56.141416129
+                ],
+                [
+                  -4.6391419573,
+                  56.1432475827
+                ],
+                [
+                  -4.6404243554,
+                  56.1455120888
+                ],
+                [
+                  -4.6394994671,
+                  56.1472845297
+                ],
+                [
+                  -4.6394002825,
+                  56.1481854489
+                ],
+                [
+                  -4.6413106067,
+                  56.1502118182
+                ],
+                [
+                  -4.6418885304,
+                  56.1515925872
+                ],
+                [
+                  -4.6420735156,
+                  56.1542850231
+                ],
+                [
+                  -4.6420884648,
+                  56.1568462778
+                ],
+                [
+                  -4.6416026913,
+                  56.1579801713
+                ],
+                [
+                  -4.6432041179,
+                  56.1613613247
+                ],
+                [
+                  -4.6449390313,
+                  56.1631667038
+                ],
+                [
+                  -4.6502128327,
+                  56.1695699054
+                ],
+                [
+                  -4.6538665416,
+                  56.1711542102
+                ],
+                [
+                  -4.6595256325,
+                  56.1737737992
+                ],
+                [
+                  -4.6663496326,
+                  56.1780757229
+                ],
+                [
+                  -4.6702998362,
+                  56.1815855945
+                ],
+                [
+                  -4.6725994648,
+                  56.1822099568
+                ],
+                [
+                  -4.6748819818,
+                  56.1849019042
+                ],
+                [
+                  -4.6784666363,
+                  56.1900822453
+                ],
+                [
+                  -4.6812672006,
+                  56.1967176077
+                ],
+                [
+                  -4.6832783621,
+                  56.1989659031
+                ],
+                [
+                  -4.6828967822,
+                  56.2015807333
+                ],
+                [
+                  -4.679532109,
+                  56.206507305
+                ],
+                [
+                  -4.6761532299,
+                  56.2100858696
+                ],
+                [
+                  -4.6743349597,
+                  56.2140799691
+                ],
+                [
+                  -4.675683815,
+                  56.2207019161
+                ],
+                [
+                  -4.6774310194,
+                  56.2249333948
+                ],
+                [
+                  -4.6810522339,
+                  56.2317307531
+                ],
+                [
+                  -4.6833415741,
+                  56.2379277701
+                ],
+                [
+                  -4.6841328673,
+                  56.242314732
+                ],
+                [
+                  -4.6866985777,
+                  56.2478315943
+                ],
+                [
+                  -4.6931390814,
+                  56.2521855268
+                ],
+                [
+                  -4.6941343896,
+                  56.2548602657
+                ],
+                [
+                  -4.6914922094,
+                  56.2597713374
+                ],
+                [
+                  -4.6921521268,
+                  56.2726098668
+                ],
+                [
+                  -4.6916727553,
+                  56.2818779585
+                ],
+                [
+                  -4.6946836099,
+                  56.2879242839
+                ],
+                [
+                  -4.6951436487,
+                  56.2910151326
+                ],
+                [
+                  -4.6977033071,
+                  56.2952286767
+                ],
+                [
+                  -4.6999754803,
+                  56.2976508401
+                ],
+                [
+                  -4.7019711701,
+                  56.3018766073
+                ],
+                [
+                  -4.7060342054,
+                  56.3056077729
+                ],
+                [
+                  -4.7069942775,
+                  56.3100358636
+                ],
+                [
+                  -4.7096773613,
+                  56.3159542198
+                ],
+                [
+                  -4.7129085913,
+                  56.3204673715
+                ],
+                [
+                  -4.7154562985,
+                  56.3244561545
+                ],
+                [
+                  -4.7153330321,
+                  56.3249981405
+                ],
+                [
+                  -4.7161416911,
+                  56.3306878199
+                ],
+                [
+                  -4.7166093867,
+                  56.3349918251
+                ],
+                [
+                  -4.7170835784,
+                  56.3393855656
+                ],
+                [
+                  -4.7158048251,
+                  56.3418853168
+                ],
+                [
+                  -4.7146630857,
+                  56.3428990247
+                ],
+                [
+                  -4.7082663401,
+                  56.3439827713
+                ],
+                [
+                  -4.7054892951,
+                  56.3447624879
+                ],
+                [
+                  -4.7032777372,
+                  56.3455298027
+                ],
+                [
+                  -4.7012974961,
+                  56.3472807104
+                ],
+                [
+                  -4.6970164371,
+                  56.3485424106
+                ],
+                [
+                  -4.694070882,
+                  56.3492356501
+                ],
+                [
+                  -4.6892331596,
+                  56.3506439947
+                ],
+                [
+                  -4.6869319054,
+                  56.3524465631
+                ],
+                [
+                  -4.6803700846,
+                  56.3558243189
+                ],
+                [
+                  -4.6752696785,
+                  56.3569681407
+                ],
+                [
+                  -4.6727406002,
+                  56.3590000415
+                ],
+                [
+                  -4.6685663325,
+                  56.3606628692
+                ],
+                [
+                  -4.6628104185,
+                  56.3651907026
+                ],
+                [
+                  -4.6575906374,
+                  56.368133888
+                ],
+                [
+                  -4.6595783726,
+                  56.3699337508
+                ],
+                [
+                  -4.6588323403,
+                  56.3708485342
+                ],
+                [
+                  -4.6549146525,
+                  56.3738984694
+                ],
+                [
+                  -4.6522653056,
+                  56.3765616308
+                ],
+                [
+                  -4.6502253427,
+                  56.3798408458
+                ],
+                [
+                  -4.6450088201,
+                  56.384041659
+                ],
+                [
+                  -4.6362354507,
+                  56.3860260408
+                ],
+                [
+                  -4.6329240476,
+                  56.3896914665
+                ],
+                [
+                  -4.6336049561,
+                  56.3913397263
+                ],
+                [
+                  -4.6450274755,
+                  56.393658115
+                ],
+                [
+                  -4.6494898593,
+                  56.3949110172
+                ],
+                [
+                  -4.6514507574,
+                  56.3974755503
+                ],
+                [
+                  -4.6529172939,
+                  56.4010842198
+                ],
+                [
+                  -4.6554827291,
+                  56.4041750283
+                ],
+                [
+                  -4.6574347439,
+                  56.4054364453
+                ],
+                [
+                  -4.6571989745,
+                  56.4078681855
+                ],
+                [
+                  -4.660956911,
+                  56.4094503632
+                ],
+                [
+                  -4.6597625544,
+                  56.4120824226
+                ],
+                [
+                  -4.6628808335,
+                  56.4161049537
+                ],
+                [
+                  -4.6610700841,
+                  56.4191996369
+                ],
+                [
+                  -4.6646121392,
+                  56.4223142683
+                ],
+                [
+                  -4.6707922231,
+                  56.4248777271
+                ],
+                [
+                  -4.6766736467,
+                  56.4231781326
+                ],
+                [
+                  -4.6819858006,
+                  56.422614033
+                ],
+                [
+                  -4.6869752451,
+                  56.4232251097
+                ],
+                [
+                  -4.6901360608,
+                  56.4232015594
+                ],
+                [
+                  -4.6929157307,
+                  56.4246691963
+                ],
+                [
+                  -4.6955464094,
+                  56.4240278639
+                ],
+                [
+                  -4.697019689,
+                  56.4242205454
+                ],
+                [
+                  -4.7005047021,
+                  56.4264815927
+                ],
+                [
+                  -4.7054514472,
+                  56.431047538
+                ],
+                [
+                  -4.7121929783,
+                  56.4334619318
+                ],
+                [
+                  -4.7140279558,
+                  56.4353092767
+                ],
+                [
+                  -4.7139192696,
+                  56.4371991154
+                ],
+                [
+                  -4.7114529922,
+                  56.441297578
+                ],
+                [
+                  -4.7095788166,
+                  56.4457425726
+                ],
+                [
+                  -4.7092320379,
+                  56.4488509616
+                ],
+                [
+                  -4.7095505576,
+                  56.4510460404
+                ],
+                [
+                  -4.7116690568,
+                  56.4574273617
+                ],
+                [
+                  -4.7145133178,
+                  56.463162247
+                ],
+                [
+                  -4.7160642219,
+                  56.4655549913
+                ],
+                [
+                  -4.7183014481,
+                  56.4695954161
+                ],
+                [
+                  -4.7189322474,
+                  56.4716038376
+                ],
+                [
+                  -4.7202839862,
+                  56.4768769806
+                ],
+                [
+                  -4.7181542324,
+                  56.4800244264
+                ],
+                [
+                  -4.7181838287,
+                  56.4838435639
+                ],
+                [
+                  -4.7226720715,
+                  56.4852730851
+                ],
+                [
+                  -4.7317463696,
+                  56.4894776689
+                ],
+                [
+                  -4.7368291082,
+                  56.4923765938
+                ],
+                [
+                  -4.7463739162,
+                  56.4985470995
+                ],
+                [
+                  -4.7502095853,
+                  56.5010237031
+                ],
+                [
+                  -4.75722783,
+                  56.5092716425
+                ],
+                [
+                  -4.7601800481,
+                  56.5141044156
+                ],
+                [
+                  -4.7648526698,
+                  56.5168765668
+                ],
+                [
+                  -4.7671905541,
+                  56.5177232737
+                ],
+                [
+                  -4.7712977264,
+                  56.5183057675
+                ],
+                [
+                  -4.7746951049,
+                  56.5202971114
+                ],
+                [
+                  -4.7807811451,
+                  56.5256885304
+                ],
+                [
+                  -4.7817848771,
+                  56.5260705071
+                ],
+                [
+                  -4.7836277848,
+                  56.5245911492
+                ],
+                [
+                  -4.7849540906,
+                  56.5260444187
+                ],
+                [
+                  -4.7863431162,
+                  56.5283501198
+                ],
+                [
+                  -4.7878518164,
+                  56.5300689065
+                ],
+                [
+                  -4.7915778142,
+                  56.5309738879
+                ],
+                [
+                  -4.7958605783,
+                  56.5328099623
+                ],
+                [
+                  -4.8045594995,
+                  56.5316701103
+                ],
+                [
+                  -4.8067467547,
+                  56.5326543202
+                ],
+                [
+                  -4.8111722939,
+                  56.5320149551
+                ],
+                [
+                  -4.8131640779,
+                  56.5325540787
+                ],
+                [
+                  -4.8134948924,
+                  56.5359170877
+                ],
+                [
+                  -4.8129884265,
+                  56.5378609781
+                ],
+                [
+                  -4.8142604766,
+                  56.5407532651
+                ],
+                [
+                  -4.8116424962,
+                  56.5427449629
+                ],
+                [
+                  -4.806742056,
+                  56.5457768617
+                ],
+                [
+                  -4.8039691021,
+                  56.5467832102
+                ],
+                [
+                  -4.7990956382,
+                  56.5512971829
+                ],
+                [
+                  -4.7942320325,
+                  56.5592710539
+                ],
+                [
+                  -4.790528624,
+                  56.5686566994
+                ],
+                [
+                  -4.7909575511,
+                  56.5711636659
+                ],
+                [
+                  -4.7957373617,
+                  56.5741570646
+                ],
+                [
+                  -4.7977608366,
+                  56.5773022307
+                ],
+                [
+                  -4.7994842945,
+                  56.5840942048
+                ],
+                [
+                  -4.8064509913,
+                  56.5923857463
+                ],
+                [
+                  -4.8074602163,
+                  56.5960506264
+                ],
+                [
+                  -4.807808569,
+                  56.6018398843
+                ],
+                [
+                  -4.8079784836,
+                  56.6041279328
+                ],
+                [
+                  -4.8042574198,
+                  56.6088855984
+                ],
+                [
+                  -4.7996769897,
+                  56.6141568201
+                ],
+                [
+                  -4.8020923293,
+                  56.622550888
+                ],
+                [
+                  -4.8064366069,
+                  56.6272613537
+                ],
+                [
+                  -4.8149413233,
+                  56.6308889113
+                ],
+                [
+                  -4.8213019065,
+                  56.6330815884
+                ],
+                [
+                  -4.8256565236,
+                  56.6378810854
+                ],
+                [
+                  -4.8276501686,
+                  56.6438126891
+                ],
+                [
+                  -4.8347622252,
+                  56.6483694262
+                ],
+                [
+                  -4.8404648401,
+                  56.6515199132
+                ],
+                [
+                  -4.8402909821,
+                  56.6535461585
+                ],
+                [
+                  -4.8535055993,
+                  56.6535133747
+                ],
+                [
+                  -4.8560236573,
+                  56.6544442636
+                ],
+                [
+                  -4.8607853489,
+                  56.6569863036
+                ],
+                [
+                  -4.8638402093,
+                  56.6585338551
+                ],
+                [
+                  -4.8672208061,
+                  56.6589952696
+                ],
+                [
+                  -4.8699698645,
+                  56.658662243
+                ],
+                [
+                  -4.8820465878,
+                  56.6597312704
+                ],
+                [
+                  -4.8876852403,
+                  56.6609037927
+                ],
+                [
+                  -4.8943361938,
+                  56.6625019255
+                ],
+                [
+                  -4.9048214706,
+                  56.6651337717
+                ],
+                [
+                  -4.9069041119,
+                  56.6688601578
+                ],
+                [
+                  -4.9122742199,
+                  56.67286915
+                ],
+                [
+                  -4.9138812565,
+                  56.675707748
+                ],
+                [
+                  -4.9184139898,
+                  56.6815337433
+                ],
+                [
+                  -4.9180638469,
+                  56.6833395908
+                ],
+                [
+                  -4.9163663322,
+                  56.6898958064
+                ],
+                [
+                  -4.9197749634,
+                  56.6927820063
+                ],
+                [
+                  -4.9219939694,
+                  56.6950668739
+                ],
+                [
+                  -4.9322852758,
+                  56.697161847
+                ],
+                [
+                  -4.9396052031,
+                  56.7009440668
+                ],
+                [
+                  -4.9413035947,
+                  56.7007241915
+                ],
+                [
+                  -4.9460672191,
+                  56.6979150798
+                ],
+                [
+                  -4.9493621909,
+                  56.7003537932
+                ],
+                [
+                  -4.9510048513,
+                  56.7035956041
+                ],
+                [
+                  -4.948704274,
+                  56.707604958
+                ],
+                [
+                  -4.9492622946,
+                  56.7105578815
+                ],
+                [
+                  -4.9556018538,
+                  56.7122052458
+                ],
+                [
+                  -4.9546899203,
+                  56.7130807756
+                ],
+                [
+                  -4.960175163,
+                  56.7152874837
+                ],
+                [
+                  -4.9629666709,
+                  56.714412151
+                ],
+                [
+                  -4.9666293672,
+                  56.717336059
+                ],
+                [
+                  -4.9710097143,
+                  56.7169170509
+                ],
+                [
+                  -4.9771207261,
+                  56.7187485726
+                ],
+                [
+                  -4.9809905325,
+                  56.7201391011
+                ],
+                [
+                  -4.9876985571,
+                  56.7222704263
+                ],
+                [
+                  -4.992441628,
+                  56.7233250656
+                ],
+                [
+                  -5.0001966266,
+                  56.7242171339
+                ],
+                [
+                  -5.0082935314,
+                  56.7263139198
+                ],
+                [
+                  -5.0188116017,
+                  56.7290256852
+                ],
+                [
+                  -5.0253515756,
+                  56.7300355409
+                ],
+                [
+                  -5.0282161903,
+                  56.7310895134
+                ],
+                [
+                  -5.036191998,
+                  56.7316361782
+                ],
+                [
+                  -5.0440386586,
+                  56.7326131324
+                ],
+                [
+                  -5.0503513197,
+                  56.7328181978
+                ],
+                [
+                  -5.0626516644,
+                  56.732246596
+                ],
+                [
+                  -5.0707397336,
+                  56.7301597329
+                ],
+                [
+                  -5.0796713807,
+                  56.7293998012
+                ],
+                [
+                  -5.0877204526,
+                  56.72785211
+                ],
+                [
+                  -5.0924416949,
+                  56.7276000995
+                ],
+                [
+                  -5.100202218,
+                  56.7334746648
+                ],
+                [
+                  -5.1070340531,
+                  56.7389674525
+                ],
+                [
+                  -5.110361681,
+                  56.7465699854
+                ],
+                [
+                  -5.1080014478,
+                  56.7526515287
+                ],
+                [
+                  -5.1007797847,
+                  56.7672587701
+                ],
+                [
+                  -5.0829286803,
+                  56.7741287822
+                ],
+                [
+                  -5.0721649486,
+                  56.7806418369
+                ],
+                [
+                  -5.0713245068,
+                  56.7853816706
+                ],
+                [
+                  -5.0731387385,
+                  56.787539207
+                ],
+                [
+                  -5.071181721,
+                  56.7906436315
+                ],
+                [
+                  -5.0671524381,
+                  56.78943947
+                ],
+                [
+                  -5.0695193674,
+                  56.7923475026
+                ],
+                [
+                  -5.0756291684,
+                  56.7939497186
+                ],
+                [
+                  -5.0774681412,
+                  56.7983987353
+                ],
+                [
+                  -5.079296519,
+                  56.8027131591
+                ],
+                [
+                  -5.0827569227,
+                  56.8069422768
+                ],
+                [
+                  -5.0826781509,
+                  56.8079779378
+                ],
+                [
+                  -5.0779467387,
+                  56.8082296542
+                ],
+                [
+                  -5.0781924812,
+                  56.8122235997
+                ],
+                [
+                  -5.0768594683,
+                  56.8149531322
+                ],
+                [
+                  -5.0791138695,
+                  56.8174592929
+                ],
+                [
+                  -5.0819706065,
+                  56.8203100855
+                ],
+                [
+                  -5.0865430318,
+                  56.8210958902
+                ],
+                [
+                  -5.0938744935,
+                  56.8215434535
+                ],
+                [
+                  -5.0975030927,
+                  56.8218129411
+                ],
+                [
+                  -5.1031099697,
+                  56.8202353432
+                ],
+                [
+                  -5.1057198587,
+                  56.820080489
+                ],
+                [
+                  -5.1070805315,
+                  56.82067582
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "color": "#e6194b"
+    }
+  ],
+  "selectedLayers": [
+    "groceries",
+    "cafes",
+    "pubs_restaurants",
+    "drinking_water",
+    "toilets",
+    "import_gpx"
+  ],
+  "mapBounds": {
+    "southWest": {
+      "lat": 55.94786835276837,
+      "lng": -6.0087460887256725
+    },
+    "northEast": {
+      "lat": 56.86231019296807,
+      "lng": -3.227620540650643
+    }
+  }
+}
