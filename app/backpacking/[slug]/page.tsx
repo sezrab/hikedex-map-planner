@@ -60,6 +60,8 @@ function BackpackingMapPage({
                     )}
                     <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
                         <Flex
+                            p="sm"
+                            mb="lg"
                             justify="space-between"
                             align="center"
                             gap="xl"

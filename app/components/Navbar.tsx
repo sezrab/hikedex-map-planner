@@ -52,7 +52,7 @@ export default function Navbar({ page }: { page?: string }) {
             </Group>
 
 
-            <Burger opened={drawerOpened} onClick={open} aria-label="Open navigation" color="indigo.9" display={{ base: 'block', xs: 'none' }} />
+            <Burger opened={drawerOpened} onClick={open} aria-label="Open navigation" color="indigo.9" display={{ base: 'block', xs: 'none' }} mb="lg" />
             <Drawer opened={drawerOpened} onClose={close} title="Menu" padding="md" size="xs">
                 <Stack gap="sm" style={{ width: '100%' }}>
                     <Button

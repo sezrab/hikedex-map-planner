@@ -8,6 +8,7 @@ function AboutSection() {
             justify="space-between"
             align="center"
             gap="xl"
+            p="sm"
             direction={{ base: 'column', sm: 'row' }}
             mih={0}
         >
@@ -41,6 +42,15 @@ function AboutSection() {
                 <Group mt={30}>
                     <Button
                         component="a"
+                        href="/map"
+                        radius="sm"
+                        size="md"
+                        rel="noopener"
+                    >
+                        Explore the map
+                    </Button>
+                    <Button
+                        component="a"
                         href="https://forms.gle/BzXeS9KyEAtwWgxRA"
                         variant="light"
                         radius="sm"
@@ -49,15 +59,7 @@ function AboutSection() {
                     >
                         Send feedback
                     </Button>
-                    <Button
-                        component="a"
-                        href="/map"
-                        radius="sm"
-                        size="md"
-                        rel="noopener"
-                    >
-                        Explore the map
-                    </Button>
+
                 </Group>
             </div>
             {/* <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
