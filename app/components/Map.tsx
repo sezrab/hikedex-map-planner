@@ -447,10 +447,6 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
     const containerHeight = orientation === 'portrait' ? baseHeight : baseWidth;
     let scale = 1;
 
-    if (norefresh) {
-        setHasCenteredUserLocation(true);
-    }
-
     if (printPreview) {
         const vh = window.innerHeight;
         if (vh < containerHeight) {
@@ -642,7 +638,7 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
     function UserLocationSetter() {
         const map = useMap();
         useEffect(() => {
-            if (hasCenteredUserLocation) return;
+            if (hasCenteredUserLocation || norefresh) return;
             if (userLocation && map) {
                 map.setView(userLocation, 15, { animate: true });
                 setHasCenteredUserLocation(true);
