@@ -1,17 +1,20 @@
+import { guidesConfig } from '@/app/guides/guidesConfig';
+import Navbar from '@/app/components/Navbar';
+import { notFound } from 'next/navigation';
 import { Container, Title, Text, Card, Button, Stack, Group, Flex } from '@mantine/core';
 import Link from 'next/link';
-import Navbar from '@/app/components/Navbar';
-import { guidesConfig } from '@/app/guides/guidesConfig';
-import { notFound } from 'next/navigation';
+import type { PageProps } from '../../../.next/types/app/g/[collection]/page';
 
-interface GuideIndexPageProps {
-    params: { collection: string };
-}
-
-export default async function GuideIndexPage({ params }: GuideIndexPageProps) {
-    const awaitedParams = await params;
-    const { collection } = awaitedParams;
-    const guide = guidesConfig[collection];
+export default async function GuideIndexPage({ params }: PageProps) {
+    // Await params if it's a promise
+    let awaitedParams: Record<string, unknown> | undefined;
+    if (params && typeof (params as Promise<unknown>).then === 'function') {
+        awaitedParams = await params as Record<string, unknown>;
+    } else {
+        awaitedParams = params as Record<string, unknown> | undefined;
+    }
+    const collection = typeof awaitedParams?.collection === 'string' ? awaitedParams.collection : undefined;
+    const guide = collection ? guidesConfig[collection] : undefined;
     if (!guide) return notFound();
     return (
         <main style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #e3f2fd, #bbdefb)' }}>
