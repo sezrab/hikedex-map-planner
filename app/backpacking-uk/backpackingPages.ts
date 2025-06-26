@@ -4,6 +4,7 @@ export interface BackpackingMapPageProps {
     details: string[];
     mapUrl: string;
     feedbackUrl?: string;
+    pageUrl?: string;
     ogUrl?: string;
     headerImage?: string;
 }
@@ -19,7 +20,8 @@ export const backpackingPages: Record<string, BackpackingMapPageProps> = {
         ],
         mapUrl: '/map/westhighlandway',
         feedbackUrl: 'https://forms.gle/BzXeS9KyEAtwWgxRA',
-        ogUrl: 'https://hikedex.com/backpacking/westhighlandway',
+        pageUrl: '/backpacking-uk/westhighlandway',
+        ogUrl: 'https://hikedex.app/backpacking-uk/westhighlandway',
         headerImage: 'https://images.unsplash.com/photo-1607602274042-161d6cba839a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
     // Add more slugs here as needed

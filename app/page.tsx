@@ -26,6 +26,14 @@ function Hero() {
           >
             Explore the map
           </Button>
+          <Button
+            component="a"
+            href="/guides"
+            variant="outline"
+            radius="sm"
+            size="md"
+            rel="noopener"
+          >Guides</Button>
         </Group>
       </div>
       <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>

@@ -8,7 +8,7 @@ export default function BackpackingIndexPage() {
         <main style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #e3f2fd, #bbdefb)' }}>
             <Container py="xl">
                 <Navbar />
-                <Title order={1} mb="lg">Backpacking Maps</Title>
+                <Title order={1} mb="lg">UK Backpacking Maps</Title>
                 <Text c="dark.9" mb="md">
                     Explore our collection of pre-made backpacking maps. Essential information like water sources, food resupply points, and public toilets, all on one printable or offline map. Perfect for planning your next adventure!
                 </Text>
@@ -22,7 +22,7 @@ export default function BackpackingIndexPage() {
                                         <Text c="dark.8">{page.description}</Text>
                                     </div>
                                     <Flex flex={1} justify="flex-end" align="center">
-                                        <Button component={Link} href={`/backpacking/${slug}`} size="sm" radius="sm" variant="light">
+                                        <Button component={Link} href={page.pageUrl!} size="sm" radius="sm" variant="light">
                                             Read more
                                         </Button>
                                     </Flex>

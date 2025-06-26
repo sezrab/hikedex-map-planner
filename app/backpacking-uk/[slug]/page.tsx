@@ -19,7 +19,7 @@ function BackpackingMapPage({
     return (
         <>
             <Head>
-                <title>{title} | Backpacking Scotland</title>
+                <title>{title} | Backpacking UK</title>
                 <meta name="description" content={description} />
                 <meta property="og:title" content={title} />
                 <meta property="og:description" content={description} />
