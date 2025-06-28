@@ -26,7 +26,7 @@ export default function Home() {
     }, [params?.slug]);
     return (
         <main>
-            <DynamicMap jsonData={jsonData} norefresh={true} />
+            <DynamicMap jsonData={jsonData} norefresh={jsonData?.norefresh} />
         </main>
     );
 }

@@ -372,6 +372,7 @@ interface ExportedGpxFile {
     color: string;
 }
 export interface ExportedMapState {
+    norefresh?: boolean; // If true, do not refresh map on load
     queries: ExportedQuery[];
     gpxFiles: ExportedGpxFile[];
     selectedLayers: string[];

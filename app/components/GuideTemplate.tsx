@@ -21,7 +21,7 @@ export default function GuideTemplate({
     description,
     details,
     mapUrl,
-    feedbackUrl = '',
+    feedbackUrl = 'https://forms.gle/huYH5Po6sEHhniMu5',
     ogUrl = '',
     headerImage,
     imagePosition = 'middle',
