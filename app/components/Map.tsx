@@ -22,7 +22,6 @@ import {
     CloseButton,
     Space,
 } from '@mantine/core';
-import SignInButton from './SignInButton';
 
 const queryLabels: Record<string, string> = {
     'bus_stops': '🚏 Bus Stops',
