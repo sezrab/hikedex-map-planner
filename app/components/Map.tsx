@@ -154,7 +154,15 @@ function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster, ma
 
         // Add all markers from all queries to this cluster group
         queries.forEach((query) => {
-            const iconHtml = (el: OsmElement) => `<div style="${markerStyle};${markerSelectionMode && selectedMarkerIds.has(el.id) ? 'box-shadow: 0 0 0 3px #2563eb;' : ''}">${queryIcons[query.label] || '<i class=\"fas fa-map-marker-alt\"></i>'}</div>`;
+            const iconHtml = (el: OsmElement) => `
+                <div 
+                    style="${markerStyle};${markerSelectionMode && selectedMarkerIds.has(el.id) ? 'box-shadow: 0 0 0 3px #2563eb;' : ''};transition: transform 0.15s cubic-bezier(.4,2,.6,1);"
+                    onmouseover="this.style.transform='scale(1.1)'"
+                    onmouseout="this.style.transform='scale(1)'"
+                >
+                    ${queryIcons[query.label] || '<i class="fas fa-map-marker-alt"></i>'}
+                </div>
+            `;
             query.data.forEach((el) => {
                 try {
                     const marker = L.marker([el.lat, el.lon], {

@@ -1,4 +1,5 @@
 {
+  "norefresh": true,
   "queries": [
     {
       "label": "drinking_water",
