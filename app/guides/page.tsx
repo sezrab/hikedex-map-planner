@@ -18,7 +18,6 @@ function GuideCard({ image, title, description, descriptionShort, href }: GuideC
                 <Image
                     src={image || 'https://images.unsplash.com/photo-1512617835784-a92626c0a554?q=80&w=1374&auto=format&fit=crop'}
                     height={160}
-                    alt="Norway"
                 />
             </CardSection>
             <Group justify="space-between" mt="md" mb="xs">
@@ -49,6 +48,25 @@ function GuideCard({ image, title, description, descriptionShort, href }: GuideC
         </Card>
     );
 }
+
+export const metadata = {
+    title: "Guides | Hikedex | Trip Planning Made Easy",
+    description: "Browse pre-made, activity-specific guides for backpackers, vanlifers, and more. Plan your next adventure with curated maps and essential info.",
+    openGraph: {
+        title: "Guides | Hikedex | Trip Planning Made Easy",
+        description: "Browse pre-made, activity-specific guides for backpackers, vanlifers, and more. Plan your next adventure with curated maps and essential info.",
+        url: "https://hikedex.app/guides",
+        images: [
+            {
+                url: "https://hikedex.app/logo.svg",
+                width: 1200,
+                height: 630,
+                alt: "Hikedex Guides"
+            }
+        ],
+        type: "website"
+    }
+};
 
 export default function Guides() {
     return (

@@ -4,6 +4,37 @@ import { notFound } from 'next/navigation';
 import { Container, Title, Text, Card, Button, Stack, Group, Flex } from '@mantine/core';
 import Link from 'next/link';
 import type { PageProps } from '../../../.next/types/app/g/[collection]/page';
+import { Metadata } from 'next';
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    let awaitedParams: Record<string, unknown> | undefined;
+    if (params && typeof (params as Promise<unknown>).then === 'function') {
+        awaitedParams = await params as Record<string, unknown>;
+    } else {
+        awaitedParams = params as Record<string, unknown> | undefined;
+    }
+    const collection = typeof awaitedParams?.collection === 'string' ? awaitedParams.collection : undefined;
+    const guide = collection ? guidesConfig[collection] : undefined;
+    if (!guide) return {};
+    return {
+        title: `${guide.guideTitle} | Hikedex`,
+        description: guide.guideDescriptionShort || guide.guideDescription,
+        openGraph: {
+            title: `${guide.guideTitle} | Hikedex`,
+            description: guide.guideDescriptionShort || guide.guideDescription,
+            url: `https://hikedex.app/g/${collection}`,
+            images: guide.guideImage ? [
+                {
+                    url: guide.guideImage,
+                    width: 1200,
+                    height: 630,
+                    alt: guide.guideTitle
+                }
+            ] : undefined,
+            type: 'website',
+        },
+    };
+}
 
 export default async function GuideIndexPage({ params }: PageProps) {
     // Await params if it's a promise
