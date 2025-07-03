@@ -22,6 +22,8 @@ import {
     CloseButton,
     Space,
 } from '@mantine/core';
+import { Sign } from 'crypto';
+import SignInButton from './SignInButton';
 
 const queryLabels: Record<string, string> = {
     'bus_stops': '🚏 Bus Stops',
@@ -1433,7 +1435,8 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                         checked={clustering}
                         onChange={(e) => setClustering(e.currentTarget.checked)}
                     />
-
+                    <Space h="md" />
+                    <SignInButton />
                     <Button
                         component="a"
                         color="teal"
@@ -1442,9 +1445,7 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                         rel="noopener noreferrer"
                         variant="light"
                         size="xs"
-                        mt="lg"
                         fullWidth
-                        style={{ marginTop: 8 }}
                         leftSection={<i className="fa-regular fa-comment-dots" />}
                         aria-label="Give feedback"
                     >
