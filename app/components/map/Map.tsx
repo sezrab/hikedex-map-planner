@@ -2,14 +2,13 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, useMapEvents, useMap, Polyline } from 'react-leaflet';
-
 import L, { LeafletEvent } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import html2canvas from 'html2canvas';
-import { Modal, Table, Checkbox, MultiSelect, Select } from '@mantine/core';
+import { Modal, Checkbox, MultiSelect, Select } from '@mantine/core';
 import { Dropzone } from '@mantine/dropzone';
 import * as toGeoJSON from '@tmcw/togeojson';
 import {
@@ -22,263 +21,10 @@ import {
     CloseButton,
     Space,
 } from '@mantine/core';
-import SignInButton from './SignInButton';
+import { SignInButton } from '../SignInButton';
 
-const queryLabels: Record<string, string> = {
-    'bus_stops': '🚏 Bus Stops',
-    'parking': '🅿️ Parking',
-    'groceries': '🛒 Groceries',
-    'cafes': '☕ Cafes',
-    'pubs_restaurants': '🍻 Pubs, Restaurants',
-    'drinking_water': '💧 Drinking Water',
-    'natural_springs': '🌊 Natural Springs',
-    'toilets': '🚻 Toilets',
-    'import_gpx': '🗺️ Import GPX',
-}
-
-const presetQueries: Record<string, string> = {
-    'bus_stops': `nwr["highway"="bus_stop"]`,
-    'parking': `nwr["amenity"="parking"]`,
-    'groceries': `nwr["shop"~"supermarket|convenience|greengrocer"]`,
-    'cafes': `nwr["amenity"="cafe"]`,
-    'pubs_restaurants': `nwr["amenity"~"^pub$|^restaurant$"]`,
-    'drinking_water': `nwr["amenity"="drinking_water"]`,
-    'natural_springs': `nwr["natural"="spring"]`,
-    'toilets': `nwr["amenity"="toilets"]`,
-    'import_gpx': `#gpx`,
-};
-const queryIcons: Record<string, string> = {
-    'bus_stops': '<i class="fas fa-bus" style="color:#1e40af; font-size:20px"></i>',
-    'parking': '<i class="fas fa-parking" style="color:#1e40af; font-size:20px"></i>',
-    'groceries': '<i class="fas fa-shopping-cart" style="color:#1e40af; font-size:20px"></i>',
-    'cafes': '<i class="fas fa-coffee" style="color:#1e40af; font-size:20px"></i>',
-    'pubs_restaurants': '<i class="fas fa-martini-glass" style="color:#1e40af; font-size:20px"></i>',
-    'drinking_water': '<i class="fas fa-faucet-drip" style="color:#1e40af; font-size:20px"></i>',
-    'toilets': '<i class="fas fa-restroom" style="color:#1e40af; font-size:20px"></i>',
-    'natural_springs': '<i class="fas fa-water" style="color:#1e40af; font-size:20px"></i>',
-    'import_gpx': '<i class="fas fa-file-import" style="color:#1e40af; font-size:20px"></i>'
-};
-
-type OsmElement = {
-    id: number;
-    lat: number;
-    lon: number;
-    tags: Record<string, string> | undefined;
-};
-
-type Query = {
-    id: string;
-    label: string;
-    queryString: string;
-    data: OsmElement[];
-};
-
-function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoCluster, markerSelectionMode = false, selectedMarkerIds = new Set(), onMarkerSelect = () => { } }: { queries: Query[], disableClusteringAtZoom?: number, forceNoCluster?: boolean, markerSelectionMode?: boolean, selectedMarkerIds?: Set<number>, onMarkerSelect?: (id: number) => void }) {
-    const map = useMapEvents({});
-    const markerClusterGroup = useRef<L.MarkerClusterGroup | null>(null);
-    const [modalOpen, setModalOpen] = useState(false);
-    const [modalData, setModalData] = useState<{ name?: string; tags?: Record<string, string>; lat?: number; lon?: number } | null>(null);
-
-    // In ClusteredMarkers, update marker icon style to add white outline
-    const markerStyle = 'border: 2px solid rgba(255, 255, 255, 0.5); border-radius: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.15); background: rgba(255, 255, 255, 0.5); display: flex; align-items: center; justify-content: center; padding: 5px';
-
-    useEffect(() => {
-        if (!map) return;
-        if (markerClusterGroup.current) {
-            if (map.hasLayer(markerClusterGroup.current)) {
-                map.removeLayer(markerClusterGroup.current);
-            }
-            markerClusterGroup.current.clearLayers();
-        }
-        const clusterGroup = L.markerClusterGroup({
-            maxClusterRadius: forceNoCluster ? 1 : 60,
-            disableClusteringAtZoom: forceNoCluster ? 0 : (disableClusteringAtZoom ?? 18),
-            iconCreateFunction(cluster: L.MarkerCluster) {
-                const markers = cluster.getAllChildMarkers();
-
-                // Find unique query labels present in this cluster
-                const presentLabels = new Set<string>();
-                markers.forEach((marker: L.Marker) => {
-                    // We stored the query label on marker.options.title below
-                    if (marker.options.title) {
-                        presentLabels.add(marker.options.title);
-                    }
-                });
-
-                // Build a horizontal row of icons for these query labels
-                const iconsHtml = Array.from(presentLabels)
-                    .map((label) => queryIcons[label] || '<i class="fas fa-map-marker-alt"></i>')
-                    .join(
-                        '<span style="margin: 2px 2px; vertical-align: middle;"></span>'
-                    );
-
-                // Cluster count badge
-                const count = cluster.getChildCount();
-
-                const html = `
-          <div style="
-            display: flex;
-            align-items: center;
-            border-radius: 20px;
-            padding: 2px 6px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-            border: 2px solid rgba(255,255,255,0.5);
-            white-space: nowrap;
-            background: rgba(255,255,255,0.5);
-          ">
-            ${iconsHtml}
-            <span style="
-              margin-left: 6px;
-              background: rgba(0,0,0,0.7);
-              color: white;
-              border-radius: 50px;
-              height: 22px;
-              display: flex;
-              padding: 0 8px;
-              align-items: center;
-              justify-content: center;
-              font-weight: bold;
-              font-size: 14px;
-              user-select: none;
-            ">${count}</span>
-          </div>
-        `;
-
-                return L.divIcon({
-                    html,
-                    className: '',
-                    iconSize: [30 + 22 * presentLabels.size, 30],
-                    iconAnchor: [15, 30],
-                });
-            },
-        });
-
-        // Add all markers from all queries to this cluster group
-        queries.forEach((query) => {
-            const iconHtml = (el: OsmElement) => `
-                <div 
-                    style="${markerStyle};${markerSelectionMode && selectedMarkerIds.has(el.id) ? 'box-shadow: 0 0 0 3px #2563eb;' : ''};transition: transform 0.15s cubic-bezier(.4,2,.6,1);"
-                    onmouseover="this.style.transform='scale(1.1)'"
-                    onmouseout="this.style.transform='scale(1)'"
-                >
-                    ${queryIcons[query.label] || '<i class="fas fa-map-marker-alt"></i>'}
-                </div>
-            `;
-            query.data.forEach((el) => {
-                try {
-                    const marker = L.marker([el.lat, el.lon], {
-                        icon: L.divIcon({
-                            html: iconHtml(el),
-                            className: '',
-                            iconSize: [32, 32],
-                            iconAnchor: [16, 32],
-                        }),
-                        title: query.label, // store query label to identify marker type in cluster icon
-                    });
-                    marker.on('click', () => {
-                        if (markerSelectionMode) {
-                            onMarkerSelect(el.id);
-                        } else {
-                            setModalData({
-                                name: el.tags?.name,
-                                tags: el.tags,
-                                lat: el.lat,
-                                lon: el.lon,
-                            });
-                            setModalOpen(true);
-                        }
-                    });
-                    clusterGroup.addLayer(marker);
-                } catch (error) {
-                    console.error(`Error creating marker for element ${el.id}:`, error);
-                }
-            });
-        });
-
-        clusterGroup.addTo(map);
-        markerClusterGroup.current = clusterGroup;
-
-        return () => {
-            if (map.hasLayer(clusterGroup)) {
-                map.removeLayer(clusterGroup);
-            }
-            clusterGroup.clearLayers();
-            markerClusterGroup.current = null;
-        };
-    }, [queries, map, disableClusteringAtZoom, forceNoCluster, markerSelectionMode, selectedMarkerIds, onMarkerSelect]);
-
-    return (
-        <>
-            <Modal opened={modalOpen} onClose={() => setModalOpen(false)} title={modalData?.name || (modalData?.tags?.parking == 'layby' ? 'Layby Parking' : modalData?.tags?.parking == 'street_side' ? 'Street Side Parking' : null) || 'Details'} size={'md'} centered>
-                {modalData?.tags ? (
-                    <Stack>
-                        {/* If amenity=parking but access tag is missing, display a warning */}
-                        {modalData.tags.amenity === 'parking' && !modalData.tags.access && (
-                            <Text c="gray.7" size="sm">
-                                <b>Note:</b> This parking area does not specify access restrictions and may not be open to the public.
-                            </Text>
-                        )}
-                        <Table striped highlightOnHover withTableBorder withColumnBorders>
-                            <Table.Thead>
-                                <Table.Tr>
-                                    <Table.Th style={{ width: 120 }}>Tag</Table.Th>
-                                    <Table.Th>Value</Table.Th>
-                                </Table.Tr>
-                            </Table.Thead>
-                            <Table.Tbody>
-                                {Object.entries(modalData.tags).map(([key, value]) => (
-                                    <Table.Tr key={key}>
-                                        <Table.Td>{key}</Table.Td>
-                                        <Table.Td style={{ wordBreak: 'break-word' }}>
-                                            {typeof value === 'string' && (
-                                                // URL
-                                                /^https?:\/\/\S+$/i.test(value) ? (
-                                                    <a href={value} target="_blank" rel="noopener noreferrer">{value}</a>
-                                                ) :
-                                                    // Email
-                                                    /^[\w.-]+@[\w.-]+\.\w{2,}$/.test(value) ? (
-                                                        <a href={`mailto:${value}`}>{value}</a>
-                                                    ) : (
-                                                        // If key = "phone" then format as phone number
-                                                        key === 'phone' ? (
-                                                            <a href={`tel:${value}`}>{value}</a>
-                                                        ) :
-                                                            // Otherwise just display the string
-                                                            value
-                                                    )
-                                            )}
-                                            {typeof value !== 'string' && value}
-                                        </Table.Td>
-                                    </Table.Tr>
-                                ))}
-                            </Table.Tbody>
-                        </Table>
-                        {modalData.lat !== undefined && modalData.lon !== undefined && (
-                            <Button
-                                component="a"
-                                href={`https://www.google.com/maps/search/?api=1&query=${modalData.lat},${modalData.lon}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                color="blue"
-                                mt="sm"
-                                aria-label="Open in Google Maps"
-                            >
-                                Navigate here
-                            </Button>
-                        )}
-                    </Stack>
-                ) : (
-                    <div>No tag data available.</div>
-                )}
-            </Modal >
-        </>
-    );
-}
-
-const paperSizes = {
-    A4: { width: 794, height: 1123 },
-    A3: { width: 1123, height: 1587 },
-};
+import { ClusteredMarkers } from './ClusteredMarkers';
+import { presetQueries, paperSizes, queryLabels, OsmElement, Query, tileOptions } from './mapPresets';
 
 function PrintPreviewEffect({ printPreview, paperSize, orientation, containerHeight, containerWidth }: { printPreview: boolean, paperSize: string, orientation: string, containerHeight: number, containerWidth: number }) {
     const map = useMap();
@@ -306,57 +52,6 @@ function PrintPreviewEffect({ printPreview, paperSize, orientation, containerHei
     return null;
 }
 
-const tileOptions = [
-    {
-        label: 'OpenStreetMap',
-        value: 'osm',
-        url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        attribution: '© OpenStreetMap contributors',
-    },
-    {
-        label: 'OpenTopoMap',
-        value: 'opentopomap',
-        url: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
-        attribution: '© OpenStreetMap contributors, © OpenTopoMap (CC-BY-SA)',
-    },
-    {
-        label: 'OpenStreetMap Humanitarian',
-        value: 'osm_humanitarian',
-        url: 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
-        attribution: '© OpenStreetMap contributors, © HOT OSM',
-    },
-    {
-        label: 'CyclOSM',
-        value: 'cyclosm',
-        url: 'https://{s}.tile-cyclosm.openstreetmap.fr/cyclosm/{z}/{x}/{y}.png',
-        attribution: '© OpenStreetMap contributors, © CyclOSM',
-    },
-    // {
-    //     label: 'Stadia Outdoors',
-    //     value: 'stadia_outdoors',
-    //     url: 'https://tiles.stadiamaps.com/tiles/outdoors/{z}/{x}/{y}{r}.png',
-    //     attribution: '© OpenStreetMap contributors, © Stadia Maps',
-    // },
-    // {
-    //     label: 'Stadia Alidade Satellite',
-    //     value: 'stadia_satellite',
-    //     url: 'https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}{r}.jpg',
-    //     attribution: '© OpenStreetMap contributors, © Stadia Maps',
-    // },
-    {
-        label: 'CartoDB Voyager',
-        value: 'carto',
-        url: 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-        attribution: '© OpenStreetMap contributors, © CartoDB',
-    },
-    // {
-    //     label: 'Stamen Toner',
-    //     value: 'toner',
-    //     url: 'https://tiles.stadiamaps.com/tiles/stamen_toner/{z}/{x}/{y}{r}.jpg',
-    //     attribution: 'Map tiles by Stamen Design, CC BY 3.0 — Map data © OpenStreetMap',
-    // },
-];
-
 // Add a helper to detect mobile
 function useIsMobile() {
     const [isMobile, setIsMobile] = useState(false);
@@ -375,11 +70,13 @@ interface ExportedQuery {
     queryString: string;
     data: OsmElement[];
 }
+
 interface ExportedGpxFile {
     name: string;
     geojson: GeoJSON.FeatureCollection<GeoJSON.LineString | GeoJSON.MultiLineString>;
     color: string;
 }
+
 export interface ExportedMapState {
     norefresh?: boolean; // If true, do not refresh map on load
     queries: ExportedQuery[];
@@ -521,15 +218,15 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                         typeof el.lon === 'number'
                 );
             // Filter parking for fee-free if needed
-            if (label === '🅿️ Parking' && parkingFreeOnly) {
-                // Filter out parking with fee
+            if (label === 'parking' && parkingFreeOnly) {
+                // Filter out parking with fee unless: its a layby, street-side, or has no fee specified
                 elements = elements.filter((el: OsmElement) => {
                     if (!el.tags) return true; // Keep if no tags
                     if (el.tags['parking'] === 'layby' || el.tags['parking'] === 'street_side') return true; // Keep layby and street parking
                     const fee = el.tags['fee'] || el.tags['parking:fee'];
                     if (parkingAmbiguous && !fee) return true; // Include if fee is not specified
                     else if (!fee) return false; // Exclude if fee is not specified and parkingAmbiguous is false)
-                    if (parkingCustomersOnly && el.tags['parking:condition'] === 'customers') return true; // Include customer-only parking
+                    if (parkingCustomersOnly && el.tags['access'] === 'customers') return true; // Include customer-only parking
                     return !fee || !fee.match(/yes|ticket|disc/i); // Exclude if fee is yes, ticket, or disc,
                 });
             }

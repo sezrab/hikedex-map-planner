@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic"
 import WelcomePopup from "../components/WelcomePopup";
 
-const DynamicMap = dynamic(() => import("../components/Map"), {
+const DynamicMap = dynamic(() => import("../components/map/Map"), {
     ssr: false
 });
 

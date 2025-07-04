@@ -3,9 +3,9 @@
 import { useParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { ExportedMapState } from "@/app/components/Map";
+import { ExportedMapState } from "@/app/components/map/Map";
 
-const DynamicMap = dynamic(() => import("@/app/components/Map"), {
+const DynamicMap = dynamic(() => import("@/app/components/map/Map"), {
     ssr: false
 });
 
