@@ -94,11 +94,18 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({ newScore });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("API /api/vote error:", err);
-    return NextResponse.json(
-      { error: "Internal Server Error", details: err?.message || err },
-      { status: 500 }
-    );
+    if (err instanceof Error) {
+      return NextResponse.json(
+        { error: "Internal Server Error", details: err?.message || err },
+        { status: 500 }
+      );
+    } else {
+      return NextResponse.json(
+        { error: "Internal Server Error", details: String(err) },
+        { status: 500 }
+      );
+    }
   }
 }
