@@ -18,6 +18,7 @@ async function submitVote(
     })
     if (!res.ok) {
         const data = await res.json();
+        alert(`Vote failed: ${data || 'Unknown error'}`)
         throw new Error(data.error || 'Vote failed')
     }
     const data = await res.json()
