@@ -38,6 +38,7 @@ export function AddPlaceModal({ opened, onClose, coords }: AddPlaceModalProps) {
         // check if signed in
         if (!pb.authStore.isValid) {
             setSignInModalOpen(true);
+            return;
             // Open sign-in modal @/app/components/Voting/SignInModal.tsx
         }
 
