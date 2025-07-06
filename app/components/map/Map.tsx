@@ -676,6 +676,7 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
     // Load from jsonData prop if provided
     useEffect(() => {
         if (jsonData) {
+            setHasCenteredUserLocation(true); // Prevent centering user location if state is loaded
             loadExportState(jsonData as ExportedMapState);
         }
     }, [jsonData]);
