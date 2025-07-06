@@ -180,11 +180,14 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
         const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(fullQuery)}`;
 
         let returnElements = [] as OsmElement[];
-        const communityData = await fetchCommunityNodes(bbox, label);
-        if (communityData && communityData.length > 0) {
-            returnElements = [...returnElements, ...communityData];
+        try {
+            const communityData = await fetchCommunityNodes(bbox, label);
+            if (communityData && communityData.length > 0) {
+                returnElements = [...returnElements, ...communityData];
+            }
+        } catch (err) {
+            console.error('Failed to fetch community data:', err);
         }
-
 
         try {
             const res = await fetch(url);
