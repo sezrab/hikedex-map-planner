@@ -1342,30 +1342,31 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                     Exit Marker Selection
                 </Button>
             </Group >
-            {/* Floating Action Button for Add Place */}
-            <ActionIcon
-                style={{
-                    position: 'fixed',
-                    bottom: 32,
-                    right: 32,
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-                    background: '#1971c2',
-                    color: '#fff',
-                    width: 32,
-                    height: 32,
-                    borderRadius: '50%',
-                    fontSize: 24,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
-                size="xl"
-                variant="filled"
-                onClick={() => setAddPlaceHelpOpen(true)}
-                aria-label="Add a place"
-            >
-                <i className="fas fa-plus" />
-            </ActionIcon>
+            {!printPreview && (
+                <ActionIcon
+                    style={{
+                        position: 'fixed',
+                        bottom: 32,
+                        right: 32,
+                        boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                        background: '#1971c2',
+                        color: '#fff',
+                        width: 32,
+                        height: 32,
+                        borderRadius: '50%',
+                        fontSize: 24,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                    size="xl"
+                    variant="filled"
+                    onClick={() => setAddPlaceHelpOpen(true)}
+                    aria-label="Add a place"
+                >
+                    <i className="fas fa-plus" />
+                </ActionIcon>
+            )}
         </>
     );
 }
