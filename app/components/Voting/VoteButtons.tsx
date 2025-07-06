@@ -91,7 +91,7 @@ export function VoteButtons({
                 </Button>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
             </Group>
-            <SignInModal opened={modalOpen} onClose={() => setModalOpen(false)} />
+            <SignInModal action={"vote"} opened={modalOpen} onClose={() => setModalOpen(false)} />
         </>
     )
 }

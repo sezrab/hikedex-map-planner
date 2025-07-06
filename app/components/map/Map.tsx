@@ -747,7 +747,8 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                 <Stack>
                     <Text>
                         Click anywhere on the map to select the location for a new POI.
-                        <br />
+                    </Text>
+                    <Text>
                         After clicking, you can enter details for the new place. Thank you for contributing!
                     </Text>
                     <Group justify="flex-end">

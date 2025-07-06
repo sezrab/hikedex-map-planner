@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@mantine/core';
 import dynamic from 'next/dynamic';
-import pb from '../pocketbase'; // Adjust the import path as necessary
+import pb from '@/app/pocketbase';
 
 export async function handleSignIn(onAuthChange: () => void, onFailure?: (error: unknown) => void) {
     try {
@@ -34,6 +34,7 @@ export function SignInButton({ onSuccess, onFailure }: { onSuccess?: () => void;
             style={{ width: '100%' }}
             onClick={() => {
                 pb.authStore.clear();
+                document.cookie = pb.authStore.exportToCookie({ httpOnly: false });
                 setIsSignedIn(false);
             }}
         >
