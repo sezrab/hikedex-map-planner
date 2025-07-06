@@ -25,6 +25,8 @@ import { SignInButton } from '../SignInButton';
 
 import { ClusteredMarkers } from './ClusteredMarkers';
 import { presetQueries, paperSizes, queryLabels, OsmElement, Query, tileOptions } from './mapPresets';
+import { AddPlaceModal } from './AddPlaceModal';
+import { fetchCommunityNodes } from './getCommunityNodes';
 
 function PrintPreviewEffect({ printPreview, paperSize, orientation, containerHeight, containerWidth }: { printPreview: boolean, paperSize: string, orientation: string, containerHeight: number, containerWidth: number }) {
     const map = useMap();
@@ -121,6 +123,10 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
     }[]>([]);
     const [gpxProximity, setGpxProximity] = useState(1); // km
     const mapRef = useRef<L.Map | null>(null);
+    const [addPlaceMode, setAddPlaceMode] = useState(false);
+    const [addPlaceCoords, setAddPlaceCoords] = useState<{ lat: number; lng: number } | null>(null);
+    const [addPlaceModalOpen, setAddPlaceModalOpen] = useState(false);
+    const [addPlaceHelpOpen, setAddPlaceHelpOpen] = useState(false);
 
     function MapEventsHandler() {
         useMapEvents({
@@ -168,10 +174,18 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
         return `${sw.lat},${sw.lng},${ne.lat},${ne.lng}`;
     };
 
-    const fetchQueryData = async (queryString: string, bbox: L.LatLngBounds, label?: string): Promise<OsmElement[]> => {
+    const fetchQueryData = async (queryString: string, bbox: L.LatLngBounds, label: string): Promise<OsmElement[]> => {
         const bboxStr = buildBBox(bbox);
         const fullQuery = `[out:json][timeout:25];${queryString}(${bboxStr});out center;`;
         const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(fullQuery)}`;
+
+        let returnElements = [] as OsmElement[];
+        const communityData = await fetchCommunityNodes(bbox, label);
+        if (communityData && communityData.length > 0) {
+            returnElements = [...returnElements, ...communityData];
+        }
+
+
         try {
             const res = await fetch(url);
             const json = await res.json();
@@ -218,31 +232,38 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                         typeof el.lon === 'number'
                 );
             // Filter parking for fee-free if needed
-            if (label === 'parking' && parkingFreeOnly) {
-                // Filter out parking with fee unless: its a layby, street-side, or has no fee specified
+            if (label === 'parking') {
+                if (parkingFreeOnly) {
+                    // Filter out parking with fee unless: its a layby, street-side, or has no fee specified
+                    elements = elements.filter((el: OsmElement) => {
+                        if (!el.tags) return true; // Keep if no tags
+                        if (el.tags['parking'] === 'layby' || el.tags['parking'] === 'street_side') return true; // Keep layby and street parking
+                        const fee = el.tags['fee'] || el.tags['parking:fee'];
+                        if (parkingAmbiguous && !fee) return true; // Include if fee is not specified
+                        else if (!fee) return false; // Exclude if fee is not specified and parkingAmbiguous is false)
+                        if (parkingCustomersOnly && el.tags['access'] === 'customers') return true; // Include customer-only parking
+                        return !fee || !fee.match(/yes|ticket|disc/i); // Exclude if fee is yes, ticket, or disc,
+                    });
+                }
+
+                // Allow: (access=yes), (no access tag), (access=customers if parkingCustomersOnly is true)
                 elements = elements.filter((el: OsmElement) => {
                     if (!el.tags) return true; // Keep if no tags
-                    if (el.tags['parking'] === 'layby' || el.tags['parking'] === 'street_side') return true; // Keep layby and street parking
-                    const fee = el.tags['fee'] || el.tags['parking:fee'];
-                    if (parkingAmbiguous && !fee) return true; // Include if fee is not specified
-                    else if (!fee) return false; // Exclude if fee is not specified and parkingAmbiguous is false)
-                    if (parkingCustomersOnly && el.tags['access'] === 'customers') return true; // Include customer-only parking
-                    return !fee || !fee.match(/yes|ticket|disc/i); // Exclude if fee is yes, ticket, or disc,
+                    const access = el.tags['access'];
+                    if (access === 'yes' || access === 'permissive' || !access) return true; // Allow if access is yes, permissive, or no access tag
+                    if (parkingCustomersOnly && access === 'customers') return true;
+                    return false;
                 });
             }
-            // Allow: (access=yes), (no access tag), (access=customers if parkingCustomersOnly is true)
-            elements = elements.filter((el: OsmElement) => {
-                if (!el.tags) return true; // Keep if no tags
-                const access = el.tags['access'];
-                if (access === 'yes' || access === 'permissive' || !access) return true; // Allow if access is yes, permissive, or no access tag
-                if (parkingCustomersOnly && access === 'customers') return true;
-                return false;
-            });
 
-            return elements as OsmElement[];
+            // add to returnElements
+            returnElements = [...returnElements, ...elements];
         } catch {
-            return [];
+            console.error('Failed to fetch query data:', queryString, bbox);
+            return returnElements;
         }
+
+        return returnElements;
     };
 
     const refreshAllQueries = async () => {
@@ -686,8 +707,71 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
             });
     }, [windowSearch, queries]);
 
+    // Handler for map click in add place mode
+    function AddPlaceMapClickHandler() {
+        useMapEvents({
+            click(e) {
+                setAddPlaceCoords(e.latlng);
+                setAddPlaceModalOpen(true);
+                setAddPlaceMode(false);
+                setAddPlaceHelpOpen(false);
+                // Reset cursor
+                const map = document.getElementById('map');
+                if (map) map.style.cursor = '';
+            },
+        });
+        // Set crosshair cursor
+        useEffect(() => {
+            const map = document.getElementById('map');
+            if (map) map.style.cursor = 'crosshair';
+            return () => {
+                if (map) map.style.cursor = '';
+            };
+        }, []);
+        return null;
+    }
+
     return (
         <>
+            {/* Add Place Instruction Modal */}
+            <Modal
+                opened={addPlaceHelpOpen}
+                onClose={() => {
+                    setAddPlaceHelpOpen(false);
+                    setAddPlaceMode(false);
+                }}
+                title="Add a Place"
+                centered
+                size="md"
+            >
+                <Stack>
+                    <Text>
+                        Click anywhere on the map to select the location for a new POI.
+                        <br />
+                        After clicking, you can enter details for the new place. Thank you for contributing!
+                    </Text>
+                    <Group justify="flex-end">
+                        <Button variant="default" onClick={() => {
+                            setAddPlaceHelpOpen(false);
+                            setAddPlaceMode(false);
+                        }}>Cancel</Button>
+                        <Button onClick={() => {
+                            setAddPlaceHelpOpen(false);
+                            setAddPlaceMode(true);
+                        }} color="indigo">OK</Button>
+                    </Group>
+                </Stack>
+            </Modal>
+            {/* Add Place Modal */}
+            <AddPlaceModal
+                opened={addPlaceModalOpen}
+                onClose={() => {
+                    setAddPlaceModalOpen(false);
+                    setAddPlaceCoords(null);
+                }}
+                coords={addPlaceCoords}
+            // You will implement the submit handler inside AddPlaceModal
+            />
             {/* DEV: Export/Import State Modal */}
             {isDev && (
                 <>
@@ -722,7 +806,7 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                             }}>Import State</Button>
                         </Stack>
                     </Modal>
-                    <Button style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 9999 }} color="gray" size="xs" onClick={() => setDevModalOpen(true)}>
+                    <Button style={{ position: 'fixed', bottom: 32, right: 100, zIndex: 9999 }} color="gray" size="xs" onClick={() => setDevModalOpen(true)}>
                         DEV: Export/Import State
                     </Button>
                 </>
@@ -937,6 +1021,8 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                             ))
                         ) : null
                     ))}
+                    {/* In MapContainer, only show AddPlaceMapClickHandler if addPlaceMode is true */}
+                    {addPlaceMode && <AddPlaceMapClickHandler />}
                 </MapContainer>
             </div >
 
@@ -1255,6 +1341,30 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                     Exit Marker Selection
                 </Button>
             </Group >
+            {/* Floating Action Button for Add Place */}
+            <ActionIcon
+                style={{
+                    position: 'fixed',
+                    bottom: 32,
+                    right: 32,
+                    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+                    background: '#1971c2',
+                    color: '#fff',
+                    width: 32,
+                    height: 32,
+                    borderRadius: '50%',
+                    fontSize: 24,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}
+                size="xl"
+                variant="filled"
+                onClick={() => setAddPlaceHelpOpen(true)}
+                aria-label="Add a place"
+            >
+                <i className="fas fa-plus" />
+            </ActionIcon>
         </>
     );
 }

@@ -6,6 +6,17 @@ export function generateNodeDescription(node: OsmElement | null): {
 } {
     if (node) {
         // Make a verbose description of the node.
+        if (node.tags?.hd_community === "true") {
+            if (node.tags?.layer === "parking") {
+                return {
+                    title: node.tags?.name || "Parking Area (community data)",
+                    descriptions: [
+                        node.tags?.description || "See the source data below for more information.",
+                    ],
+                    warning: `This is a community-contributed parking area. Please verify the details before relying on them.`,
+                };
+            }
+        }
         // Case 1: amenity=parking
         if (node.tags?.amenity === "parking") {
             let title = "Parking Area";
