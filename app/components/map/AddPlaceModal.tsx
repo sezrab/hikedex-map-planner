@@ -38,6 +38,7 @@ export function AddPlaceModal({ opened, onClose, coords }: AddPlaceModalProps) {
         // check if signed in
         if (!pb.authStore.isValid) {
             setSignInModalOpen(true);
+            setSubmitting(false);
             return;
             // Open sign-in modal @/app/components/Voting/SignInModal.tsx
         }
@@ -78,7 +79,7 @@ export function AddPlaceModal({ opened, onClose, coords }: AddPlaceModalProps) {
         <>
             <SignInModal action={"add a place"} opened={signInModalOpen} onClose={() => setSignInModalOpen(false)} />
 
-            <Modal opened={opened} onClose={onClose} title="Add a Place" centered size="md">
+            <Modal opened={opened} onClose={onClose} title="Add a Place" centered size="md" zIndex={1000}>
                 <form onSubmit={handleSubmit}>
                     <Stack>
                         {coords && (
