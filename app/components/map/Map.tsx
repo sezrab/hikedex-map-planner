@@ -393,8 +393,10 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
     // Center map on user location when available
     function UserLocationSetter() {
         const map = useMap();
+        // check if urlparam "focus" is set
+        const params = new URLSearchParams(window.location.search);
         useEffect(() => {
-            if (hasCenteredUserLocation || norefresh) return;
+            if (hasCenteredUserLocation || norefresh || params.has('focus')) return;
             if (userLocation && map) {
                 map.setView(userLocation, 15, { animate: true });
                 setHasCenteredUserLocation(true);
