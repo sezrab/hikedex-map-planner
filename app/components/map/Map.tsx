@@ -772,7 +772,7 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                     }
                 }
             }
-            await new Promise(resolve => setTimeout(resolve, 500)); // Delay to ensure map is ready
+            await new Promise(resolve => setTimeout(resolve, 800)); // Delay to ensure map is ready
             refreshAllQueries(newQueries); // Refresh queries after loading state
         })();
     }, []);

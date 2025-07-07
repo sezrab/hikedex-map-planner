@@ -164,9 +164,12 @@ export function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoClus
                         <Group gap="xs">
                             {/* share button */}
                             {/* toasts "Copied to clipboard" */}
+                            <VoteStatusBadge poiId={`${nodeModalData.lat}, ${nodeModalData.lon}`} poiSource={'osm'} />
                             <Button
                                 variant="subtle"
-                                color="blue"
+                                color="dark.3"
+                                size="xs"
+                                p={'5px'}
                                 component="a"
                                 onClick={() => {
                                     navigator.clipboard.writeText(`https://hikedex.app/map?focus=${nodeModalData.lat},${nodeModalData.lon}&layer=${nodeDesc.layer}`);
@@ -181,9 +184,9 @@ export function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoClus
                                 }
                                 aria-label="Share this node"
                             >
-                                <i className="fas fa-share" />
+                                <i className="fas fa-link" />
                             </Button>
-                            <VoteStatusBadge poiId={`${nodeModalData.lat}, ${nodeModalData.lon}`} poiSource={'osm'} />
+
                             <Space flex="1" />
                             <VoteButtons poiId={nodeModalData.lat + ',' + nodeModalData.lon} poiSource={'osm'} />
                         </Group>
