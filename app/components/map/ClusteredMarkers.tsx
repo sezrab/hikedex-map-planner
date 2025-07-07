@@ -9,6 +9,7 @@ import 'leaflet.markercluster';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import { Modal, Table, Accordion, AccordionItem, AccordionControl, AccordionPanel } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
 import {
     Button,
     Stack,
@@ -161,7 +162,28 @@ export function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoClus
                 {nodeModalData?.tags ? (
                     <Stack>
                         <Group gap="xs">
-                            <VoteStatusBadge poiId={`${nodeModalData.lat},${nodeModalData.lon}`} poiSource={'osm'} />
+                            {/* share button */}
+                            {/* toasts "Copied to clipboard" */}
+                            <Button
+                                variant="subtle"
+                                color="blue"
+                                component="a"
+                                onClick={() => {
+                                    navigator.clipboard.writeText(`https://hikedex.app/map?focus=${nodeModalData.lat},${nodeModalData.lon}&layer=${nodeDesc.layer}`);
+                                    notifications.show({
+                                        title: 'Link copied to clipboard',
+                                        message: `Thank you for sharing! You can now paste this link anywhere.`,
+                                        color: 'blue',
+                                        autoClose: 2000,
+                                        icon: <i className="fas fa-link" />,
+                                    });
+                                }
+                                }
+                                aria-label="Share this node"
+                            >
+                                <i className="fas fa-share" />
+                            </Button>
+                            <VoteStatusBadge poiId={`${nodeModalData.lat}, ${nodeModalData.lon}`} poiSource={'osm'} />
                             <Space flex="1" />
                             <VoteButtons poiId={nodeModalData.lat + ',' + nodeModalData.lon} poiSource={'osm'} />
                         </Group>
@@ -228,43 +250,46 @@ export function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoClus
                                                     </Table.Td>
                                                 </Table.Tr>
                                             ))}
-                                        </Table.Tbody>
-                                    </Table>
-                                </AccordionPanel>
-                            </AccordionItem>
-                        </Accordion>
+                                        </Table.Tbody >
+                                    </Table >
+                                </AccordionPanel >
+                            </AccordionItem >
+                        </Accordion >
 
-                        {nodeModalData.lat !== undefined && nodeModalData.lon !== undefined && (
-                            <Group gap="xs">
-                                <Button
-                                    component="a"
-                                    href={`https://www.google.com/maps/search/?api=1&query=${nodeModalData.lat},${nodeModalData.lon}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    color="blue"
-                                    aria-label="Open in Google Maps"
-                                    flex="1"
-                                >
-                                    Open in Google Maps
-                                </Button>
-                                <Button
-                                    variant="light"
-                                    color="blue"
-                                    onClick={() => {
-                                        setStreetviewData(nodeModalData);
-                                        setStreetviewModalOpen(true);
-                                    }}
-                                    aria-label="Open Street View"
-                                >
-                                    <i className="fas fa-street-view" />
-                                </Button>
-                            </Group>
+                        {
+                            nodeModalData.lat !== undefined && nodeModalData.lon !== undefined && (
+                                <Group gap="xs">
+                                    <Button
+                                        component="a"
+                                        href={`https://www.google.com/maps/search/?api=1&query=${nodeModalData.lat},${nodeModalData.lon}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        color="blue"
+                                        aria-label="Open in Google Maps"
+                                        flex="1"
+                                    >
+                                        Open in Google Maps
+                                    </Button>
+                                    <Button
+                                        variant="light"
+                                        color="blue"
+                                        onClick={() => {
+                                            setStreetviewData(nodeModalData);
+                                            setStreetviewModalOpen(true);
+                                        }}
+                                        aria-label="Open Street View"
+                                    >
+                                        <i className="fas fa-street-view" />
+                                    </Button>
+                                </Group>
 
-                        )}
-                    </Stack>
+                            )
+                        }
+                    </Stack >
                 ) : (
                     <div>No tag data available.</div>
-                )}
+                )
+                }
             </Modal >
             <Modal opened={streetviewModalOpen} onClose={() => setStreetviewModalOpen(false)} title={nodeDesc.title + ': street view'} size={'lg'} centered>
                 {streetviewData ? (

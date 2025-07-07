@@ -1,10 +1,12 @@
 // app/layout.tsx
 
 import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import Script from 'next/script';
 import { Funnel_Display, Open_Sans } from 'next/font/google';
+import { Notifications } from '@mantine/notifications';
 
 const fontHeaders = Funnel_Display({
   subsets: ['latin'],
@@ -140,6 +142,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             black: '#352f36',
           }
         }>
+          <Notifications zIndex={2000} />
           {children}
         </MantineProvider>
       </body>

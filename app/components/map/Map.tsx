@@ -132,12 +132,8 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
         useMapEvents({
             moveend(e: LeafletEvent) {
                 const map = (e.target as L.Map);
-                setMapBounds(map.getBounds());
                 setNeedsRefresh(true);
-                setTimeout(() => {
-                    map.invalidateSize(true);
-                }
-                    , 100); // Delay to ensure map is fully rendered
+                setMapBounds(map.getBounds());
                 console.log('Map moved, new bounds:', map.getBounds());
             },
             zoomend(e: LeafletEvent) {
@@ -234,6 +230,12 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                         typeof el.lat === 'number' &&
                         typeof el.lon === 'number'
                 );
+            // Add layer to tags hd_layer
+            elements = elements.map((el) => {
+                if (!el.tags) el.tags = {};
+                el.tags.hd_layer = label;
+                return el;
+            });
             // Filter parking for fee-free if needed
             if (label === 'parking') {
                 if (parkingFreeOnly) {
@@ -269,18 +271,38 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
         return returnElements;
     };
 
-    const refreshAllQueries = async () => {
-        if (!mapBounds) return;
+    const refreshAllQueries = async (localQueries?: Query[]) => {
+        const useQueries: Query[] = localQueries ? localQueries : queries;
+
+        console.log('Refreshing queries:', localQueries);
+
+        if (!mapRef.current) {
+            console.warn('Map reference not set, cannot refresh queries');
+            return;
+        }
+
+        if (useQueries.length === 0 || useQueries === undefined || useQueries === null) {
+            console.warn('No queries to refresh');
+            return;
+        }
+
         setLoading(true);
-        const results = await Promise.all(
-            queries.map(async (q) => {
-                const data = await fetchQueryData(q.queryString, mapBounds, q.label);
-                return { ...q, data };
-            })
-        );
-        setQueries(results);
-        setNeedsRefresh(false);
-        setLoading(false);
+        if (mapRef.current !== null) {
+            const results = await Promise.all(
+                useQueries.map(async (q) => {
+                    if (!mapRef.current) {
+                        console.warn('Map reference not set during query refresh');
+                        return { ...q, data: [] };
+                    }
+                    const data = await fetchQueryData(q.queryString, mapRef.current.getBounds(), q.label);
+                    return { ...q, data };
+                })
+            );
+            setQueries(results);
+            setNeedsRefresh(false);
+            setLoading(false);
+        }
+
     };
 
     const removeQuery = (id: string) => {
@@ -334,7 +356,7 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
     const availablePresets = Object.keys(presetQueries);
 
     // MultiSelect handler
-    const handleAddLayers = (selected: string[]) => {
+    const handleAddLayers = (selected: string[], openModals: boolean = true) => {
         const toRemove = addedLabels.filter((label) => !selected.includes(label));
         setQueries((q) =>
             q.filter((query) => !toRemove.includes(query.label))
@@ -345,7 +367,9 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
         const newQueries = toAdd.map((label) => {
             let queryStr = presetQueries[label];
             if (label === "parking") {
-                setParkingSettingsOpen(true);
+                if (openModals) {
+                    setParkingSettingsOpen(true);
+                }
                 if (parkingFreeOnly) {
                     queryStr = 'nwr["amenity"="parking"]["fee"!~"yes|ticket|disc"]';
                 }
@@ -361,6 +385,7 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
             setQueries((q) => [...q, ...newQueries]);
         }
         setNeedsRefresh(true);
+        return [...newQueries, ...queries.filter((q) => toRemove.includes(q.label))];
     };
 
     const selectedTile = tileOptions.find((t) => t.value === tileType) || tileOptions[0];
@@ -429,14 +454,12 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
     // Box select handler: select all markers within boxzoom bounds
     function BoxSelectHandler() {
         const map = useMap();
-        const originalFitBoundsFunction = useRef(map.fitBounds.bind(map));
-        const originalFitBounds = useRef(originalFitBoundsFunction.current);
         useEffect(() => {
             if (!markerSelectionMode) return;
             if (!map) return;
+            const originalFitBounds = map.fitBounds;
             // Handler to disable zooming when box selection starts
             const onBoxZoomStart = () => {
-                // Disable fitbounds method.
                 map.fitBounds = () => {
                     console.warn('Box selection active, fitBounds disabled');
                     return map;
@@ -444,13 +467,10 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
             };
             // Handler to re-enable zooming after box selection ends
             const onBoxZoomEnd = (e: unknown) => {
-                // Re-enable fitbounds method
-                map.fitBounds = originalFitBounds.current;
-                // Type guard for Leaflet boxzoom event
+                map.fitBounds = originalFitBounds;
                 const event = e as { boxZoomBounds?: L.LatLngBounds, bounds?: L.LatLngBounds, target?: L.Map };
                 const bounds = event.boxZoomBounds || event.bounds || (event.target && event.target.getBounds && event.target.getBounds());
                 if (!bounds) return;
-                // Collect all marker IDs within bounds
                 const idsInBox = new Set<number>();
                 queries.forEach((query) => {
                     query.data.forEach((el) => {
@@ -459,15 +479,12 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                         }
                     });
                 });
-                // Add selected IDs to the current selection, unless they were already selected, in which case they will be toggled off
-                if (idsInBox.size === 0) return; // No markers in box, do nothing
+                if (idsInBox.size === 0) return;
                 setSelectedMarkerIds((prev) => {
                     const newSet = new Set(prev);
                     idsInBox.forEach((id) => {
-                        if (newSet.has(id)) {
-                            // newSet.delete(id); // Toggle off if already selected
-                        } else {
-                            newSet.add(id); // Toggle on if not selected
+                        if (!newSet.has(id)) {
+                            newSet.add(id);
                         }
                     });
                     return newSet;
@@ -495,6 +512,7 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                 window.removeEventListener('keydown', handleKeyDown);
                 window.removeEventListener('keyup', handleKeyUp);
                 mapContainer.style.cursor = '';
+                map.fitBounds = originalFitBounds;
             };
         }, [map]);
         return null;
@@ -681,35 +699,83 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
         }
     }, [jsonData]);
 
-    // Optional: Load JSON data from ?json=FILENAME.json parameter
     const windowSearch = typeof window !== 'undefined' ? window.location.search : undefined;
     useEffect(() => {
         if (typeof window === 'undefined') return;
         const params = new URLSearchParams(windowSearch);
         const jsonFile = params.get('json');
-        if (!jsonFile) return;
-        // Prevent duplicate layers
-        if (queries.some(q => q.label === jsonFile)) return;
-        fetch('/' + jsonFile)
-            .then(res => res.json())
-            .then((data) => {
-                // Accepts either {elements: OsmElement[]} or OsmElement[]
-                const elements: OsmElement[] = Array.isArray(data) ? data : data.elements || [];
-                setQueries(prev => [
-                    ...prev,
-                    {
-                        id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 10) + Date.now().toString(36),
-                        label: jsonFile,
-                        queryString: '',
-                        data: elements,
+        if (jsonFile) {
+            // Prevent duplicate layers
+            if (queries.some(q => q.label === jsonFile)) return;
+            fetch('/' + jsonFile)
+                .then(res => res.json())
+                .then((data) => {
+                    // Accepts either {elements: OsmElement[]} or OsmElement[]
+                    const elements: OsmElement[] = Array.isArray(data) ? data : data.elements || [];
+                    setQueries(prev => [
+                        ...prev,
+                        {
+                            id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2, 10) + Date.now().toString(36),
+                            label: jsonFile,
+                            queryString: '',
+                            data: elements,
+                        }
+                    ]);
+                })
+                .catch(() => {
+                    // Optionally show error
+                    console.warn('Could not load JSON file:', jsonFile);
+                });
+        }
+
+        if (hasCenteredUserLocation) return; // This acts as a guard to make sure these layers are only loaded once
+        setHasCenteredUserLocation(true); // Prevents loop from useEffect
+
+        const layersParam = params.get('layers');
+        let newQueries: Query[] = [];
+        if (layersParam) {
+            const layers = layersParam.split(',').map(l => l.trim()).filter(Boolean);
+            const validLayers = layers.filter(l => availablePresets.includes(l));
+            if (validLayers.length > 0) {
+                // Add valid preset layers to the map
+                newQueries = handleAddLayers(validLayers, false); // Don't open modals on load
+            }
+        }
+
+        // --- ASYNC BLOCK ---
+        (async () => {
+            // Handle focus
+            const focusParam = params.get('focus');
+            if (focusParam && mapRef.current) {
+                // SET MAP TO FOCUS COORDS
+                // Accepts lat,lng[,zoom]
+                const parts = focusParam.split(',').map(Number);
+                if (parts.length >= 2 && !parts.some(isNaN)) {
+                    const [lat, lng, zoom] = parts;
+                    mapRef.current?.setView([lat, lng], zoom || 15, {
+                        animate: true,
+                    });
+                    console.log('Map focused on:', lat, lng, 'Zoom:', zoom || 15);
+                } else {
+                    console.warn('Invalid focus parameter:', focusParam);
+                }
+            } else if (focusParam) {
+                await new Promise(resolve => setTimeout(resolve, 100)); // Delay to ensure map is ready
+                if (mapRef.current) {
+                    const parts = focusParam.split(',').map(Number);
+                    if (parts.length >= 2 && !parts.some(isNaN)) {
+                        const [lat, lng, zoom] = parts;
+                        mapRef.current?.setView([lat, lng], zoom || 15, {
+                            animate: false,
+                        });
+                        console.log('Map focused on (delayed):', lat, lng, 'Zoom:', zoom || 15);
                     }
-                ]);
-            })
-            .catch(() => {
-                // Optionally show error
-                console.warn('Could not load JSON file:', jsonFile);
-            });
-    }, [windowSearch, queries]);
+                }
+            }
+            await new Promise(resolve => setTimeout(resolve, 500)); // Delay to ensure map is ready
+            refreshAllQueries(newQueries); // Refresh queries after loading state
+        })();
+    }, []);
 
     // Handler for map click in add place mode
     function AddPlaceMapClickHandler() {
@@ -1274,7 +1340,7 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
                     size="xs"
                     variant='white'
                     leftSection={faRefresh}
-                    onClick={refreshAllQueries}
+                    onClick={() => refreshAllQueries()}
                     loading={loading}
                     style={{
                         position: 'fixed',

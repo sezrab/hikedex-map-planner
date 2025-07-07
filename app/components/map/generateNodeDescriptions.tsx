@@ -1,6 +1,7 @@
 import { OsmElement } from "./mapPresets";
 export function generateNodeDescription(node: OsmElement | null): {
     title: string;
+    layer?: string;
     descriptions: string[];
     warning: string | null;
 } {
@@ -10,6 +11,7 @@ export function generateNodeDescription(node: OsmElement | null): {
             if (node.tags?.layer === "parking") {
                 return {
                     title: node.tags?.name || "Parking Area (community data)",
+                    layer: node.tags.hd_layer,
                     descriptions: [
                         node.tags?.description || "See the source data below for more information.",
                     ],
@@ -78,6 +80,7 @@ export function generateNodeDescription(node: OsmElement | null): {
 
             return {
                 title: title,
+                layer: node.tags.hd_layer,
                 descriptions: descriptions,
                 warning: warning,
             };
@@ -85,6 +88,7 @@ export function generateNodeDescription(node: OsmElement | null): {
     }
     return {
         title: "Details",
+        layer: node?.tags?.hd_layer || "unknown",
         descriptions: ["Check the source data below for more information."],
         warning: null,
     };
