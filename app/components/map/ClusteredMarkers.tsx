@@ -172,7 +172,7 @@ export function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoClus
                                 p={'5px'}
                                 component="a"
                                 onClick={() => {
-                                    navigator.clipboard.writeText(`https://hikedex.app/map?focus=${nodeModalData.lat},${nodeModalData.lon}&layer=${nodeDesc.layer}`);
+                                    navigator.clipboard.writeText(`https://hikedex.app/map?focus=${nodeModalData.lat},${nodeModalData.lon}&layers=${nodeDesc.layer}`);
                                     notifications.show({
                                         title: 'Link copied to clipboard',
                                         message: `Thank you for sharing! You can now paste this link anywhere.`,
