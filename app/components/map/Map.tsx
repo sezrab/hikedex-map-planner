@@ -729,7 +729,6 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
         }
 
         if (hasCenteredUserLocation) return; // This acts as a guard to make sure these layers are only loaded once
-        setHasCenteredUserLocation(true); // Prevents loop from useEffect
 
         const layersParam = params.get('layers');
         let newQueries: Query[] = [];
@@ -747,6 +746,7 @@ export default function FullscreenMapWithQueries({ jsonData, norefresh }: { json
             // Handle focus
             const focusParam = params.get('focus');
             if (focusParam && mapRef.current) {
+                setHasCenteredUserLocation(true); // Prevents loop from useEffect
                 // SET MAP TO FOCUS COORDS
                 // Accepts lat,lng[,zoom]
                 const parts = focusParam.split(',').map(Number);
