@@ -78,6 +78,24 @@ export const guidesConfig: Record<string, GuideConfig> = {
           "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0",
         imagePosition: "bottom",
       },
+
+      westmendipway: {
+        title: "West Mendip Way: resupply and facilities",
+        altTitle: "Backpacking the West Mendip Way",
+        description:
+          "A printable map showing resupply points, shops, cafes, water sources, and public toilets along the West Mendip Way for walkers and backpackers.",
+        details: [
+          "The West Mendip Way is a captivating long-distance footpath that traverses the western half of the Mendip Hills AONB in Somerset, England. This route offers a whimsical blend of challenging ascents, sweeping panoramic views, and encounters with ancient landscapes, perfect for walkers seeking both natural beauty and a dance with history.",
+          "Stretching approximately 30 miles (48 km) from the market town of Axbridge in the east to the coastal resort of Weston-super-Mare in the west, the West Mendip Way showcases the diverse character of this limestone upland. From the dramatic Cheddar Gorge to the still reservoirs and ancient Iron Age hillforts, the route promises a varied and rewarding experience. Walkers will encounter a wide variety of flora and fauna, alongside archaeological sites that tell tales of our ancestors. While generally well-marked, carrying a map is always advisable for navigation.",
+          'Among the quaint rolling hills, the Mendips are steeped in local folklore. One prominent tale you might encounter, particularly as you approach the Priddy area or Wookey Hole, is the Legend of the Wookey Hole Witch. According to this legend, a woman named "Hilda" lived in the caves and cast spells over the surrounding village. Troubled by her powers, villagers sought the help of a Glastonbury monk. He confronted the witch within the caves and, using holy water, managed to turn her to stone. Visitors to Wookey Hole today can still see a distinctive stalagmite formation believed to be the petrified witch.',
+          "Typically completed over 2 to 3 days, the route is moderately challenging with varied terrain, including paved paths, bridleways, grassy tracks, and some stony sections with significant ascents and descents. Most choose to walk it from east to west (Axbridge to Weston-super-Mare), progressing towards the coast. Highlights include the iconic Cheddar Gorge, the expansive views from Black Down (the highest point in the Mendips), and the quiet Axbridge Reservoir. Accommodation, including B&Bs, guesthouses, and campsites, is available along or near the route, though booking in advance is recommended. This map provides detailed information on essential amenities like water sources, public toilets, and shops along the way, helping you plan your stops and travel lighter.",
+        ],
+        mapUrl: "/map/westmendips",
+        ogUrl: "https://hikedex.app/g/backpacking-uk/westmendips",
+        headerImage:
+          "https://images.unsplash.com/photo-1645465518158-24d244658ff9?q=80&w=2170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        imagePosition: "middle",
+      },
     },
   },
   "vanlife-uk": {

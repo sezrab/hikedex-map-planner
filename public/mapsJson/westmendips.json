@@ -1,0 +1,2041 @@
+{
+    "norefresh": true,
+  "queries": [
+    {
+      "label": "drinking_water",
+      "queryString": "nwr[\"amenity\"=\"drinking_water\"]",
+      "data": [
+        {
+          "id": 11075313956,
+          "lat": 51.2570472,
+          "lon": -2.6788891,
+          "tags": {
+            "amenity": "drinking_water",
+            "bottle": "yes",
+            "drinking_water": "yes",
+            "indoor": "no",
+            "man_made": "water_tap",
+            "hd_layer": "drinking_water"
+          }
+        }
+      ]
+    },
+    {
+      "label": "cafes",
+      "queryString": "nwr[\"amenity\"=\"cafe\"]",
+      "data": [
+        {
+          "id": 978404089,
+          "lat": 51.2088518,
+          "lon": -2.6470475,
+          "tags": {
+            "addr:housenumber": "28",
+            "addr:postcode": "BA5 2SG",
+            "addr:street": "High Street",
+            "amenity": "cafe",
+            "brand": "Caffè Nero",
+            "brand:wikidata": "Q675808",
+            "brand:wikipedia": "en:Caffè Nero",
+            "check_date": "2024-08-22",
+            "check_date:opening_hours": "2024-08-22",
+            "cuisine": "coffee_shop",
+            "internet_access": "wlan",
+            "name": "Caffè Nero",
+            "opening_hours": "Mo-Sa 07:00-18:00; Su 07:30-18:00",
+            "phone": "017496 71472",
+            "takeaway": "yes",
+            "website": "https://www.caffenero.com/uk/stores/wells/",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 997785809,
+          "lat": 51.2081565,
+          "lon": -2.6494106,
+          "tags": {
+            "amenity": "cafe",
+            "name": "Long Story Bistro",
+            "source": "survey",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 997786179,
+          "lat": 51.2083174,
+          "lon": -2.6476662,
+          "tags": {
+            "amenity": "cafe",
+            "brand": "Coffee#1",
+            "brand:wikidata": "Q22032058",
+            "brand:wikipedia": "en:Coffee 1",
+            "cuisine": "coffee_shop",
+            "name": "Coffee#1",
+            "source": "survey",
+            "takeaway": "yes",
+            "website": "https://www.coffee1.co.uk/locations/wells/",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 1463746756,
+          "lat": 51.209371,
+          "lon": -2.6460864,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:housenumber": "1A",
+            "addr:postcode": "BA5 2RR",
+            "addr:street": "Sadler Street",
+            "amenity": "cafe",
+            "fhrs:id": "174266",
+            "name": "West Cornwall Pasty Company",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 1906783638,
+          "lat": 51.3052628,
+          "lon": -2.7963878,
+          "tags": {
+            "amenity": "cafe",
+            "cuisine": "fried_food",
+            "internet_access": "wlan",
+            "internet_access:fee": "customers",
+            "name": "Lillypool Farm",
+            "outdoor_seating": "yes",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 3916602145,
+          "lat": 51.3208918,
+          "lon": -2.9847356,
+          "tags": {
+            "amenity": "cafe",
+            "name": "Wharf Side Tearooms",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 5046680478,
+          "lat": 51.3095506,
+          "lon": -2.9564166,
+          "tags": {
+            "addr:city": "Weston-Super-Mare",
+            "addr:housename": "Purn House Farm",
+            "addr:postcode": "BS24 0QE",
+            "addr:street": "Purn Way",
+            "addr:suburb": "Bleadon",
+            "amenity": "cafe",
+            "fhrs:id": "905471",
+            "name": "Bleadon Cafe",
+            "source:addr": "FHRS Open Data",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 5322091121,
+          "lat": 51.2072188,
+          "lon": -2.6488406,
+          "tags": {
+            "addr:housenumber": "4",
+            "addr:postcode": "BA5 1SY",
+            "addr:street": "Priory Road",
+            "amenity": "cafe",
+            "name": "The Goodearth",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 8809071029,
+          "lat": 51.264043,
+          "lon": -2.6889172,
+          "tags": {
+            "amenity": "cafe",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 11110202325,
+          "lat": 51.20982,
+          "lon": -2.6445165,
+          "tags": {
+            "amenity": "cafe",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 11266673286,
+          "lat": 51.2955142,
+          "lon": -2.8998288,
+          "tags": {
+            "addr:city": "Loxton",
+            "addr:housename": "Community Hub",
+            "addr:postcode": "BS26 2XE",
+            "addr:street": "Sevier Road",
+            "amenity": "cafe",
+            "cuisine": "coffee_shop",
+            "description": "Useful community cafe, well placed for cyclists going N-S through the Loxton-Christon gap in the western Mendips and E-W along the S side of Crook Peak-Wavering Down.",
+            "name": "Frankie Howerd Community Hub & Cafe",
+            "opening_hours": "See website.",
+            "outdoor_seating": "yes",
+            "phone": "+44 7384 561369",
+            "website": "https://frankiehowerdobetrust.org/community-hub/",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 11936986353,
+          "lat": 51.209434,
+          "lon": -2.6456731,
+          "tags": {
+            "amenity": "cafe",
+            "check_date:opening_hours": "2024-05-27",
+            "name": "Market Place Cafe",
+            "opening_hours:signed": "no",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 11937052050,
+          "lat": 51.2096123,
+          "lon": -2.6452536,
+          "tags": {
+            "amenity": "cafe",
+            "name": "Kitty Banks",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 11937079921,
+          "lat": 51.2095554,
+          "lon": -2.6453788,
+          "tags": {
+            "amenity": "cafe",
+            "name": "Wells Conservative Club",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 11983348466,
+          "lat": 51.2072472,
+          "lon": -2.6492937,
+          "tags": {
+            "amenity": "cafe",
+            "cuisine": "coffee_shop",
+            "name": "Loaf",
+            "outdoor_seating": "yes",
+            "toilets": "yes",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 12102609393,
+          "lat": 51.2818363,
+          "lon": -2.765845,
+          "tags": {
+            "amenity": "cafe",
+            "level": "2",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 85965934,
+          "lat": 51.2818204,
+          "lon": -2.7674173,
+          "tags": {
+            "amenity": "cafe",
+            "building": "yes",
+            "name": "Holly House Tea Rooms",
+            "source": "survey",
+            "takeaway": "yes",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 85965937,
+          "lat": 51.2806891,
+          "lon": -2.7718716,
+          "tags": {
+            "amenity": "cafe",
+            "building": "yes",
+            "name": "Simply Gorgeous",
+            "source": "OS_OpenData_StreetView",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 85965939,
+          "lat": 51.2817254,
+          "lon": -2.7699676,
+          "tags": {
+            "amenity": "cafe",
+            "building": "retail",
+            "check_date": "2025-06-24",
+            "name": "Waterfall Cafe & Ice Creams",
+            "source": "OS_OpenData_StreetView",
+            "wheelchair": "yes",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 229529733,
+          "lat": 51.3246266,
+          "lon": -2.9889883,
+          "tags": {
+            "amenity": "cafe",
+            "building": "yes",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 263388985,
+          "lat": 51.2263032,
+          "lon": -2.6725858,
+          "tags": {
+            "amenity": "cafe",
+            "building": "yes",
+            "source": "Bing",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 298452433,
+          "lat": 51.281768,
+          "lon": -2.7668538,
+          "tags": {
+            "amenity": "cafe",
+            "building": "yes",
+            "name": "Café Gorge",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 485646956,
+          "lat": 51.2087728,
+          "lon": -2.6436669,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:postcode": "BA5 2PD",
+            "amenity": "cafe",
+            "building": "yes",
+            "fhrs:id": "713110",
+            "name": "The Bishop's Table",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 947187988,
+          "lat": 51.2821678,
+          "lon": -2.7679823,
+          "tags": {
+            "amenity": "cafe",
+            "building": "yes",
+            "name": "Rockface",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 1306405480,
+          "lat": 51.2795167,
+          "lon": -2.7729761,
+          "tags": {
+            "amenity": "cafe",
+            "building": "yes",
+            "check_date": "2025-06-24",
+            "name": "Edelweiss",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 1306419428,
+          "lat": 51.280657,
+          "lon": -2.7722076,
+          "tags": {
+            "amenity": "cafe",
+            "building": "yes",
+            "name": "The Mousehole Cafe & Restaurant",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 1306443668,
+          "lat": 51.2813609,
+          "lon": -2.7713776,
+          "tags": {
+            "addr:city": "Bristol",
+            "addr:housename": "The Cheese Cottage",
+            "addr:postcode": "BS27 3QJ",
+            "addr:street": "Dag Hole",
+            "amenity": "cafe",
+            "building": "yes",
+            "name": "Genuine Cheddar",
+            "hd_layer": "cafes"
+          }
+        },
+        {
+          "id": 1306838778,
+          "lat": 51.2819646,
+          "lon": -2.7666313,
+          "tags": {
+            "amenity": "cafe",
+            "building": "yes",
+            "name": "Lion Rock Tearooms",
+            "hd_layer": "cafes"
+          }
+        }
+      ]
+    },
+    {
+      "label": "pubs_restaurants",
+      "queryString": "nwr[\"amenity\"~\"^pub$|^restaurant$\"]",
+      "data": [
+        {
+          "id": 31176006,
+          "lat": 51.3061232,
+          "lon": -2.8244288,
+          "tags": {
+            "amenity": "restaurant",
+            "brand:wikidata": "Q4962678",
+            "cuisine": "british",
+            "name": "Sidcot Arms",
+            "source": "Local_knowledge",
+            "website": "https://sidcotarms.co.uk",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 242892705,
+          "lat": 51.2055083,
+          "lon": -2.6483268,
+          "tags": {
+            "amenity": "pub",
+            "name": "Full Moon",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 242892736,
+          "lat": 51.2070927,
+          "lon": -2.6481057,
+          "tags": {
+            "amenity": "pub",
+            "name": "Rose and Crown",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 246198443,
+          "lat": 51.2090399,
+          "lon": -2.6502524,
+          "tags": {
+            "amenity": "pub",
+            "name": "The Globe",
+            "wikidata": "Q26663042",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 246198511,
+          "lat": 51.2073192,
+          "lon": -2.6539689,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:housenumber": "22",
+            "addr:postcode": "BA5 2DZ",
+            "addr:street": "Tucker Street",
+            "amenity": "pub",
+            "fhrs:id": "172783",
+            "name": "Cheddar Valley Inn",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 246198558,
+          "lat": 51.2044476,
+          "lon": -2.6515399,
+          "tags": {
+            "amenity": "pub",
+            "name": "Sherston Inn",
+            "wikidata": "Q26663047",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 246207865,
+          "lat": 51.2079712,
+          "lon": -2.648711,
+          "tags": {
+            "amenity": "pub",
+            "name": "The City Arms",
+            "wikidata": "Q26662988",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 412832664,
+          "lat": 51.3209021,
+          "lon": -2.7897149,
+          "tags": {
+            "amenity": "pub",
+            "name": "Swan, Rowberrow",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 642231942,
+          "lat": 51.2821083,
+          "lon": -2.7769968,
+          "tags": {
+            "addr:city": "Cheddar",
+            "addr:housenumber": "35",
+            "addr:postcode": "BS27 3LE",
+            "addr:street": "Silver Street",
+            "amenity": "pub",
+            "fhrs:id": "124061",
+            "name": "Gardeners Arms",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 997785008,
+          "lat": 51.2092024,
+          "lon": -2.6446394,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:housename": "The Market Hall",
+            "addr:postcode": "BA5 2RB",
+            "addr:street": "Market Place",
+            "amenity": "restaurant",
+            "brand": "ASK Italian",
+            "brand:wikidata": "Q4807056",
+            "cuisine": "italian",
+            "fhrs:id": "829194",
+            "name": "ASK Italian",
+            "website": "https://www.askitalian.co.uk/italian/restaurants/wells",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 997785199,
+          "lat": 51.2091325,
+          "lon": -2.6484635,
+          "tags": {
+            "amenity": "restaurant",
+            "name": "Beah",
+            "source": "survey",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 1460484588,
+          "lat": 51.2244663,
+          "lon": -2.6708508,
+          "tags": {
+            "amenity": "pub",
+            "name": "Wookey Hole Club",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 2030720806,
+          "lat": 51.3210786,
+          "lon": -2.9800316,
+          "tags": {
+            "addr:city": "Weston-Super-Mare",
+            "addr:housenumber": "56",
+            "addr:postcode": "BS23 4TN",
+            "addr:street": "Uphill Way",
+            "addr:suburb": "Uphill",
+            "amenity": "pub",
+            "email": "waynetowill@btconnect.com",
+            "fhrs:id": "186704",
+            "name": "The Ship Inn",
+            "phone": "+44 1934621470",
+            "source:addr": "FHRS Open Data",
+            "website": "https://www.theshipinn-uphill.co.uk/",
+            "wikidata": "Q99591908",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 2189080031,
+          "lat": 51.2077437,
+          "lon": -2.6486408,
+          "tags": {
+            "amenity": "restaurant",
+            "cuisine": "indian",
+            "name": "Rajah Tandoori",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 2210509053,
+          "lat": 51.3085245,
+          "lon": -2.9578221,
+          "tags": {
+            "addr:city": "Weston-Super-Mare",
+            "addr:postcode": "BS24 0PZ",
+            "addr:street": "Bleadon Road",
+            "addr:suburb": "Bleadon",
+            "amenity": "pub",
+            "brand": "Hungry Horse",
+            "brand:wikidata": "Q5943510",
+            "contact:website": "https://www.hungryhorse.co.uk/pubs/somerset/catherines-inn/",
+            "fhrs:id": "186596",
+            "name": "Catherines Inn",
+            "source:addr": "FHRS Open Data",
+            "wikidata": "Q99592958",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 2210509054,
+          "lat": 51.3084843,
+          "lon": -2.9597855,
+          "tags": {
+            "addr:city": "Weston-Super-Mare",
+            "addr:housename": "Anchor Inn",
+            "addr:postcode": "BS24 0AW",
+            "addr:street": "Bridgwater Road",
+            "addr:suburb": "Bleadon",
+            "amenity": "pub",
+            "fhrs:id": "186597",
+            "name": "Anchor Inn",
+            "source:addr": "FHRS Open Data",
+            "wikidata": "Q99592957",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 2381138861,
+          "lat": 51.3207809,
+          "lon": -2.9823526,
+          "tags": {
+            "addr:city": "Weston-Super-Mare",
+            "addr:housenumber": "82-84",
+            "addr:postcode": "BS23 4TN",
+            "addr:street": "Uphill Way",
+            "addr:suburb": "Uphill",
+            "amenity": "pub",
+            "fhrs:id": "186708",
+            "name": "The Dolphin",
+            "source:addr": "FHRS Open Data",
+            "wikidata": "Q99592959",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 2957357269,
+          "lat": 51.3142073,
+          "lon": -2.7981152,
+          "tags": {
+            "amenity": "restaurant",
+            "name": "Lenny's",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 2989490660,
+          "lat": 51.2061096,
+          "lon": -2.6503497,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:country": "GB",
+            "addr:housenumber": "18",
+            "addr:postcode": "BA5 1SY",
+            "addr:street": "Priory Road",
+            "amenity": "pub",
+            "brand": "Wetherspoon",
+            "brand:wikidata": "Q6109362",
+            "brand:wikipedia": "en:Wetherspoons",
+            "name": "The Quarter Jack",
+            "opening_hours": "Su-Th 08:00-24:00, Fr,Sa 08:00-01:00",
+            "website": "https://www.jdwetherspoon.com/pubs/all-pubs/england/somerset/the-quarter-jack-wells",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 3307913093,
+          "lat": 51.3083698,
+          "lon": -2.9475363,
+          "tags": {
+            "addr:city": "Weston-Super-Mare",
+            "addr:housename": "Queens Arms",
+            "addr:postcode": "BS24 0NF",
+            "addr:street": "Celtic Way",
+            "addr:suburb": "Bleadon",
+            "amenity": "pub",
+            "fhrs:id": "186598",
+            "name": "Queens Arms",
+            "source:addr": "FHRS Open Data",
+            "wikidata": "Q99591904",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 4452001007,
+          "lat": 51.2075504,
+          "lon": -2.6493008,
+          "tags": {
+            "amenity": "pub",
+            "name": "Just Ales Micropub",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 4997325291,
+          "lat": 51.2268956,
+          "lon": -2.6719492,
+          "tags": {
+            "amenity": "restaurant",
+            "name": "Captain Jacks Restaurant",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 4997338414,
+          "lat": 51.227123,
+          "lon": -2.6714688,
+          "tags": {
+            "amenity": "restaurant",
+            "name": "Witch's Kitchen",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 5046665387,
+          "lat": 51.2528459,
+          "lon": -2.7535941,
+          "tags": {
+            "addr:city": "Bristol",
+            "addr:housename": "Strawberry Special",
+            "addr:postcode": "BS27 3TQ",
+            "addr:street": "Station Road",
+            "amenity": "pub",
+            "name": "Strawberry Special",
+            "opening_hours": "Mo-Fr 19:00-23:00; We,Fr 12:00-14:00; Sa 12:00-00:00, Su 12:00-22:30",
+            "outdoor_seating": "yes",
+            "website": "http://www.strawberryspecial.com/",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 8763876864,
+          "lat": 51.2810649,
+          "lon": -2.7721893,
+          "tags": {
+            "amenity": "restaurant",
+            "cuisine": "greek",
+            "name": "Souvlike",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 10886428476,
+          "lat": 51.2084454,
+          "lon": -2.6472845,
+          "tags": {
+            "addr:housenumber": "41",
+            "addr:postcode": "BA5 2AE",
+            "addr:street": "High Street",
+            "amenity": "restaurant",
+            "brand": "Lounges",
+            "brand:wikidata": "Q114313933",
+            "check_date": "2024-05-27",
+            "contact:facebook": "Fosso-Lounge-404345193711140",
+            "contact:instagram": "FossoLounge",
+            "cuisine": "british",
+            "email": "fosso@thelounges.co.uk",
+            "name": "Fosso Lounge",
+            "opening_hours": "Su-Th 09:00-23:00; Fr-Sa 09:00-00:00",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "phone": "01749 676127",
+            "website": "https://thelounges.co.uk/fosso/",
+            "website:menu": "https://thelounges.co.uk/fosso/#menu",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 85965890,
+          "lat": 51.2799892,
+          "lon": -2.7727886,
+          "tags": {
+            "amenity": "restaurant",
+            "building": "yes",
+            "name": "Riverside",
+            "source": "OS_OpenData_StreetView",
+            "takeaway": "yes",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 85965903,
+          "lat": 51.2798786,
+          "lon": -2.7725193,
+          "tags": {
+            "amenity": "restaurant",
+            "building": "yes",
+            "cuisine": "thai",
+            "name": "Zen Thai",
+            "source": "OS_OpenData_StreetView",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 85965906,
+          "lat": 51.2810568,
+          "lon": -2.7719223,
+          "tags": {
+            "addr:postcode": "BS27 3QE",
+            "amenity": "restaurant",
+            "building": "yes",
+            "cuisine": "italian",
+            "email": "info@la-rocca.co.uk",
+            "name": "La Rocca",
+            "phone": "+44 1934 743 782",
+            "source": "OS_OpenData_StreetView",
+            "website": "https://la-rocca.co.uk/",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 85965910,
+          "lat": 51.2812893,
+          "lon": -2.7719884,
+          "tags": {
+            "addr:city": "Bristol",
+            "addr:postcode": "BS27 3QN",
+            "amenity": "pub",
+            "building": "yes",
+            "fhrs:id": "124200",
+            "name": "White Hart",
+            "wikidata": "Q99592199",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 263389842,
+          "lat": 51.2251687,
+          "lon": -2.6711979,
+          "tags": {
+            "amenity": "pub",
+            "building": "yes",
+            "name": "The Wookey Hole Inn",
+            "source": "Bing",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 342426329,
+          "lat": 51.2538909,
+          "lon": -2.6778631,
+          "tags": {
+            "amenity": "pub",
+            "beer_garden": "yes",
+            "building": "commercial",
+            "camra": "yes",
+            "food": "yes",
+            "internet_access": "wlan",
+            "internet_access:fee": "no",
+            "name": "Queen Victoria",
+            "outdoor_seating": "yes",
+            "real_ale": "yes",
+            "real_cider": "yes",
+            "website": "https://thequeenvicpriddy.co.uk/",
+            "wikidata": "Q99592998",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 396663720,
+          "lat": 51.209711,
+          "lon": -2.6450406,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:housenumber": "21",
+            "addr:street": "Market Place",
+            "amenity": "restaurant",
+            "building": "yes",
+            "heritage": "2",
+            "heritage:operator": "he",
+            "heritage:website": "https://historicengland.org.uk/listing/the-list/list-entry/1383021",
+            "listed_status": "Grade II*",
+            "name": "Bekynton Brasserie",
+            "ref:GB:nhle": "1383021",
+            "wikidata": "Q17553092",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 544481482,
+          "lat": 51.2087323,
+          "lon": -2.647406,
+          "tags": {
+            "amenity": "pub",
+            "building": "yes",
+            "internet_access": "wlan",
+            "name": "The King's Head",
+            "wikidata": "Q17553022",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 544481544,
+          "lat": 51.2092901,
+          "lon": -2.6480189,
+          "tags": {
+            "amenity": "pub",
+            "building": "yes",
+            "name": "The Sun Inn",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 544749130,
+          "lat": 51.2115632,
+          "lon": -2.6416694,
+          "tags": {
+            "amenity": "pub",
+            "building": "yes",
+            "name": "The Fountain Inn",
+            "wikidata": "Q26663094",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 618665011,
+          "lat": 51.2090447,
+          "lon": -2.6453765,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:postcode": "BA5 2RP",
+            "addr:street": "Market Place",
+            "amenity": "pub",
+            "building": "yes",
+            "fhrs:id": "172384",
+            "name": "The Crown",
+            "opening_hours": "Mo-Su 10:00-23:00",
+            "tourism": "hotel",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 729124180,
+          "lat": 51.279341,
+          "lon": -2.7737204,
+          "tags": {
+            "addr:city": "Cheddar",
+            "addr:postcode": "BS27 3PX",
+            "addr:street": "Cliff Street",
+            "amenity": "pub",
+            "building": "yes",
+            "fhrs:id": "123930",
+            "name": "Riverside Inn",
+            "operator": "Stonegate",
+            "operator:wikidata": "Q7619176",
+            "source": "Maxar-Premium",
+            "website": "https://www.greatukpubs.co.uk/riverside-inn-cheddar",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 945138076,
+          "lat": 51.2757574,
+          "lon": -2.7771602,
+          "tags": {
+            "addr:city": "Cheddar",
+            "addr:postcode": "BS27 3AA",
+            "addr:street": "Bath Street",
+            "amenity": "pub",
+            "building": "yes",
+            "fhrs:id": "123515",
+            "name": "Bath Arms Hotel",
+            "source:addr": "FHRS Open Data",
+            "website": "https://www.batharms.com/",
+            "wikidata": "Q99592190",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 945401291,
+          "lat": 51.2758954,
+          "lon": -2.7755627,
+          "tags": {
+            "addr:city": "Bristol",
+            "addr:postcode": "BS27 3NB",
+            "addr:street": "Union Street",
+            "amenity": "restaurant",
+            "building": "yes",
+            "check_date": "2025-06-24",
+            "cuisine": "indian;bangladeshi",
+            "delivery": "yes",
+            "email": "admin@spicecottagecheddar.co.uk",
+            "name": "Spice Cottage",
+            "opening_hours": "Mo-Fr 12:00-14:30,17:30-22:00",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "phone": "+44 1934 742331",
+            "takeaway": "yes",
+            "website": "https://www.spicecottagecheddar.co.uk/",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 1123086394,
+          "lat": 51.248963,
+          "lon": -2.7402434,
+          "tags": {
+            "amenity": "pub",
+            "building": "yes",
+            "name": "Rodney Stokes Inn",
+            "phone": "+44 1749870209",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 1160886593,
+          "lat": 51.3207395,
+          "lon": -2.7896429,
+          "tags": {
+            "amenity": "pub",
+            "building": "yes",
+            "contact:phone": "+44 1275 217747",
+            "contact:website": "https://butcombe.com/the-swan-inn-somerset/",
+            "name": "The Swan Inn, Rowberrow",
+            "operator": "Butcombe Brewing Co",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 1168196732,
+          "lat": 51.3213465,
+          "lon": -2.9815729,
+          "tags": {
+            "addr:housename": "Dolphin House",
+            "addr:housenumber": "82-84",
+            "addr:postcode": "BS23 4TN",
+            "addr:street": "Uphill Way",
+            "amenity": "pub",
+            "building": "yes",
+            "name": "The Dolphin",
+            "opening_hours": "Mo-Su 12:00-23:00",
+            "phone": "+44 1934 620248",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 1306408666,
+          "lat": 51.2799634,
+          "lon": -2.772503,
+          "tags": {
+            "amenity": "restaurant",
+            "building": "yes",
+            "cuisine": "ice_cream",
+            "name": "100 Flavours",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 1306419436,
+          "lat": 51.2807653,
+          "lon": -2.7721419,
+          "tags": {
+            "amenity": "restaurant",
+            "building": "yes",
+            "cuisine": "fish_and_chips",
+            "name": "Tuckers",
+            "takeaway": "yes",
+            "hd_layer": "pubs_restaurants"
+          }
+        },
+        {
+          "id": 1306865111,
+          "lat": 51.2796859,
+          "lon": -2.7727186,
+          "tags": {
+            "amenity": "restaurant",
+            "building": "yes",
+            "cuisine": "indian",
+            "level": "1;2",
+            "name": "Rasoi",
+            "phone": "+44 1934 744 230",
+            "source": "OS_OpenData_StreetView",
+            "hd_layer": "pubs_restaurants"
+          }
+        }
+      ]
+    },
+    {
+      "label": "groceries",
+      "queryString": "nwr[\"shop\"~\"supermarket|convenience|greengrocer\"]",
+      "data": [
+        {
+          "id": 413121781,
+          "lat": 51.2074875,
+          "lon": -2.6534342,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:housenumber": "19-21",
+            "addr:postcode": "BA5 2DZ",
+            "addr:street": "Tucker Street",
+            "brand": "Spar",
+            "brand:wikidata": "Q610492",
+            "brand:wikipedia": "en:SPAR (retailer)",
+            "fhrs:id": "510691",
+            "name": "Spar",
+            "opening_hours": "Mo-Sa 07:00-23:00; Su 08:00-22:30",
+            "phone": "+441749672014",
+            "shop": "convenience",
+            "website": "https://www.spar.co.uk/store-locator/afb13560-spar-wells/",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 1447130907,
+          "lat": 51.2797533,
+          "lon": -2.7775308,
+          "tags": {
+            "brand": "Premier",
+            "brand:wikidata": "Q7240340",
+            "name": "Premier express",
+            "shop": "convenience",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 5046680479,
+          "lat": 51.3096244,
+          "lon": -2.9563898,
+          "tags": {
+            "amenity": "post_office",
+            "name": "Bleadon Farm Shop",
+            "shop": "convenience",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 5843177198,
+          "lat": 51.2632203,
+          "lon": -2.7642484,
+          "tags": {
+            "addr:street": "Draycott Road",
+            "name": "Hillier Garden Centre",
+            "phone": "+441934 745200",
+            "shop": "supermarket",
+            "website": "https://www.hillier.co.uk/garden-centres/cheddar/",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 9399336120,
+          "lat": 51.3217402,
+          "lon": -2.9569477,
+          "tags": {
+            "addr:postcode": "BS24 9HA",
+            "addr:street": "Broadway",
+            "brand": "Tesco Express",
+            "brand:wikidata": "Q98456772",
+            "contact:website": "https://www.tesco.com/store-locator/weston-super-mare/the-broadway",
+            "fhrs:id": "1125962",
+            "name": "Tesco Express",
+            "shop": "convenience",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 10243437945,
+          "lat": 51.2546692,
+          "lon": -2.7517524,
+          "tags": {
+            "addr:city": "Cheddar",
+            "addr:housename": "Draycott Community Shop",
+            "addr:postcode": "BS27 3TH",
+            "addr:street": "The Street",
+            "name": "Draycott Community Shop",
+            "opening_hours": "Mo-Sa 08:00-17:00; Su 08:00-13:00",
+            "payment:cards": "yes",
+            "payment:cash": "yes",
+            "shop": "convenience",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 11462246030,
+          "lat": 51.2088856,
+          "lon": -2.6518621,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:country": "GB",
+            "addr:street": "Chamberlain Street",
+            "branch": "Wells",
+            "brand": "Asda Express",
+            "brand:wikidata": "Q114826023",
+            "name": "Asda Express",
+            "shop": "convenience",
+            "website": "https://storelocator.asda.com/south-west/wells/chamberlain-street",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 22887825,
+          "lat": 51.2062712,
+          "lon": -2.6520613,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:country": "GB",
+            "addr:county": "Somerset",
+            "addr:postcode": "BA5 2DZ",
+            "addr:street": "Tucker Street",
+            "alt_name": "Tesco Wells Superstore",
+            "brand": "Tesco",
+            "brand:wikidata": "Q487494",
+            "brand:wikipedia": "en:Tesco",
+            "building": "yes",
+            "contact:website": "https://www.tesco.com/store-locator/wells/tucker-st",
+            "name": "Tesco",
+            "opening_hours": "Mo-Sa 06:00-23:00; Su 10:00-16:00",
+            "shop": "supermarket",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 85960983,
+          "lat": 51.209923,
+          "lon": -2.6508226,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:postcode": "BA5 2PJ",
+            "addr:street": "Whiting Way",
+            "alt_name": "Waitrose Wells",
+            "brand": "Waitrose",
+            "brand:wikidata": "Q771734",
+            "brand:wikipedia": "en:Waitrose & Partners",
+            "building": "yes",
+            "name": "Waitrose",
+            "official_name": "Waitrose & Partners",
+            "opening_hours": "Mo-Sa 08:00-20:00; Su 11:00-17:00",
+            "operator": "Waitrose & Partners",
+            "phone": "+441749672570",
+            "shop": "supermarket",
+            "website": "https://www.waitrose.com/find-a-store/wells",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 409594222,
+          "lat": 51.2045922,
+          "lon": -2.648167,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:postcode": "BA5 1SQ",
+            "addr:street": "East Somerset Way",
+            "alt_name": "Morrisons Wells",
+            "brand": "Morrisons",
+            "brand:wikidata": "Q922344",
+            "brand:wikipedia": "en:Morrisons",
+            "building": "supermarket",
+            "name": "Morrisons",
+            "opening_hours": "Mo-Sa 07:00-22:00; Su 10:00-16:00",
+            "shop": "supermarket",
+            "website": "https://my.morrisons.com/storefinder/559/wells",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 574844878,
+          "lat": 51.2745934,
+          "lon": -2.7749118,
+          "tags": {
+            "addr:city": "Cheddar",
+            "addr:country": "GB",
+            "addr:county": "Somerset",
+            "addr:postcode": "BS27 3NZ",
+            "addr:street": "Roynon Way",
+            "brand": "Sainsbury's",
+            "brand:wikidata": "Q152096",
+            "brand:wikipedia": "en:Sainsbury's",
+            "building": "commercial",
+            "name": "Sainsbury's",
+            "opening_hours": "Mo-We 08:00-20:00; Th,Fr 08:00-21:00; Sa 08:00-20:00; Su 10:00-16:00",
+            "operator": "Sainsbury's",
+            "payment:cash": "yes",
+            "payment:credit_cards": "yes",
+            "payment:debit_cards": "yes",
+            "shop": "supermarket",
+            "website": "https://stores.sainsburys.co.uk/2664/cheddar-roynon-way",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 620077621,
+          "lat": 51.2134183,
+          "lon": -2.6348899,
+          "tags": {
+            "brand": "Budgens",
+            "brand:wikidata": "Q4985016",
+            "brand:wikipedia": "en:Budgens",
+            "building": "retail",
+            "name": "Budgens",
+            "shop": "supermarket",
+            "website": "https://www.budgens.co.uk/our-stores/wells",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 1167306076,
+          "lat": 51.3229305,
+          "lon": -2.9803979,
+          "tags": {
+            "addr:housenumber": "49",
+            "addr:postcode": "BS23 4XH",
+            "addr:street": "Old Church Road",
+            "building": "house",
+            "name": "Uphill Village Shop",
+            "phone": "+44 1934 629838",
+            "shop": "convenience",
+            "hd_layer": "groceries"
+          }
+        },
+        {
+          "id": 1348494728,
+          "lat": 51.2050423,
+          "lon": -2.6528936,
+          "tags": {
+            "addr:city": "Wells",
+            "addr:country": "GB",
+            "addr:county": "Somerset",
+            "addr:postcode": "BA5 2AZ",
+            "addr:street": "Strawberry Way",
+            "branch": "Wells",
+            "brand": "Lidl",
+            "brand:wikidata": "Q151954",
+            "building": "yes",
+            "fhrs:id": "1756859",
+            "name": "Lidl",
+            "opening_date": "2025-01-30",
+            "opening_hours": "Mo-Sa 08:00-21:00; Su 10:00-16:00",
+            "shop": "supermarket",
+            "hd_layer": "groceries"
+          }
+        }
+      ]
+    },
+    {
+      "label": "toilets",
+      "queryString": "nwr[\"amenity\"=\"toilets\"]",
+      "data": [
+        {
+          "id": 31414694,
+          "lat": 51.282063,
+          "lon": -2.7659,
+          "tags": {
+            "amenity": "toilets",
+            "hd_layer": "toilets"
+          }
+        },
+        {
+          "id": 237861927,
+          "lat": 51.2074523,
+          "lon": -2.643976,
+          "tags": {
+            "amenity": "toilets",
+            "hd_layer": "toilets"
+          }
+        },
+        {
+          "id": 246533506,
+          "lat": 51.2070029,
+          "lon": -2.6507787,
+          "tags": {
+            "amenity": "toilets",
+            "check_date": "2024-05-18",
+            "fee": "no",
+            "wheelchair": "limited",
+            "hd_layer": "toilets"
+          }
+        },
+        {
+          "id": 1405076292,
+          "lat": 51.2278527,
+          "lon": -2.6715946,
+          "tags": {
+            "amenity": "toilets",
+            "hd_layer": "toilets"
+          }
+        },
+        {
+          "id": 2189077710,
+          "lat": 51.2088443,
+          "lon": -2.6444753,
+          "tags": {
+            "amenity": "toilets",
+            "hd_layer": "toilets"
+          }
+        },
+        {
+          "id": 9970902642,
+          "lat": 51.3053567,
+          "lon": -2.796479,
+          "tags": {
+            "access": "customers",
+            "amenity": "toilets",
+            "female": "yes",
+            "wheelchair": "limited",
+            "hd_layer": "toilets"
+          }
+        },
+        {
+          "id": 9970902643,
+          "lat": 51.3053601,
+          "lon": -2.796428,
+          "tags": {
+            "access": "customers",
+            "amenity": "toilets",
+            "changing_table": "no",
+            "male": "yes",
+            "wheelchair": "no",
+            "hd_layer": "toilets"
+          }
+        },
+        {
+          "id": 85667358,
+          "lat": 51.2089523,
+          "lon": -2.6484854,
+          "tags": {
+            "amenity": "toilets",
+            "building": "yes",
+            "wheelchair": "yes",
+            "hd_layer": "toilets"
+          }
+        },
+        {
+          "id": 85965924,
+          "lat": 51.2814543,
+          "lon": -2.7707847,
+          "tags": {
+            "amenity": "toilets",
+            "building": "toilets",
+            "fee": "no",
+            "source": "OS_OpenData_StreetView",
+            "wheelchair": "yes",
+            "hd_layer": "toilets"
+          }
+        },
+        {
+          "id": 229528917,
+          "lat": 51.3219634,
+          "lon": -2.9859611,
+          "tags": {
+            "amenity": "toilets",
+            "building": "yes",
+            "hd_layer": "toilets"
+          }
+        },
+        {
+          "id": 263388984,
+          "lat": 51.2259636,
+          "lon": -2.6722189,
+          "tags": {
+            "amenity": "toilets",
+            "building": "yes",
+            "fee": "no",
+            "source": "Bing",
+            "wheelchair": "yes",
+            "hd_layer": "toilets"
+          }
+        }
+      ]
+    },
+    {
+      "label": "import_gpx",
+      "queryString": "#gpx",
+      "data": []
+    }
+  ],
+  "gpxFiles": [
+    {
+      "name": "westmendipway.gpx",
+      "geojson": {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {
+              "_gpxType": "trk",
+              "name": "West Mendip Way",
+              "type": "Track",
+              "coordinateProperties": {}
+            },
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  -2.6445079891,
+                  51.2098897223
+                ],
+                [
+                  -2.6464840945,
+                  51.2104408156
+                ],
+                [
+                  -2.6465029848,
+                  51.2117894986
+                ],
+                [
+                  -2.6500355053,
+                  51.2110280946
+                ],
+                [
+                  -2.6522429673,
+                  51.212746756
+                ],
+                [
+                  -2.655771595,
+                  51.2167509208
+                ],
+                [
+                  -2.6579904399,
+                  51.2192337253
+                ],
+                [
+                  -2.6613672109,
+                  51.2225641841
+                ],
+                [
+                  -2.6674395018,
+                  51.2216305237
+                ],
+                [
+                  -2.6690008497,
+                  51.2231502386
+                ],
+                [
+                  -2.6702953933,
+                  51.2235474696
+                ],
+                [
+                  -2.6715888367,
+                  51.2263275548
+                ],
+                [
+                  -2.6744169381,
+                  51.2263112959
+                ],
+                [
+                  -2.6765120477,
+                  51.2275805579
+                ],
+                [
+                  -2.6777997046,
+                  51.2299334929
+                ],
+                [
+                  -2.6807261564,
+                  51.2317149012
+                ],
+                [
+                  -2.6811054202,
+                  51.2331514051
+                ],
+                [
+                  -2.6805073601,
+                  51.2338742371
+                ],
+                [
+                  -2.6786524639,
+                  51.2343570791
+                ],
+                [
+                  -2.6793101906,
+                  51.235252458
+                ],
+                [
+                  -2.6718789731,
+                  51.2364193232
+                ],
+                [
+                  -2.6689825932,
+                  51.2391784381
+                ],
+                [
+                  -2.6659576678,
+                  51.2404995045
+                ],
+                [
+                  -2.6742188733,
+                  51.242160699
+                ],
+                [
+                  -2.6767204974,
+                  51.2442368905
+                ],
+                [
+                  -2.6751165356,
+                  51.2472134756
+                ],
+                [
+                  -2.6798371119,
+                  51.249141913
+                ],
+                [
+                  -2.6776769208,
+                  51.2532682245
+                ],
+                [
+                  -2.6782390037,
+                  51.2549509525
+                ],
+                [
+                  -2.6822002513,
+                  51.2563441782
+                ],
+                [
+                  -2.6883429213,
+                  51.2574547188
+                ],
+                [
+                  -2.6976843979,
+                  51.2592203293
+                ],
+                [
+                  -2.7068019943,
+                  51.2580192123
+                ],
+                [
+                  -2.7261082039,
+                  51.257743794
+                ],
+                [
+                  -2.7336779263,
+                  51.2583935129
+                ],
+                [
+                  -2.736179826,
+                  51.2580181397
+                ],
+                [
+                  -2.7375461372,
+                  51.2583242656
+                ],
+                [
+                  -2.7425454837,
+                  51.2573035679
+                ],
+                [
+                  -2.7462564811,
+                  51.2563807887
+                ],
+                [
+                  -2.7469641813,
+                  51.2558367587
+                ],
+                [
+                  -2.7501888375,
+                  51.2558611133
+                ],
+                [
+                  -2.7522958073,
+                  51.2576460026
+                ],
+                [
+                  -2.7531198765,
+                  51.2598437485
+                ],
+                [
+                  -2.7513535513,
+                  51.2613837286
+                ],
+                [
+                  -2.7492302997,
+                  51.2630158836
+                ],
+                [
+                  -2.7444049934,
+                  51.2659690322
+                ],
+                [
+                  -2.7439410934,
+                  51.2683098917
+                ],
+                [
+                  -2.7478956363,
+                  51.2690939986
+                ],
+                [
+                  -2.7530226404,
+                  51.2714440419
+                ],
+                [
+                  -2.7573374248,
+                  51.2723154372
+                ],
+                [
+                  -2.7590116946,
+                  51.2738782039
+                ],
+                [
+                  -2.7621128533,
+                  51.2750270382
+                ],
+                [
+                  -2.7608524196,
+                  51.2768336247
+                ],
+                [
+                  -2.7602214244,
+                  51.2776919574
+                ],
+                [
+                  -2.764707127,
+                  51.2801805346
+                ],
+                [
+                  -2.7588352414,
+                  51.2805783729
+                ],
+                [
+                  -2.7517154935,
+                  51.2835915937
+                ],
+                [
+                  -2.7488143384,
+                  51.2859480686
+                ],
+                [
+                  -2.745746956,
+                  51.2869117741
+                ],
+                [
+                  -2.7445376452,
+                  51.2875039361
+                ],
+                [
+                  -2.740735076,
+                  51.2873481824
+                ],
+                [
+                  -2.7377412837,
+                  51.2884460898
+                ],
+                [
+                  -2.7377707808,
+                  51.2902892501
+                ],
+                [
+                  -2.7359862648,
+                  51.2907950204
+                ],
+                [
+                  -2.737971746,
+                  51.2938847565
+                ],
+                [
+                  -2.7428844293,
+                  51.2961466803
+                ],
+                [
+                  -2.7510164404,
+                  51.2978932729
+                ],
+                [
+                  -2.7491973311,
+                  51.3006924071
+                ],
+                [
+                  -2.7486110609,
+                  51.3043378811
+                ],
+                [
+                  -2.7570072502,
+                  51.3045987121
+                ],
+                [
+                  -2.760955479,
+                  51.3047979629
+                ],
+                [
+                  -2.7701910695,
+                  51.3080647049
+                ],
+                [
+                  -2.7762461541,
+                  51.3098231827
+                ],
+                [
+                  -2.7800910329,
+                  51.3123603854
+                ],
+                [
+                  -2.7851343714,
+                  51.3136305745
+                ],
+                [
+                  -2.7902358455,
+                  51.3140908791
+                ],
+                [
+                  -2.7902111762,
+                  51.3126523297
+                ],
+                [
+                  -2.792076949,
+                  51.3126847064
+                ],
+                [
+                  -2.7927749222,
+                  51.3115559942
+                ],
+                [
+                  -2.7959247877,
+                  51.3111749846
+                ],
+                [
+                  -2.8010237546,
+                  51.311499955
+                ],
+                [
+                  -2.801861816,
+                  51.3101903899
+                ],
+                [
+                  -2.8080571146,
+                  51.3075851516
+                ],
+                [
+                  -2.808243111,
+                  51.3059203482
+                ],
+                [
+                  -2.8140397329,
+                  51.3051608957
+                ],
+                [
+                  -2.8179659193,
+                  51.3040994944
+                ],
+                [
+                  -2.8225510041,
+                  51.303797663
+                ],
+                [
+                  -2.8263753398,
+                  51.301073163
+                ],
+                [
+                  -2.8297401568,
+                  51.3007346801
+                ],
+                [
+                  -2.8350443871,
+                  51.3005621459
+                ],
+                [
+                  -2.8470053223,
+                  51.2996670683
+                ],
+                [
+                  -2.8526654194,
+                  51.2993562813
+                ],
+                [
+                  -2.8564093455,
+                  51.300138283
+                ],
+                [
+                  -2.8632210087,
+                  51.3000433711
+                ],
+                [
+                  -2.8677078844,
+                  51.3021438963
+                ],
+                [
+                  -2.8772069023,
+                  51.3000499232
+                ],
+                [
+                  -2.8844580463,
+                  51.3004449469
+                ],
+                [
+                  -2.8850542035,
+                  51.3016093843
+                ],
+                [
+                  -2.8874567942,
+                  51.2997478571
+                ],
+                [
+                  -2.8883834284,
+                  51.295739438
+                ],
+                [
+                  -2.8913800684,
+                  51.2949523411
+                ],
+                [
+                  -2.894263793,
+                  51.295739612
+                ],
+                [
+                  -2.8963781618,
+                  51.2975218168
+                ],
+                [
+                  -2.8991816409,
+                  51.2978599877
+                ],
+                [
+                  -2.9015501857,
+                  51.3016183668
+                ],
+                [
+                  -2.9099210987,
+                  51.31508641
+                ],
+                [
+                  -2.9095802272,
+                  51.3159882479
+                ],
+                [
+                  -2.9105933843,
+                  51.3164299678
+                ],
+                [
+                  -2.9152596171,
+                  51.3165734245
+                ],
+                [
+                  -2.9195591208,
+                  51.3163149403
+                ],
+                [
+                  -2.9280681062,
+                  51.3148990182
+                ],
+                [
+                  -2.9359410781,
+                  51.3139821157
+                ],
+                [
+                  -2.9426220116,
+                  51.314423077
+                ],
+                [
+                  -2.9453898943,
+                  51.312962048
+                ],
+                [
+                  -2.9471525243,
+                  51.3114641286
+                ],
+                [
+                  -2.9473538087,
+                  51.3107881028
+                ],
+                [
+                  -2.9495045989,
+                  51.3107257195
+                ],
+                [
+                  -2.9518603196,
+                  51.3101670723
+                ],
+                [
+                  -2.9553850144,
+                  51.3106329211
+                ],
+                [
+                  -2.9579773644,
+                  51.3111062969
+                ],
+                [
+                  -2.9603213551,
+                  51.3134250096
+                ],
+                [
+                  -2.9607774296,
+                  51.3112182319
+                ],
+                [
+                  -2.9617834524,
+                  51.3112998918
+                ],
+                [
+                  -2.9642494215,
+                  51.3125834468
+                ],
+                [
+                  -2.96693544,
+                  51.3140899336
+                ],
+                [
+                  -2.96876086,
+                  51.3156034833
+                ],
+                [
+                  -2.9703512781,
+                  51.3161747936
+                ],
+                [
+                  -2.9722163117,
+                  51.316159323
+                ],
+                [
+                  -2.9768550161,
+                  51.314996715
+                ],
+                [
+                  -2.9802654805,
+                  51.3134395699
+                ],
+                [
+                  -2.9822930598,
+                  51.3143217786
+                ],
+                [
+                  -2.9840549591,
+                  51.3161953078
+                ],
+                [
+                  -2.9834247538,
+                  51.3169199637
+                ],
+                [
+                  -2.9822770242,
+                  51.3169295974
+                ],
+                [
+                  -2.9846658571,
+                  51.3212706601
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "color": "#e6194b"
+    }
+  ],
+  "selectedLayers": [
+    "drinking_water",
+    "cafes",
+    "pubs_restaurants",
+    "groceries",
+    "toilets",
+    "import_gpx"
+  ],
+  "mapBounds": {
+    "southWest": {
+      "lat": 51.19612741285702,
+      "lng": -3.018497585692497
+    },
+    "northEast": {
+      "lat": 51.36234917412006,
+      "lng": -2.5714913601065597
+    }
+  }
+}
