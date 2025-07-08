@@ -87,7 +87,7 @@ export function generateNodeDescription(node: OsmElement | null): {
         }
     }
     return {
-        title: "Details",
+        title: node?.tags?.name || "Details",
         layer: node?.tags?.hd_layer || "unknown",
         descriptions: ["Check the source data below for more information."],
         warning: null,
