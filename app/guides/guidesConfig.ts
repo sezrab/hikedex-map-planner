@@ -62,21 +62,22 @@ export const guidesConfig: Record<string, GuideConfig> = {
           "https://images.unsplash.com/photo-1543241964-2aff6a70473f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         imagePosition: "middle",
       },
-      offasdyke: {
-        title: "Offa’s Dyke Path: resupply and facilities",
-        altTitle: "Resupply points along Offa’s Dyke Path",
+      offasdykepan: {
+        title: "A guide to Offa's Dyke for backpackers",
+        altTitle: "Backpacking Offa's Dyke",
         description:
-          "A printable map showing resupply points, shops, cafes, water sources, and public toilets along Offa's Dyke Path for walkers and backpackers.",
+          "A comprehensive map showing essential facilities for backpackers along Offa's Dyke Path, including water sources, public toilets, village shops, and resupply points.",
         details: [
-          "It's interesting how a border built over a thousand years ago still draws plenty of walkers today. Offa's Dyke, named after King Offa of Mercia, was meant to mark the boundary between his kingdom and Wales. The path follows roughly 177 miles of that old line, crossing rolling hills, sleepy villages, and ancient woodlands.",
-          "Typically taking 10-13 days to complete, the route is never too far from a little village shop so you can stock up on the supplies you need to keep you plodding on.",
-          "This map focuses on these practical stops for walkers, highlighting places to get food, find water, and use toilets along the route so you can plan your stops and travel lighter. It makes all the difference when you're out for a number of days.",
+          "Standing at the edge of Sedbury Cliffs, with the Severn estuary churning below and 177 miles of ancient earthwork stretching north into the Welsh hills, Offa's Dyke is one of Britain's most historically charged long-distance walks. King Offa of Mercia ordered this massive ditch and rampart to be built in the 8th century to mark the boundary between his kingdom and the Welsh lands of Powys, and walking it today feels like tracing the very spine of British history. The dyke itself is a marvel of Dark Age engineering - where it survives intact, you'll find yourself walking along a 6-foot-high earthen wall with an 8-foot ditch on the Welsh side, a border so definitive that it still influences the modern boundary between England and Wales. What makes this trail exceptional for backpackers is not just its historical significance, but the way it threads together every type of British landscape: from the dramatic river valleys of the Wye and Dee to the rolling hills of Shropshire, the Black Mountains' rugged heights, and the wind-swept moors of Clwyd.",
+          "The 12-14 day journey demands respect, particularly in the middle sections where the path climbs to over 2,000 feet and water sources can be scarce. The stretch between Hay-on-Wye and Kington is notorious for its boggy terrain and sudden weather changes, while the Clwydian Range offers some of the finest ridge walking in Wales alongside some of the most challenging navigation in mist. What guidebooks rarely mention is that the path passes through dozens of tiny villages where the local pub landlord will often let you pitch a tent in the back garden for the price of a pint, and where village shops stock just enough to resupply a backpacker without the weight of a full town stop. The trail also follows ancient drove roads used by Welsh cattle farmers for centuries, and you'll occasionally find old waymarkers carved into stone stiles that predate the official trail by generations.",
+          "The logistics of backpacking Offa's Dyke reward careful planning, as this is not a wilderness trail but a journey through a working landscape where wild camping requires discretion and local knowledge. Water sources are generally reliable in the first and last thirds of the route, but the middle sections across the Radnor Forest and Clwydian Hills can test your planning skills. The trail's beauty lies not just in its grand vistas but in its intimate moments: the 12th-century church at Beguildy where medieval pilgrims prayed before crossing the hills, the ancient yew trees at Llanfair Waterdine that have watched over the valley for a thousand years, and the sudden silence you'll find in the depths of the Radnor Forest where the only sounds are your footsteps and the whisper of wind through the trees.",
+          "To help you navigate the practical challenges of this historic journey, we've created a comprehensive map showing all the essential facilities you'll need as a backpacker. The map pinpoints every water source, public toilet, village shop, and resupply point along the route. With this resource, you can focus on what matters most: walking in the footsteps of a medieval king and experiencing one of Britain's most remarkable long-distance trails.",
         ],
         mapUrl: "/map/offasdyke",
         ogUrl: "https://hikedex.app/g/backpacking-uk/offasdyke",
         headerImage:
-          "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0",
-        imagePosition: "bottom",
+          "https://images.unsplash.com/photo-1722275003487-85ea5e00a647?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        imagePosition: "middle",
       },
 
       westmendipway: {
