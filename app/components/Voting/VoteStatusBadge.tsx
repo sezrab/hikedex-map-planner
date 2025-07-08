@@ -9,7 +9,7 @@ export default function VoteStatusBadge({
     poiId: string
     poiSource: 'user' | 'osm'
 }) {
-    const [totalVotes, setTotalVotes] = useState<number | null>(null)
+    const [totalVotes, setTotalVotes] = useState<number>(0);
 
     useEffect(() => {
         async function loadVoteTotal() {
@@ -26,7 +26,7 @@ export default function VoteStatusBadge({
     }, [poiId, poiSource])
 
 
-    const totalVotesStr = totalVotes! > 0 ? `+${totalVotes}` : totalVotes! < 0 ? `${totalVotes}` : "No votes yet"
+    const totalVotesStr = totalVotes > 0 ? `+${totalVotes}` : totalVotes < 0 ? `${totalVotes}` : "No votes yet"
 
     return (
         <Badge

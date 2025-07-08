@@ -10,7 +10,7 @@ export async function fetchVoteTotal(poiId: string) {
     const userId = pb.authStore.model?.id;
     if (!userId) {
         console.warn("User not authenticated")
-        return null
+        return 0
     }
     const voteCollection = "pois";
     const voteFilter = `poi_id = "${poiId}"`;
@@ -29,9 +29,9 @@ export async function fetchVoteTotal(poiId: string) {
         .then((item) => item?.score || null)
         .catch((err) => {
             console.error("Error fetching vote total:", err);
-            return null;
+            return 0;
         });
-    return totalScore;
+    return totalScore ? totalScore : 0; // Return 0 if no votes found
 }
 
 export async function fetchVoteStatus(poiId: string) {
