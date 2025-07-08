@@ -164,7 +164,7 @@ export function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoClus
                         <Group gap="xs">
                             {/* share button */}
                             {/* toasts "Copied to clipboard" */}
-                            <VoteStatusBadge poiId={`${nodeModalData.lat}, ${nodeModalData.lon}`} poiSource={'osm'} />
+                            <VoteStatusBadge poiId={`${nodeModalData.lat},${nodeModalData.lon}`} poiSource={'osm'} />
                             <Button
                                 variant="subtle"
                                 color="dark.3"
@@ -206,7 +206,7 @@ export function ClusteredMarkers({ queries, disableClusteringAtZoom, forceNoClus
                         {/* If there are coordinates, display them */}
                         {(nodeModalData.lat !== undefined && nodeModalData.lon !== undefined) && (
                             <Text size="sm" c="dimmed">
-                                Coordinates: {nodeModalData.lat.toFixed(6)}, {nodeModalData.lon.toFixed(6)}
+                                Coordinates: {nodeModalData.lat.toFixed(7)}, {nodeModalData.lon.toFixed(7)}
                             </Text>
                         )}
 

@@ -25,8 +25,8 @@ export default function VoteStatusBadge({
         loadVoteTotal()
     }, [poiId, poiSource])
 
-    if (totalVotes === null) return null
-    const totalVotesStr = totalVotes > 0 ? `+${totalVotes}` : totalVotes < 0 ? `${totalVotes}` : "No votes yet"
+
+    const totalVotesStr = totalVotes! > 0 ? `+${totalVotes}` : totalVotes! < 0 ? `${totalVotes}` : "No votes yet"
 
     return (
         <Badge
