@@ -53,6 +53,10 @@ export function generateNodeDescription(node: OsmElement | null): {
                 }
             }
 
+            if (node.tags.description) {
+                descriptions.push(node.tags.description);
+            }
+
             if (node.tags.access === "yes") {
                 descriptions.push(`${park_type} with public access.`);
             } else if (node.tags.access === "permissive") {
@@ -89,7 +93,9 @@ export function generateNodeDescription(node: OsmElement | null): {
     return {
         title: node?.tags?.name || "Details",
         layer: node?.tags?.hd_layer || "unknown",
-        descriptions: ["Check the source data below for more information."],
+        descriptions: [
+            node?.tags?.description || "Check the source data below for more information.",
+        ],
         warning: null,
     };
 }
