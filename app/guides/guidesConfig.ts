@@ -62,16 +62,16 @@ export const guidesConfig: Record<string, GuideConfig> = {
           "https://images.unsplash.com/photo-1543241964-2aff6a70473f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         imagePosition: "middle",
       },
-      offasdykepan: {
-        title: "A guide to Offa's Dyke for backpackers",
-        altTitle: "Backpacking Offa's Dyke",
+      offasdyke: {
+        title: "Offa's Dyke: A Backpacker's Guide",
+        altTitle: "Backpacking Offa's Dyke Path",
         description:
-          "A comprehensive map showing essential facilities for backpackers along Offa's Dyke Path, including water sources, public toilets, village shops, and resupply points.",
+          "A comprehensive, printable map of Offa's Dyke Path showing reliable water sources, pubs, public toilets, and resupply stops for backpackers and hikers.",
         details: [
-          "Standing at the edge of Sedbury Cliffs, with the Severn estuary churning below and 177 miles of ancient earthwork stretching north into the Welsh hills, Offa's Dyke is one of Britain's most historically charged long-distance walks. King Offa of Mercia ordered this massive ditch and rampart to be built in the 8th century to mark the boundary between his kingdom and the Welsh lands of Powys, and walking it today feels like tracing the very spine of British history. The dyke itself is a marvel of Dark Age engineering - where it survives intact, you'll find yourself walking along a 6-foot-high earthen wall with an 8-foot ditch on the Welsh side, a border so definitive that it still influences the modern boundary between England and Wales. What makes this trail exceptional for backpackers is not just its historical significance, but the way it threads together every type of British landscape: from the dramatic river valleys of the Wye and Dee to the rolling hills of Shropshire, the Black Mountains' rugged heights, and the wind-swept moors of Clwyd.",
-          "The 12-14 day journey demands respect, particularly in the middle sections where the path climbs to over 2,000 feet and water sources can be scarce. The stretch between Hay-on-Wye and Kington is notorious for its boggy terrain and sudden weather changes, while the Clwydian Range offers some of the finest ridge walking in Wales alongside some of the most challenging navigation in mist. What guidebooks rarely mention is that the path passes through dozens of tiny villages where the local pub landlord will often let you pitch a tent in the back garden for the price of a pint, and where village shops stock just enough to resupply a backpacker without the weight of a full town stop. The trail also follows ancient drove roads used by Welsh cattle farmers for centuries, and you'll occasionally find old waymarkers carved into stone stiles that predate the official trail by generations.",
-          "The logistics of backpacking Offa's Dyke reward careful planning, as this is not a wilderness trail but a journey through a working landscape where wild camping requires discretion and local knowledge. Water sources are generally reliable in the first and last thirds of the route, but the middle sections across the Radnor Forest and Clwydian Hills can test your planning skills. The trail's beauty lies not just in its grand vistas but in its intimate moments: the 12th-century church at Beguildy where medieval pilgrims prayed before crossing the hills, the ancient yew trees at Llanfair Waterdine that have watched over the valley for a thousand years, and the sudden silence you'll find in the depths of the Radnor Forest where the only sounds are your footsteps and the whisper of wind through the trees.",
-          "To help you navigate the practical challenges of this historic journey, we've created a comprehensive map showing all the essential facilities you'll need as a backpacker. The map pinpoints every water source, public toilet, village shop, and resupply point along the route. With this resource, you can focus on what matters most: walking in the footsteps of a medieval king and experiencing one of Britain's most remarkable long-distance trails.",
+          "Stretching 177 miles along the Welsh-English border, Offa's Dyke follows the ancient earthwork built by King Offa of Mercia in the 8th century. This massive hand-dug bank and ditch was designed to divide kingdoms, and remarkably, sections still form today's border. What began as a political statement has evolved into one of Britain's most compelling long-distance footpaths.",
+          "The route takes between 12 and 14 days, weaving through eight counties and two Areas of Outstanding Natural Beauty. You'll traverse the gentle Wye Valley, climb the dramatic Black Mountains, and cross the pastoral Clun Valley – terrain that shifts from riverside meadows to windswept moorland. Hay-on-Wye provides a literary interlude with its famous bookshops and welcoming pubs, whilst ancient market towns like Knighton and Montgomery offer glimpses into border life unchanged for centuries.",
+          "The path demands respect. Weather can turn quickly on exposed ridges, and the abundance of livestock means wild camping isn't advisable. Water sources are surprisingly scarce on higher sections, making planning crucial. Yet these challenges pale beside the rewards: sunrise over the Brecon Beacons, Roman ruins emerging from morning mist, and the profound satisfaction of following in the footsteps of medieval kings.",
+          "Planning is everything on Offa's Dyke. Our comprehensive backpacking map pinpoints exactly what you need: reliable drinking water sources, welcoming pubs for that essential pint and meal, public toilets, and crucial resupply stops including grocery stores and cafes. No more guesswork about where to fill your bottles or grab provisions – every essential facility is marked along your route, letting you focus on the magnificent scenery rather than logistics.",
         ],
         mapUrl: "/map/offasdyke",
         ogUrl: "https://hikedex.app/g/backpacking-uk/offasdyke",
@@ -79,7 +79,6 @@ export const guidesConfig: Record<string, GuideConfig> = {
           "https://images.unsplash.com/photo-1722275003487-85ea5e00a647?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         imagePosition: "middle",
       },
-
       westmendipway: {
         title: "West Mendip Way: resupply and facilities",
         altTitle: "Backpacking the West Mendip Way",
