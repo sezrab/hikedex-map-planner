@@ -7,6 +7,7 @@ import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import Script from 'next/script';
 import { Funnel_Display, Open_Sans } from 'next/font/google';
 import { Notifications } from '@mantine/notifications';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const fontHeaders = Funnel_Display({
   subsets: ['latin'],
@@ -90,7 +91,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           h1, h2, h3, h4, h5, h6 {
             font-family: ${fontHeaders.style.fontFamily}, sans-serif;
           }
-        `}</style>
+          `}</style>
+        <GoogleAnalytics gaId='G-DZEN3DRR7Q' />
         <link rel="canonical" href="https://hikedex.app/" />
         <meta property="og:url" content="https://hikedex.app/" />
         <meta property="og:image" content="https://hikedex.app/logo.svg" />

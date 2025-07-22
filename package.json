@@ -17,6 +17,7 @@
     "@mantine/next": "^6.0.22",
     "@mantine/notifications": "^8.1.2",
     "@mapbox/polyline": "^1.2.1",
+    "@next/third-parties": "^15.4.2",
     "@tmcw/togeojson": "^7.1.2",
     "axios": "^1.10.0",
     "fast-xml-parser": "^5.2.5",
