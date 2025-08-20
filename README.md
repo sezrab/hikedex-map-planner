@@ -1,1 +1,1 @@
-My latest project, https://hikdex.app, is a planning tool for multi-day hikes or road trips. It uses Next.js with Mantine components, leaflet for maps, and PocketBase for a backend. All data is property of OpenStreetMap and contributors.
+My latest project, https://hikedex.app, is a planning tool for multi-day hikes or road trips. It uses Next.js with Mantine components, leaflet for maps, and PocketBase for a backend. All data is property of OpenStreetMap and contributors.
